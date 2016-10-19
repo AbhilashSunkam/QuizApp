@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+  border: 1px solid #d0d0d0;
+}
+
+#myForm {
+	padding-bottom : 50px;
+}
+
+.divider{
+    width:10px;
+    height:auto;
+    display:inline-block;
+}

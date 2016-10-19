@@ -1,0 +1,203 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# Quiz App
+
+QuizApp is allows admin to generate quizzes which will select questions from question bank randomly and saves quizzes. The user when he plays gets the random quiz from the quizzes the admin had generated
+
+## View Questions [/getquestions]
+
+### List All Questions [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 1,
+                "answer": "b",
+                "answer1": "Mumbai",
+                "answer2": "Delhi",
+                "answer3": "Chennai",
+                "answer4": "Bangalore",
+                "categoryId": 1,
+                "difficultyId": 1,
+                "questionName": "What is the capital of India"
+            }
+        ]
+
+## Create Questions [/setquestions]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes all the parameters in the form and performs POST action
+
++ Request (application/json)
+
+        {
+                "id": 1,
+                "answer": "b",
+                "answer1": "Mumbai",
+                "answer2": "Delhi",
+                "answer3": "Chennai",
+                "answer4": "Bangalore",
+                "categoryId": 1,
+                "difficultyId": 1,
+                "questionName": "What is the capital of India"
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /setquestions
+
+    + Body
+
+            {
+                "id": 1,
+                "answer": "b",
+                "answer1": "Mumbai",
+                "answer2": "Delhi",
+                "answer3": "Chennai",
+                "answer4": "Bangalore",
+                "categoryId": 1,
+                "difficultyId": 1,
+                "questionName": "What is the capital of India"
+            }
+            
+## Edit Question [/editquestion/{id}]
+
+### Get a question with particular id [GET]
+
+First it will retrieve the data of the selected question and allows the user to edit and then push the changes to database using PUT method
+
+
++ Response 200 
+
+        [
+            {
+                "id": 1,
+                "answer": "b",
+                "answer1": "Mumbai",
+                "answer2": "Delhi",
+                "answer3": "Chennai",
+                "answer4": "Bangalore",
+                "categoryId": 1,
+                "difficultyId": 1,
+                "questionName": "What is the capital of India"
+            }
+        ]
+
+### Edit that question and update [PUT]
+
++ Response 201
+
+        [
+            {
+                "id": 1,
+                "answer": "b",
+                "answer1": "Mumbai",
+                "answer2": "Delhi",
+                "answer3": "Chennai",
+                "answer4": "Bangalore",
+                "categoryId": 1,
+                "difficultyId": 1,
+                "questionName": "What is the capital of India"
+            }
+        ]
+
+## Delete Question [/deletequestion/{id}]
+
+As the user clicks on delete question button, it deletes the question from the database
+
+### Delete a Question [DELETE]
+
++ Response 200
+
+## Generating Quiz [/generatequiz/{cId}/{dId}]
+
+Admin is able to generate a quiz which picks up the questions randomly from the question bank
+based on the category Id and User Id
+
+### Getting random questions [GET]
+
++ Response 200
+
+        [
+            {
+                "id": 1,
+                "answer": "a",
+                "answer1": "ffa",
+                "answer2": "dsaf",
+                "answer3": "afda",
+                "answer4": "asdf",
+                "categoryId": 2,
+                "difficultyId": 1,
+                "questionName": "gadsfadf"
+            },
+            {
+                "id": 4,
+                "answer": "b",
+                "answer1": "adfa",
+                "answer2": "aaw",
+                "answer3": "wwaed",
+                "answer4": "adsf",
+                "categoryId": 2,
+                "difficultyId": 1,
+                "questionName": "asdfag"
+            }
+        ]
+        
+## Saving Quiz [/savequiz/{cId}/{dId}]
+
+Admins will be able to generate quiz and save it in quizzes. Later admin will
+be able to keep track of quizzes attended by the users
+
+### Saving quiz generated on click [POST]
+
+
++ Request 200
+
+        "[
+            {
+                "id": 2,
+                "answer": "c",
+                "answer1": "Pakistan",
+                "answer2": "Australia",
+                "answer3": "India",
+                "answer4": "South Africa",
+                "categoryId": 2,
+                "difficultyId": 1,
+                "questionName": "Who won the 2011 world cup"
+            },
+            {
+                "id": 3,
+                "answer": "b",
+                "answer1": "23 yards",
+                "answer2": "22 yards",
+                "answer3": "27 yards",
+                "answer4": "21 yards",
+                "categoryId": 2,
+                "difficultyId": 1,
+                "questionName": "What is the length of a cricket pitch ?"
+            }
+        ]"
+        
++ Response 200
+
+## QuizPlay [/quizplay/{cId}/{dId}]
+
+User will be able to select the category Id and difficulty Id and play the quiz
+
+### Getting a question set randomly from quiz sets [GET]
+
++ Response 200
+
+        [
+            {
+                "id": 2,
+                "category_id": 2,
+                "difficulty_id": 1,
+                "questions": "\"[{\n    \"id\": 2,\n    \"answer\": \"c\",\n    \"answer1\": \"Pakistan\",\n    \"answer2\": \"Australia\",\n    \"answer3\": \"India\",\n    \"answer4\": \"South Africa\",\n    \"categoryId\": 2,\n    \"difficultyId\": 1,\n    \"questionName\": \"Who won the 2011 world cup\"\n  },\n  {\n    \"id\": 3,\n    \"answer\": \"b\",\n    \"answer1\": \"23 yards\",\n    \"answer2\": \"22 yards\",\n    \"answer3\": \"27 yards\",\n    \"answer4\": \"21 yards\",\n    \"categoryId\": 2,\n    \"difficultyId\": 1,\n    \"questionName\": \"What is the length of a cricket pitch ?\"\n  }]\""
+            }
+        ]
