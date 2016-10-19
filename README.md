@@ -8,3 +8,5 @@ The admin will generate the questions and user would get the quiz set randomly:
 - right click on class Application > Run as .. > Spring Boot App in STS
 - go to browser and the application should be running under http://localhost:8080/home
 
+
+Apiary Link : https://app.apiary.io/quizapplication/editor
