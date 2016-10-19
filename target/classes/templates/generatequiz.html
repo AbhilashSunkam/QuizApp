@@ -48,7 +48,12 @@
 				      			</select>
 				      		</div>
 				    	</div>
-            		
+            			<div class="form-group">
+	                    	<label class="col-lg-3 control-label">Description</label>
+	                    	<div class="col-lg-9">
+	                    		<input type="text" class="form-control" id="description" name="description" />
+	                    	</div>
+                		</div>
                 	</fieldset>
                </form>
          </div>
@@ -58,9 +63,18 @@
     	<button id="saveQuiz" class="btn btn-success" name="button">Generate!</button>
     </form>  		
 		
-    </div>        
+    </div>  
+    
+    <div id = "seeQuizzes">
+    <table id="quizTable" class="table table-striped">
+	    		<thead id="quizthead">
+	    		
+	    		</thead>
+	    		<tbody id="quiztbody"></tbody>
+		 </table>
+     </div>    
             
   </div>
-<div id="questionName"></div>	
+
 </body>
 </html>

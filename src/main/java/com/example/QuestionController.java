@@ -116,13 +116,15 @@ public class QuestionController {
 	// Generating a new quiz
 	@RequestMapping(value = "/generatequiz/{cId}/{dId}", method = RequestMethod.POST)
 	@ResponseBody
-	public void generateQuiz(@PathVariable("cId") Integer cId, @PathVariable("dId") Integer dId) {
+	public void generateQuiz(@PathVariable("cId") Integer cId, @PathVariable("dId") Integer dId,
+			@RequestBody String description) {
 		List<Questions> questions = (List<Questions>) questionService.generateQuizRand(cId, dId);
 
 		// 1.Insert into quizztemp
 		Quizzes quizzes = new Quizzes();
 		quizzes.setCategory_id(cId);
 		quizzes.setDifficulty_id(dId);
+		quizzes.setDescription(description);
 		quizService.save(quizzes);
 
 		System.out.println(quizzes.getId());
@@ -138,6 +140,15 @@ public class QuestionController {
 			quizquestionsService.save(quizquestions);
 		}
 
+	}
+
+	// Seeing the quizzes generated
+	@RequestMapping(value = "/seequizzes", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Quizzes> getAllQuizzes() {
+		List<Quizzes> quizzes = (List<Quizzes>) quizService.getAll();
+		System.out.println("Getting Quizzes");
+		return quizzes;
 	}
 
 }

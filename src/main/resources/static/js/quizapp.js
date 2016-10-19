@@ -45,10 +45,6 @@ $(document).ready(function(){
 		window.location.href='/home';
 	});
 	
-	$(document).on('click', '#getQuizzes', function(){
-		$('#askQuizType').hide();
-	});
-	
 	$(document).on('click','#deleteButton',function(){
 		
 		var id = $(this).parents('tr:first').find('td:first').text();
@@ -129,38 +125,56 @@ $(document).ready(function(){
 	$(document).on('click', '#saveQuiz', function(){
 		var cid = $('#selectCategory').val();
 		var did = $('#selectDifficulty').val();
-		
+		var quizdescription = $('#description').val();
 		$.ajax({
 			url: '/generatequiz/'+cid+'/'+did,
-			type: 'GET',
-			dataType : 'json',
-			success : function(data) {
-				var temp = {};
-				temp = data;
-				console.log(temp);
-				localstorage.setItem("questions", data);
-				console.log(data[0].questionName);
+			type: 'POST',
+			data: quizdescription,
+			dataType: 'json',
+			contentType: 'application/json',
+			success : function() {
+				console.log("Successfully generated");
 			},
 			error: function() {
-				alert('Oops error!');
 			}
 		});
 		
-		var questionobject = localStorage.getItem("questions");
-		console.log(questionobject);
-		$.ajax({
-			url: '/savequiz/'+cid+'/'+did,
-			type: 'POST',
-			data : JSON.stringify(questionobject),
-			dataType : 'json',
-			success: function() {
-				alert("values inserted");
-			},
-			error: function() {
-				alert('Oops error!');
-			}
-		})
 		
+	});
+	
+	//Seeing the quizzes
+	$(document).on('click', '#getQuizzes', function(){
+		$('#askQuizType').hide();
+		$('#quiztbody').empty();
+		$('#quizthead').empty();
+		$.ajax({
+	    	url: '/seequizzes',
+	    	dataType: 'json',
+	    	success: function(data){
+	    	
+	    		$.each(data, function(i, d) {
+	    			   var row='<tr>';
+	    			   $.each(d, function(j, e) {
+	    			      row+='<td>'+e+'</td>';
+	    			      
+	    			   });
+	    			   
+	    			   row+='<td><button class="btn btn-info" id="seeQuestionsButton">See questions</button></td><td><button class="btn btn-danger">Delete Quiz</button></td>';
+	    			   	
+	    			   row+='</tr>';
+	    			   
+	    			   $('#quizTable #quiztbody').append(row);
+	    			   
+	    			});	
+				
+	    	},
+	    	error: function(data) {
+	    		alert('Oops! Error');
+	    	}
+		});
+		$table = "<tr><td><b>ID</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>DESCRIPTION</b></td><td><b>SEE QUESTIONS</b><td><b>DELETE</b></td></td></tr>"
+		$('#quizthead').append($table);
+		$('#quizTable').show();	
 	});
 	
 	

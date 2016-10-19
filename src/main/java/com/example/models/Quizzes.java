@@ -6,10 +6,13 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "quizzes", catalog = "quizapp")
@@ -18,6 +21,7 @@ public class Quizzes implements java.io.Serializable {
 	private Integer id;
 	private Integer category_id;
 	private Integer difficulty_id;
+	private String description;
 	
 	private List<Quizquestions> quizquestions;
 
@@ -25,9 +29,10 @@ public class Quizzes implements java.io.Serializable {
 
 	}
 
-	public Quizzes(Integer category_id, Integer difficulty_id, String questions) {
+	public Quizzes(Integer category_id, Integer difficulty_id, String description) {
 		this.category_id = category_id;
 		this.difficulty_id = difficulty_id;
+		this.description = description;
 	}
 
 	@Id
@@ -59,8 +64,18 @@ public class Quizzes implements java.io.Serializable {
 	public void setDifficulty_id(Integer difficulty_id) {
 		this.difficulty_id = difficulty_id;
 	}
+	
+	@Column(name = "description")
+	public String getDescription() {
+		return description;
+	}
 
-	@OneToMany(targetEntity=Quizquestions.class, mappedBy = "quizzes")
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	@JsonIgnore
+	@OneToMany(targetEntity=Quizquestions.class, mappedBy = "quizzes", fetch = FetchType.LAZY)
 	public List<Quizquestions> getQuizquestions() {
 		return quizquestions;
 	}
