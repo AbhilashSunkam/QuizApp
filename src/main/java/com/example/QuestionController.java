@@ -31,7 +31,7 @@ public class QuestionController {
 	@Autowired
 	QuizquestionsService quizquestionsService;
 
-	// Shows home page
+	// Shows home page for admin
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String questionView() {
 		return "quizhome";
