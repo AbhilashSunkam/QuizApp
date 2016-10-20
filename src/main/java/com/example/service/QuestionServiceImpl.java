@@ -83,4 +83,9 @@ public class QuestionServiceImpl implements QuestionService {
 		
 	}
 
+	@Override
+	public List<Questions> getQuestionsFromQuiz(Integer quizId) {
+		return questionsRepository.getQuestions(quizId);
+	}
+
 }

@@ -2,6 +2,13 @@ package com.example.service;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Subqueries;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +22,13 @@ public class QuizquestionsServiceImpl implements QuizquestionsService {
 
 	@Autowired
 	QuizquestionsRepository quizquestionsRepository;
+
+	@Autowired
+	private SessionFactory sessionFactory;
+
+	private Session getSession() {
+		return sessionFactory.getCurrentSession();
+	}
 
 	@Override
 	public List<Quizquestions> getAll() {
@@ -61,5 +75,6 @@ public class QuizquestionsServiceImpl implements QuizquestionsService {
 		}
 
 	}
+
 
 }

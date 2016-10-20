@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.example.models.Questions;
 import com.example.models.Quizquestions;
 
 @Repository
@@ -54,4 +55,6 @@ public class QuizquestionsRepository {
 		getSession().update(question);
 		return;
 	}
+	
+	
 }

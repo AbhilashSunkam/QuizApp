@@ -21,5 +21,6 @@ public interface QuizquestionsService {
 	public void update(Quizquestions question);
 
 	public void addToQuizQuestions(List<Questions> questions, Quizzes quizzes);
+	
 
 }

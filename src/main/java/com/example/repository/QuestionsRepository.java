@@ -63,4 +63,11 @@ public class QuestionsRepository {
 				.setParameter("cid", cid).setParameter("did", did).setMaxResults(2).list();
 	}
 
-}
+	@SuppressWarnings("unchecked")
+	public List<Questions> getQuestions(Integer quizId) {
+			return getSession()
+					.createQuery("from Questions where id in (select questions.id from Quizquestions where quiz_id = :qId)")
+					.setParameter("qId" , quizId).list();
+			
+		}
+	}
