@@ -2,10 +2,12 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.models.Questions;
 import com.example.models.Quizquestions;
+import com.example.models.Quizzes;
 
 public interface QuizquestionsService {
-	
+
 	public List<Quizquestions> getAll();
 
 	public List<Quizquestions> getById(Integer id);
@@ -17,5 +19,7 @@ public interface QuizquestionsService {
 	public Quizquestions findById(Integer id);
 
 	public void update(Quizquestions question);
+
+	public void addToQuizQuestions(List<Questions> questions, Quizzes quizzes);
 
 }

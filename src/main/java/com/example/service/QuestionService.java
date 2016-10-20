@@ -19,5 +19,9 @@ public interface QuestionService {
 	public void update(Questions question);
 
 	public List<Questions> generateQuizRand(Integer cid, Integer did);
+	
+	public void editQuestion(Integer id, Questions question);
+	
+	public void addQuestion(String questionName, String answer1, String answer2, String answer3, String answer4, String answer, Integer categoryId, Integer difficultyId );
 
 }

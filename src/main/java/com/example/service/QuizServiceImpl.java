@@ -50,4 +50,14 @@ public class QuizServiceImpl implements QuizService {
 		return quizRepository.getQuizRand(cid, did);
 	}
 
+	@Override
+	public Quizzes addQuiz(Integer cid, Integer did, String description) {
+		Quizzes quizzes = new Quizzes();
+		quizzes.setCategory_id(cid);
+		quizzes.setDifficulty_id(did);
+		quizzes.setDescription(description);
+		quizRepository.save(quizzes);
+		return quizzes;
+	}
+
 }
