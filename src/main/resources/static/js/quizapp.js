@@ -8,7 +8,6 @@ $(document).ready(function(){
 	    	url: '/getquestions',
 	    	dataType: 'json',
 	    	success: function(data){
-	    	
 	    		$.each(data, function(i, d) {
 	    			   var row='<tr>';
 	    			   $.each(d, function(j, e) {
@@ -144,9 +143,10 @@ $(document).ready(function(){
 	
 	//Seeing the quizzes
 	$(document).on('click', '#getQuizzes', function(){
-		$('#askQuizType').hide();
+//		$('#askQuizType').hide();
 		$('#quiztbody').empty();
 		$('#quizthead').empty();
+		$('#seeQuizQuestions').hide();
 		$.ajax({
 	    	url: '/seequizzes',
 	    	dataType: 'json',
@@ -159,7 +159,7 @@ $(document).ready(function(){
 	    			      
 	    			   });
 	    			   
-	    			   row+='<td><button class="btn btn-info" id="seeQuestionsButton">See questions</button></td><td><button class="btn btn-danger">Delete Quiz</button></td>';
+	    			   row+='<td><button class="btn btn-info" id="seeQuestionsButton">See questions</button></td><td><button id="deleteQuiz" class="btn btn-danger">Delete Quiz</button></td>';
 	    			   	
 	    			   row+='</tr>';
 	    			   
@@ -175,6 +175,60 @@ $(document).ready(function(){
 		$table = "<tr><td><b>ID</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>DESCRIPTION</b></td><td><b>SEE QUESTIONS</b><td><b>DELETE</b></td></td></tr>"
 		$('#quizthead').append($table);
 		$('#quizTable').show();	
+		$('#seeQuizzes').show();
+	});
+	
+	
+	// see question
+	
+	$(document).on('click','#seeQuestionsButton', function() {
+		var id = $(this).parents('tr:first').find('td:first').text();
+		var quizName = $(this).parents('tr:first').find('td:eq(3)').text();
+		$('#quizName').empty();
+		$('#seeQuizzes').hide();
+		$('#questionbody').empty();
+		$('#questionhead').empty();
+		$('#seeQuizQuestions').show();
+		$('#quizName').append(quizName);
+		$.ajax({
+			url : '/viewquestions/'+id,
+			dataType : 'json',
+			success : function(data) {
+				
+				$.each(data, function(i, d) {
+	    			   var row='<tr>';
+	    			   $.each(d, function(j, e) {
+	    			      row+='<td>'+e+'</td>';
+	    			      
+	    			   });
+	    			   	
+	    			   row+='</tr>';
+	    			   
+	    			   $('#quizquestions #questionbody').append(row);
+	    			   
+	    			});	
+				
+			},
+			error : function(data) {
+				alert('oops error');
+			}
+			
+		});
+		$table = "<tr><td><b>ID</b></td><td><b>ANSWER</b></td><td><b>A</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>QUESTION</b></td></tr>"
+			$('#questionhead').append($table);
+	});
+	
+	$(document).on('click', "#deleteQuiz" , function(){
+		var id = $(this).parents('tr:first').find('td:first').text();
+		$.ajax({
+		    url: '/deletequiz/'+id,
+		    type: 'DELETE',
+		    success: function() {
+		    }, 
+		    error: function() {
+		    }
+		});
+		$(this).closest('tr').remove();
 	});
 	
 	

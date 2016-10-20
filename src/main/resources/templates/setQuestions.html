@@ -4,7 +4,11 @@
     <title>Quiz Questions</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>
+<link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+        crossorigin="anonymous"></link>
+	<!--  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/> -->
 	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
 	<link rel="stylesheet" href="/css/quizapp.css " />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -14,6 +18,7 @@
 <body>
 	<div class="container">
       <div class="page-header" id="banner">
+      <div class="well well-lg">
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
             <h1>Set Quiz Questions <button class="btn btn-primary" id="goBack">Go to HomePage</button></h1>
@@ -23,7 +28,6 @@
         </div>
         <div class="row">
           <div class="col-lg-6 col-md-7 col-sm-6">
-            <h2>Add a question</h2>
 			<form th:action="@{/setquestions}" method="post" enctype="multipart/form-data" class="form-horizontal">
             	<fieldset>
             		<div class="form-group">
@@ -100,6 +104,7 @@
             </form>
             
           </div>
+        </div>
         </div>
       </div>
     </div>

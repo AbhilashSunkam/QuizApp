@@ -3,8 +3,11 @@
 <head> 
     <title>Welcome to quiz Home</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-	<link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>
+	<link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+        crossorigin="anonymous"></link>
+	<!--  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/> -->
 	
 	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
 	<link rel="stylesheet" href="/css/quizapp.css " />
@@ -22,9 +25,9 @@
      </div>
         <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
-          <button class="btn btn-primary" id="getQuestions">See Questions!</button>
-          <button class="btn btn-info" id="addQuestions">+ Add Question</button>
-          <button class="btn btn-success" id="generateQuiz">Generate Quiz</button>
+          <button class="btn btn-primary btn-md" id="getQuestions">See Questions!</button>
+          <button class="btn btn-info btn-md" id="addQuestions">+ Add Question</button>
+          <button class="btn btn-success btn-md" id="generateQuiz">Generate Quiz</button>
           </div>
         </div>
       </div>
@@ -37,7 +40,7 @@
 		 </table>
 		 
 		  <div id="editItems">
-		  		
+		  	
 		  <div class="row">
              <div class="col-lg-6 col-md-7 col-sm-6">
                  <h2>Edit a question</h2>
@@ -99,7 +102,6 @@
                </form>
               </div>
             </div>
-            
             <form id="myForm" class="col-md-6">
             <label class= "control-label">Correct Answer</label>
             <div class="divider"></div>
@@ -124,7 +126,8 @@
 		  </div>
 		 
 	 </div>
-    </div>
+	 </div>
+    
 
 </body>
 </html>
