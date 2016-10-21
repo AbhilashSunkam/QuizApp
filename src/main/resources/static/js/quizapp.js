@@ -1,44 +1,97 @@
 $(document).ready(function(){
 	$('#editItems').hide();
-	$('#getQuestions').click(function(){
-		$('#tbody').empty();
-		$('#thead').empty();
+	$('#editBody').hide();
+//	$('#getQuestions').click(function(){
+//		$('#tbody').empty();
+//		$('#thead').empty();
+//		$('#editItems').hide();
+//		$.ajax({
+//	    	url: '/getquestions',
+//	    	dataType: 'json',
+//	    	success: function(data){
+//	    		$.each(data, function(i, d) {
+//	    			   var row='<tr>';
+//	    			   $.each(d, function(j, e) {
+//	    			      row+='<td>'+e+'</td>';
+//	    			      
+//	    			   });
+//	    			   
+//	    			   row+='<td><button class="btn btn-warning" id="editButton">Edit</button></td><td><button class="btn btn-danger" id="deleteButton">Delete</button></td>';
+//	    			   	
+//	    			   row+='</tr>';
+//	    			   
+//	    			   $('#table tbody').append(row);
+//	    			   
+//	    			});	
+//				
+//	    	},
+//	    	error: function(data) {
+//	    		alert('Oops! Error');
+//	    	}
+//		});
+//		$table = "<tr><td><b>ID</b></td><td><b>ANSWER</b></td><td><b>A</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>QUESTION</b></td><td></td><td></td></tr>"
+//		$('#thead').append($table);
+//		$('#table').show();
+//});
+	
+	$('#getQuestions').click(function() {
 		$('#editItems').hide();
+		$('#editBody').show();
 		$.ajax({
 	    	url: '/getquestions',
 	    	dataType: 'json',
 	    	success: function(data){
-	    		$.each(data, function(i, d) {
-	    			   var row='<tr>';
-	    			   $.each(d, function(j, e) {
-	    			      row+='<td>'+e+'</td>';
-	    			      
-	    			   });
-	    			   
-	    			   row+='<td><button class="btn btn-warning" id="editButton">Edit</button></td><td><button class="btn btn-danger" id="deleteButton">Delete</button></td>';
-	    			   	
-	    			   row+='</tr>';
-	    			   
-	    			   $('#table tbody').append(row);
-	    			   
-	    			});	
-				
-	    	},
-	    	error: function(data) {
-	    		alert('Oops! Error');
+	    		addToTable(data);
 	    	}
 		});
-		$table = "<tr><td><b>ID</b></td><td><b>ANSWER</b></td><td><b>A</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>QUESTION</b></td><td></td><td></td></tr>"
-		$('#thead').append($table);
-		$('#table').show();
-});
+	});
 	
+		function addToTable(data) {
+			var table = $('#example').dataTable({
+                "bAutoWidth" : false,
+                "bDestroy": true,
+                "aaData" : data,
+                "columns" : [ {
+                    "data" : "id"
+                }, {
+                    "data" : "answer"
+                }, {
+                    "data" : "answer1"
+                }, {
+                    "data" : "answer2"
+                }, {
+                    "data" : "answer3"
+                }, {
+                    "data" : "answer4"
+                }, {
+                    "data" : "answer"
+                }, {
+                    "data" : "categoryId"
+                }, {
+                    "data" : "difficultyId"
+                }, {
+                    "data" : "questionName"
+                }, {
+                mRender: function (data, type, row) {
+                    return '<button class="btn btn-warning" id ="editButton" data-id="' + row[0] + '">EDIT</button>'
+                }
+            },
+            /* DELETE */ {
+                mRender: function (data, type, row) {
+                    return '<button class="btn btn-danger" id="deleteButton" data-id="' + row[0] + '">DELETE</button>'
+                }
+            }, ]
+            
+            })
+		}
+		
 	$(document).on('click', '#addQuestions',function(){
 		console.log("clicked");
 		
 		window.location.href='/setquestions';
 		var questions = JSON.parse(localStorage.getItem('questiondata'));
 	});
+	
 	$(document).on('click', '#goBack', function(){
 		console.log("clicked");
 		window.location.href='/home';
@@ -81,7 +134,7 @@ $(document).ready(function(){
 					alert('Oops Error!');
 				}
 			});
-		$('#table').hide();
+		$('#example_wrapper').hide();
 		$('#editItems').show();
 			
 	});
@@ -232,6 +285,5 @@ $(document).ready(function(){
 	});
 	
 	
-
 });
 
