@@ -197,5 +197,10 @@ public class QuestionController {
 		System.out.println("Getting Quizzes");
 		return quizzes;
 	}
+	
+//	@RequestMapping(value = "/" , method = RequestMethod.GET)
+//	public String login() {
+//		return "login";
+//	}
 
 }

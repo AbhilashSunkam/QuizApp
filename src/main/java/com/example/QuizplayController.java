@@ -43,6 +43,7 @@ public class QuizplayController {
 	// Getting questions for particular quizId
 	@RequestMapping(value = "/viewquestions/{quizId}", method = RequestMethod.GET)
 	@ResponseBody
+	@ResponseStatus(HttpStatus.OK)
 	public List<Questions> getQuizQuestions(@PathVariable("quizId") Integer quizId) {
 		
 		return questionService.getQuestionsFromQuiz(quizId);

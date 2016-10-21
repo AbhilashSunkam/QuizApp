@@ -250,6 +250,20 @@ $(document).ready(function(){
 		var difficulty_id = $('#selectDifficulty').val();
 		localStorage.setItem("cid", category_id);
 		localStorage.setItem("did", difficulty_id);
+		// getting a quiz randomly
+		$.ajax({
+			url : '/quizplay/'+category_id+'/'+difficulty_id,
+			type : 'GET',
+			dataType : 'json',
+			success : function(data) {
+				var quiz_id = data[0].id;
+				localStorage.setItem("quiz_id", quiz_id);
+				console.log(data[0].id);
+			},
+			error : function() {
+			}
+		});
+		
 		window.location.href='/quizquestions';
 	});
 	
@@ -268,8 +282,84 @@ $(document).ready(function(){
 		}
 		$('#difficulty').append(dId);
 		
+		makeQuestionEmpty();
 		
-	})
+		// getting questions from the selected quiz
+		var qId = localStorage.getItem("quiz_id");
+		$.ajax({
+			url : '/viewquestions/'+qId,
+			type : 'GET',
+			dataType : 'json',
+			success : function(data) {
+				var question = 0;
+				var score = 0;
+				if(data.length > 0) {
+					questionDisplay(data, question);
+				} else {
+					$('#questionAnswer').hide();	
+				}	
+			},
+			error : function() {
+			}
+		});
+			
+	});
+	
+	function makeQuestionEmpty() {
+		$('#quizQuestionName').empty();
+		$('#quizQuestionAnswer1').empty();
+		$('#quizQuestionAnswer2').empty();
+		$('#quizQuestionAnswer3').empty();
+		$('#quizQuestionAnswer4').empty();
+	}
+	// displaying the question and changing the question on clicking next button and finally calculating the score.
+	function questionDisplay(data, question) {
+		$('#quizDisplay button').prop('disabled', false);
+		$('#quizDisplay button').removeClass('btn-danger').addClass('btn-primary');
+		$('#quizDisplay button').removeClass('btn-success').addClass('btn-primary');
+		if (question < data.length) {
+			makeQuestionEmpty();
+			$('#quizQuestionName').append(data[question].questionName);
+			$('#quizQuestionAnswer1').append(data[question].answer1);
+			$('#quizQuestionAnswer2').append(data[question].answer2);
+			$('#quizQuestionAnswer3').append(data[question].answer3);
+			$('#quizQuestionAnswer4').append(data[question].answer4);
+		} else {
+			$('#questionAnswer').hide();
+			
+		}
+		$(document).on("click", "#quizDisplay button", function(e){
+		    var selectedAns = $(this).val();
+		    var correctAns = data[question].answer;
+		    if(selectedAns === data[question].answer) {
+		    	$(this).removeClass('btn-primary');
+		    	$(this).addClass('btn-success');
+		    	$('#quizDisplay button').prop('disabled', true);
+		    	scores = scores + 1;
+		    	console.log(scores);
+		    } else {
+		    	$(this).removeClass('btn-primary');
+		    	$(this).addClass('btn-danger');
+		    	$('#quizDisplay :input[value='+correctAns+']').removeClass('btn-primary').addClass('btn-success');
+		    	$('#quizDisplay button').prop('disabled', true);
+		    }
+		});
+		$(document).on("click", "#continue", function(){
+			question = question+1;
+			questionDisplay(data, question);
+		});
+	}
+	
+	
+	function onSignIn(googleUser) {
+		  var profile = googleUser.getBasicProfile();
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Image URL: ' + profile.getImageUrl());
+		  console.log('Email: ' + profile.getEmail());
+		}
+	
+	
 	
 	
 });

@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
     <title>Welcome to quiz Home</title> 
+    <meta name="google-signin-client_id" content="353154553269-d6olf6v5ost99il92fsuh0qcr8u5ad4h.apps.googleusercontent.com"></meta>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	 <link rel="stylesheet" 
         href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
@@ -11,17 +12,39 @@
 	
 	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
 	<link rel="stylesheet" href="/css/quizapp.css " />
+	<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/quizapp.js"></script>
 	<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
+	<!-- <div class="g-signin2" data-onsuccess="onSignIn"></div>
+	<a href="#" onclick="signOut();">Sign out</a> -->
+	<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    
+
+    if (auth2.isSignedIn.get()) {
+      var profile = auth2.currentUser.get().getBasicProfile();
+      console.log('ID: ' + profile.getId());
+      console.log('Full Name: ' + profile.getName());
+      console.log('Given Name: ' + profile.getGivenName());
+      console.log('Family Name: ' + profile.getFamilyName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail());
+    }
+  }
+</script>
 	<div class="container">
       <div class="page-header" id="banner">
       <div class="row">
           <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1 style="margin:bottom=15px;">Welcome</h1><br/> 
+            <h1 style="margin:bottom=15px;">Welcome</h1><!-- <a href="#" onclick="signOut();">Sign out</a> --><br/> 
           </div> 
      </div>
         <div class="row">
