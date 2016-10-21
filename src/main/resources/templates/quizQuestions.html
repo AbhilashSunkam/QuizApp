@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Quiz Play</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+ <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+        crossorigin="anonymous"></link>
+	  <!-- <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/> -->
+	
+	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
+	<link rel="stylesheet" href="/css/quizapp.css " />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/quizapp.js"></script>
+	<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+      <div class="page-header" id="banner">
+	      <div class="row">
+	          <div class="col-lg-8 col-md-7 col-sm-6">
+	            	<h1 style="margin:bottom=15px;">Quiz Play <button id="startPlayBtn" class="btn btn-info">Start Playing !</button>
+	            	</h1> 
+	            	<div id="quizdetails">Playing <label id="category"></label> quiz with level <label id="difficulty"></label></div>
+	          </div> 
+	          
+	     </div>
+     </div>
+     
+     <div id="userQuizPlay">
+    <div class="row">
+                <div class="col-xs-8">
+                    <h2> Progress: </h2>
+                    <div class="btn-toolbar">
+                        <button class="btn" ng-repeat="question in quiz.DataService.quizQuestions" ng-class="{'btn-info':question.selected!== null , 'btn-danger':question.selected === null}"
+                        ng-click="quiz.setActiveQuestion($index)">
+                            
+                        <span class="glyphicon" 
+                         ng-class="{'glyphicon-pencil': question.selected !== null,'glyphicon-question-sign': question.selected === null}"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row">
+                        <h4> Legend: </h4>
+                        <div class="col-sm-4">
+                            <button class="btn btn-info"><span class="glyphicon glyphicon-pencil"></span></button>
+                            <p>Answered</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <button class="btn btn-danger"><span class="glyphicon glyphicon-question-sign"></span></button>
+
+                        <p>Unanswered</p>
+                        </div>
+                        
+                    </div>
+                </div>
+ 
+    
+        
+  	</div> <!-- div row end -->
+  				<div class="row"> <!-- Question and answer div -->
+	    			<h3>Question:</h3>
+	    			<div class="well well-sm">
+	        			<div class="row">
+	            			<div class="col-xs-12">
+	                			<!-- Question Area -->
+	 
+	                			<h4><!-- The question will go in here --> What is the capital of India</h4>
+	 
+	            			</div>
+	        			</div>
+	        			<div class="row">
+   							 <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
+       						 <h4 class="answer">
+           						 <!-- Possible answers go here --> Delhi
+        					</h4>
+        					</div>
+        					<div class="col-sm-6">
+        					<h4 class="answer">
+           						 <!-- Possible answers go here --> Mumbai
+        					</h4>
+        					</div>
+        					<div class="col-sm-6">
+        					<h4 class="answer">
+           						 <!-- Possible answers go here --> Bangalore
+        					</h4>
+        					</div>
+        					<div class="col-sm-6">
+        					<h4 class="answer">
+           						 <!-- Possible answers go here --> Hyderabad
+        					</h4>
+        					</div>
+   						 	</div>
+   						 	<button class="btn btn-warning" ng-click="quiz.questionAnswered()">Continue</button>
+						</div>
+	    		</div>	
+				</div> <!-- Questions and answer div end -->
+				
+				</div>
+</body>
+</html>

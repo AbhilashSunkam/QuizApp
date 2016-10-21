@@ -53,4 +53,16 @@ public class QuizplayController {
 	public void deleteQuiz(@PathVariable("quizId") Integer quizId) throws NotFoundException, BadRequestException {
 		quizservice.deleteById(quizId);
 	}
+	
+	@RequestMapping(value = "/quizplay" , method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.OK)
+	public String viewQuizPlay() {
+		return "quizplay";
+	}
+	
+	@RequestMapping(value = "/quizquestions", method = RequestMethod.GET)
+	@ResponseStatus(HttpStatus.OK)
+	public String viewQuizQuestion() {
+		return "quizQuestions";
+	}
 }

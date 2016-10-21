@@ -244,5 +244,33 @@ $(document).ready(function(){
 	});
 	
 	
+	// QUIZ PLAY
+	$(document).on('click', '#quizPlay', function(){
+		var category_id = $('#selectCategory').val();
+		var difficulty_id = $('#selectDifficulty').val();
+		localStorage.setItem("cid", category_id);
+		localStorage.setItem("did", difficulty_id);
+		window.location.href='/quizquestions';
+	});
+	
+	$(document).on('click', '#startPlayBtn', function() {
+		$('#startPlayBtn').hide();
+		$('#userQuizPlay').show();
+		$('#quizdetails').show();
+		var cId = localStorage.getItem("cid");
+		var dId = localStorage.getItem("did");
+		if (cId == 1) {
+			$('#category').append("general");
+		} else if ( cId == 2 ) {
+			$('#category').append("sports");
+		} else {
+			$('#category').append("geography");
+		}
+		$('#difficulty').append(dId);
+		
+		
+	})
+	
+	
 });
 
