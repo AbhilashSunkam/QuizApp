@@ -1,44 +1,11 @@
 $(document).ready(function(){
 	$('#editItems').hide();
 	$('#editBody').hide();
-//	$('#getQuestions').click(function(){
-//		$('#tbody').empty();
-//		$('#thead').empty();
-//		$('#editItems').hide();
-//		$.ajax({
-//	    	url: '/getquestions',
-//	    	dataType: 'json',
-//	    	success: function(data){
-//	    		$.each(data, function(i, d) {
-//	    			   var row='<tr>';
-//	    			   $.each(d, function(j, e) {
-//	    			      row+='<td>'+e+'</td>';
-//	    			      
-//	    			   });
-//	    			   
-//	    			   row+='<td><button class="btn btn-warning" id="editButton">Edit</button></td><td><button class="btn btn-danger" id="deleteButton">Delete</button></td>';
-//	    			   	
-//	    			   row+='</tr>';
-//	    			   
-//	    			   $('#table tbody').append(row);
-//	    			   
-//	    			});	
-//				
-//	    	},
-//	    	error: function(data) {
-//	    		alert('Oops! Error');
-//	    	}
-//		});
-//		$table = "<tr><td><b>ID</b></td><td><b>ANSWER</b></td><td><b>A</b></td><td><b>B</b></td><td><b>C</b></td><td><b>D</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>QUESTION</b></td><td></td><td></td></tr>"
-//		$('#thead').append($table);
-//		$('#table').show();
-//});
-	
 	$('#getQuestions').click(function() {
 		$('#editItems').hide();
 		$('#editBody').show();
 		$.ajax({
-	    	url: '/getquestions',
+			url: '/getquestions',
 	    	dataType: 'json',
 	    	success: function(data){
 	    		addToTable(data);
@@ -46,15 +13,15 @@ $(document).ready(function(){
 		});
 	});
 	
-		function addToTable(data) {
-			var table = $('#example').dataTable({
-                "bAutoWidth" : false,
-                "bDestroy": true,
-                "aaData" : data,
-                "columns" : [ {
-                    "data" : "id"
+	function addToTable(data) {
+		var table = $('#example').dataTable({
+			"bAutoWidth" : false,
+            "bDestroy": true,
+            "aaData" : data,
+            "columns" : [ {
+            		"data" : "id"
                 }, {
-                    "data" : "answer"
+                	"data" : "answer"
                 }, {
                     "data" : "answer1"
                 }, {
@@ -75,19 +42,17 @@ $(document).ready(function(){
                 mRender: function (data, type, row) {
                     return '<button class="btn btn-warning" id ="editButton" data-id="' + row[0] + '">EDIT</button>'
                 }
-            },
-            /* DELETE */ {
+                }, {
                 mRender: function (data, type, row) {
                     return '<button class="btn btn-danger" id="deleteButton" data-id="' + row[0] + '">DELETE</button>'
                 }
-            }, ]
+                }, ]
             
             })
 		}
 		
 	$(document).on('click', '#addQuestions',function(){
 		console.log("clicked");
-		
 		window.location.href='/setquestions';
 		var questions = JSON.parse(localStorage.getItem('questiondata'));
 	});
@@ -98,7 +63,6 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click','#deleteButton',function(){
-		
 		var id = $(this).parents('tr:first').find('td:first').text();
 		console.log(id);
 		$.ajax({
@@ -113,7 +77,6 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click','#editButton',function(){
-		
 		var id = $(this).parents('tr:first').find('td:first').text();
 		localStorage.setItem("id", id);
 			$.ajax({
@@ -138,8 +101,7 @@ $(document).ready(function(){
 		$('#editItems').show();
 			
 	});
-	
-	
+		
 	$(document).on('click','#editSubmit', function(){
 		var object = localStorage.getItem("id");
 		console.log(object);
@@ -196,7 +158,6 @@ $(document).ready(function(){
 	
 	//Seeing the quizzes
 	$(document).on('click', '#getQuizzes', function(){
-//		$('#askQuizType').hide();
 		$('#quiztbody').empty();
 		$('#quizthead').empty();
 		$('#seeQuizQuestions').hide();
@@ -204,14 +165,12 @@ $(document).ready(function(){
 	    	url: '/seequizzes',
 	    	dataType: 'json',
 	    	success: function(data){
-	    	
+	    		
 	    		$.each(data, function(i, d) {
 	    			   var row='<tr>';
 	    			   $.each(d, function(j, e) {
-	    			      row+='<td>'+e+'</td>';
-	    			      
+	    			      row+='<td>'+e+'</td>'; 
 	    			   });
-	    			   
 	    			   row+='<td><button class="btn btn-info" id="seeQuestionsButton">See questions</button></td><td><button id="deleteQuiz" class="btn btn-danger">Delete Quiz</button></td>';
 	    			   	
 	    			   row+='</tr>';
