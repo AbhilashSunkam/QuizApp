@@ -294,7 +294,7 @@ $(document).ready(function(){
 				var question = 0;
 				var score = 0;
 				if(data.length > 0) {
-					questionDisplay(data, question);
+					questionDisplay(data, question, score);
 				} else {
 					$('#questionAnswer').hide();	
 				}	
@@ -313,7 +313,9 @@ $(document).ready(function(){
 		$('#quizQuestionAnswer4').empty();
 	}
 	// displaying the question and changing the question on clicking next button and finally calculating the score.
-	function questionDisplay(data, question) {
+	var flag=0;
+	function questionDisplay(data, question, score) {
+		
 		$('#quizDisplay button').prop('disabled', false);
 		$('#quizDisplay button').removeClass('btn-danger').addClass('btn-primary');
 		$('#quizDisplay button').removeClass('btn-success').addClass('btn-primary');
@@ -325,30 +327,41 @@ $(document).ready(function(){
 			$('#quizQuestionAnswer3').append(data[question].answer3);
 			$('#quizQuestionAnswer4').append(data[question].answer4);
 		} else {
+			flag++;
 			$('#questionAnswer').hide();
-			
+			$('#score').append("Your scored :"+score);
 		}
+		
 		$(document).on("click", "#quizDisplay button", function(e){
 		    var selectedAns = $(this).val();
 		    var correctAns = data[question].answer;
-		    if(selectedAns === data[question].answer) {
+		    
+		    if(selectedAns===data[question].answer) {
 		    	$(this).removeClass('btn-primary');
 		    	$(this).addClass('btn-success');
 		    	$('#quizDisplay button').prop('disabled', true);
-		    	scores = scores + 1;
-		    	console.log(scores);
+		    	score = score+1;
+		    	console.log(score);
+		    	console.log("hello");
 		    } else {
 		    	$(this).removeClass('btn-primary');
 		    	$(this).addClass('btn-danger');
 		    	$('#quizDisplay :input[value='+correctAns+']').removeClass('btn-primary').addClass('btn-success');
 		    	$('#quizDisplay button').prop('disabled', true);
-		    }
+		    }	    
 		});
+		
 		$(document).on("click", "#continue", function(){
 			question = question+1;
-			questionDisplay(data, question);
+			if (flag == 0) {
+			questionDisplay(data, question, score);
+			}
 		});
+		
 	}
+	
+	
+	
 	
 	
 	function onSignIn(googleUser) {
