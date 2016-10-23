@@ -60,7 +60,7 @@ public class QuestionsRepository {
 		return getSession()
 				.createQuery(
 						"from Questions where category_id = :cid and difficulty_id = :did group by id order by rand()")
-				.setParameter("cid", cid).setParameter("did", did).setMaxResults(2).list();
+				.setParameter("cid", cid).setParameter("did", did).setMaxResults(5).list();
 	}
 
 	@SuppressWarnings("unchecked")

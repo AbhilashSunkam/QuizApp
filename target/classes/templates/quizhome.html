@@ -1,176 +1,188 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Welcome to quiz Home</title> 
-    <meta name="google-signin-client_id" content="353154553269-d6olf6v5ost99il92fsuh0qcr8u5ad4h.apps.googleusercontent.com"></meta>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	 <link rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
-        crossorigin="anonymous"></link>
-	 <!--  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>  -->
-	
-	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
-	<link rel="stylesheet" href="/css/quizapp.css " />
-	<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/quizapp.js"></script>
-	<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
+<head>
+<title>Welcome to quiz Home</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"></link>
+<!--  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>  -->
+
+<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="/css/quizapp.css " />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/quizapp.js"></script>
+<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="/js/loginController.js"></script>
 </head>
 <body>
-	<!-- <div class="g-signin2" data-onsuccess="onSignIn"></div>
-	<a href="#" onclick="signOut();">Sign out</a> -->
-	<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-    
 
-    if (auth2.isSignedIn.get()) {
-      var profile = auth2.currentUser.get().getBasicProfile();
-      console.log('ID: ' + profile.getId());
-      console.log('Full Name: ' + profile.getName());
-      console.log('Given Name: ' + profile.getGivenName());
-      console.log('Family Name: ' + profile.getFamilyName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail());
-    }
-  }
-</script>
+	<header class="marquee">
+		<div class="container-fluid">
+			<div class="marquee-brand">Start Setting the Quiz!</div>
+			<h3 class="marquee heading">With General , Sports , Geography
+				quiz</h3>
+
+			<!-- 	<a class="marquee-img">
+<img src="/images/bg.png" alt=""></img>
+</a> -->
+
+
+		</div>
+	</header>
+
+
 	<div class="container">
-      <div class="page-header" id="banner">
-      <div class="row">
-          <div class="col-lg-8 col-md-7 col-sm-6">
-            <h1 style="margin:bottom=15px;">Welcome</h1><!-- <a href="#" onclick="signOut();">Sign out</a> --><br/> 
-          </div> 
-     </div>
-        <div class="row">
-          <div class="col-lg-8 col-md-7 col-sm-6">
-          <button class="btn btn-primary btn-md" id="getQuestions">See Questions!</button>
-          <button class="btn btn-info btn-md" id="addQuestions">+ Add Question</button>
-          <button class="btn btn-success btn-md" id="generateQuiz">Generate Quiz</button>
-          </div>
-        </div>
-      </div>
-      <div id="editBody">
-	      <table id="table" class="table table-striped">
-	    		<thead id="thead">
-	    		
-	    		</thead>
-	    		<tbody id="tbody"></tbody>
-		 </table>
-		 
-		 <table id="example" class="display" cellspacing="0" width="100%">
-	     <thead id="thead">
-	         <tr>
-	             <th>ID</th>
-	             <th>ANSWER</th>
-	             <th>A</th>
-	             <th>B</th>
-	             <th>C</th>
-	             <th>D</th>
-	             <th>ANSWER</th>
-	             <th>CATEGORY</th>
-	             <th>DIFFICULTY</th>
-	             <th>QUESTION</th>
-	             <th>EDIT</th>
-	             <th>DELETE</th>
-	         </tr>
-	        </thead>
-	 	</table>
-		 
-		  <div id="editItems">
-		  	
-		  <div class="row">
-             <div class="col-lg-6 col-md-7 col-sm-6">
-                 <h2>Edit a question</h2>
-		  		<form enctype="multipart/form-data" id="questionForm" class="form-horizontal">
-            	<fieldset>
-            		<div class="form-group">
-	                    <label class="col-lg-3 control-label">Question</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" id="qname" name="questionName" />
-	                    </div>
-                	</div>
-            		<div class="form-group">
-	                    <label class="col-lg-3 control-label">Answer A</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" id="ans1" name="answer1" />
-	                    </div>
-                	</div>
-            		<div class="form-group">
-	                    <label class="col-lg-3 control-label">Answer B</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" id="ans2" name="answer2" />
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Answer C</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" id="ans3" name="answer3" />
-	                    </div>
-                	</div>
-                	<div class="form-group">
-	                    <label class="col-lg-3 control-label">Answer D</label>
-	                    <div class="col-lg-9">
-	                    	<input type="text" class="form-control" id="ans4" name="answer4" />
-	                    </div>
-                	</div>
-                	
-					<div class="form-group">
-				      <label class="col-lg-3 control-label" for="category">Category</label>
-				      <div class="col-lg-9">
-				      <select class="form-control" id="selectCategory" name="categoryId">
-				        <option value="1">General</option>
-				        <option value="2">Sports</option>
-				        <option value="3">Geography</option>
-				      </select>
-				      </div>
-				    </div>
-				    <div class="form-group">
-				      <label class="col-lg-3 control-label" for="category">Difficulty</label>
-				      <div class="col-lg-9">
-				      <select class="form-control" id="selectDifficulty" name="difficultyId">
-				        <option value="1">Easy</option>
-				        <option value="2">Medium</option>
-				        <option value="3">Hard</option>
-				      </select>
-				      </div>
-				    </div>
-            		
-                </fieldset>
-               </form>
-              </div>
-            </div>
-            <form id="myForm" class="col-md-6">
-            <label class= "control-label">Correct Answer</label>
-            <div class="divider"></div>
-            <label  class="radio-inline">
-			<input  type="radio" name="myRadio" value="a" /> A
-			</label>
-			<label class="radio-inline">
-			<input  type="radio" name="myRadio" value="b" /> B 
-			</label>
-			<label class="radio-inline">
-			<input  type="radio" name="myRadio" value="c" /> C 
-			</label>
-			<label class="radio-inline">
-			<input  type="radio" name="myRadio" value="d" /> D
-			</label>
-			<div class="divider"></div>
-            <button id="editSubmit" class="btn btn-success" name="button">Save</button>
-              </form>  		
-			
-            
-            
-		  </div>
-		 
-	 </div>
-	 </div>
-    
+		<div class="page-header" id="banner">
+			<div class="row" id="adminDisplay">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<button class="btn btn-primary btn-md" id="getQuestions">See
+						Questions!</button>
+					<button class="btn btn-info btn-md" id="addQuestions">+
+						Add Question</button>
+					<button class="btn btn-success btn-md" id="generateQuiz">Generate
+						Quiz</button>
+					<button class="btn btn-danger">Log out</button>
+				</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<button class="btn btn-primary btn-md" id="getQuestions">See
+						Questions!</button>
+					<button class="btn btn-info btn-md" id="addQuestions">+
+						Add Question</button>
+					<button class="btn btn-success btn-md" id="generateQuiz">Generate
+						Quiz</button>
+						<button class="btn btn-danger">Log out</button>
+				</div>
+			</div> -->
+		</div>
+		<div id="editBody">
+			<table id="table" class="table table-striped">
+				<thead id="thead">
+
+				</thead>
+				<tbody id="tbody"></tbody>
+			</table>
+
+			<table id="example" class="display" cellspacing="0" width="100%">
+				<thead id="thead">
+					<tr>
+						<th>ID</th>
+						<th>ANSWER</th>
+						<th>A</th>
+						<th>B</th>
+						<th>C</th>
+						<th>D</th>
+						<th>CATEGORY</th>
+						<th>DIFFICULTY</th>
+						<th>QUESTION</th>
+						<th>EDIT</th>
+						<th>DELETE</th>
+					</tr>
+				</thead>
+			</table>
+
+			<div id="editItems">
+
+				<div class="row">
+					<div class="col-lg-6 col-md-7 col-sm-6">
+						<h2>Edit a question</h2>
+						<form enctype="multipart/form-data" id="questionForm"
+							class="form-horizontal">
+							<fieldset>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Question</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" id="qname"
+											name="questionName" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Answer A</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" id="ans1"
+											name="answer1" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Answer B</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" id="ans2"
+											name="answer2" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Answer C</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" id="ans3"
+											name="answer3" />
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label">Answer D</label>
+									<div class="col-lg-9">
+										<input type="text" class="form-control" id="ans4"
+											name="answer4" />
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label class="col-lg-3 control-label" for="category">Category</label>
+									<div class="col-lg-9">
+										<select class="form-control" id="selectCategory"
+											name="categoryId">
+											<option value="1">General</option>
+											<option value="2">Sports</option>
+											<option value="3">Geography</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-3 control-label" for="category">Difficulty</label>
+									<div class="col-lg-9">
+										<select class="form-control" id="selectDifficulty"
+											name="difficultyId">
+											<option value="1">Easy</option>
+											<option value="2">Medium</option>
+											<option value="3">Hard</option>
+										</select>
+									</div>
+								</div>
+
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				<form id="myForm" class="col-md-6">
+					<label class="control-label">Correct Answer</label>
+					<div class="divider"></div>
+					<label class="radio-inline"> <input type="radio"
+						name="myRadio" value="a" /> A
+					</label> <label class="radio-inline"> <input type="radio"
+						name="myRadio" value="b" /> B
+					</label> <label class="radio-inline"> <input type="radio"
+						name="myRadio" value="c" /> C
+					</label> <label class="radio-inline"> <input type="radio"
+						name="myRadio" value="d" /> D
+					</label>
+					<div class="divider"></div>
+					<button id="editSubmit" class="btn btn-success" name="button">Save</button>
+				</form>
+
+
+
+			</div>
+
+		</div>
+	</div>
+
 
 </body>
 </html>

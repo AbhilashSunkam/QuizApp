@@ -1,93 +1,129 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Generate Quiz</title> 
-    <meta name="google-signin-client_id" content="353154553269-d6olf6v5ost99il92fsuh0qcr8u5ad4h.apps.googleusercontent.com"></meta>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+<title>Generate Quiz</title>
 
- <link rel="stylesheet" 
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" 
-        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
-        crossorigin="anonymous"></link>
-	  <!-- <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/> -->
-	
-	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
-	<link rel="stylesheet" href="/css/quizapp.css " />
-	<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/quizapp.js"></script>
-	<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"></link>
+<!-- <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/> -->
+
+<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="/css/quizapp.css " />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/quizapp.js"></script>
+<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
+
+	<header class="marquee">
+		<div class="container-fluid">
+			<div class="marquee-brand">Generate and see the Quizzes!</div>
+			<h3 class="marquee heading">With General , Sports , Geography
+				quiz</h3>
+
+			<!-- 	<a class="marquee-img">
+<img src="/images/bg.png" alt=""></img>
+</a> -->
+
+
+		</div>
+	</header>
+
+
+
 	<div class="container">
-      <div class="page-header" id="banner">
-	      <div class="row">
-	          <div class="col-lg-8 col-md-7 col-sm-6">
-	            	<h1 style="margin:bottom=15px;">Generate Quiz <button class="btn btn-primary" id="goBack">Go to HomePage</button>
-	            	<button class="btn btn-warning" id="getQuizzes">Get Quizzes</button></h1> 
-	          </div> 
-	     </div>
-     </div>
-      
-	<div id="askQuizType">	  		
-	<div class="row">
-    	<div class="col-lg-6 col-md-7 col-sm-6">
-		  		<form enctype="multipart/form-data" id="questionForm" class="form-horizontal">
-            		<fieldset>
-						<div class="form-group">
-				      		<label class="col-lg-3 control-label" for="category">Select Category</label>
-				      		<div class="col-lg-9">
-				      			<select class="form-control" id="selectCategory" name="categoryId">
-				        		<option value="1">General</option>
-				        		<option value="2">Sports</option>
-				        		<option value="3">Geography</option>
-				      			</select>
-				      		</div>
-				    	</div>
-				    	<div class="form-group">
-				      		<label class="col-lg-3 control-label" for="category">Select Difficulty</label>
-				      		<div class="col-lg-9">
-				      			<select class="form-control" id="selectDifficulty" name="difficultyId">
-				        		<option value="1">Easy</option>
-				        		<option value="2">Medium</option>
-				        		<option value="3">Hard</option>
-				      			</select>
-				      		</div>
-				    	</div>
-            			<div class="form-group">
-	                    	<label class="col-lg-3 control-label">Description</label>
-	                    	<div class="col-lg-9">
-	                    		<input type="text" class="form-control" id="description" name="description" />
-	                    	</div>
-                		</div>
-                	</fieldset>
-               </form>
-         </div>
-    </div>
-            
-    <form id="myForm" class="col-md-6">
-    	<button id="saveQuiz" class="btn btn-success" name="button">Generate!</button>
-    </form>  		
-		
-    </div>  
-    
-    <div id = "seeQuizzes">
-    <table id="quizTable" class="table table-striped">
-	    		<thead id="quizthead">
-	    		
-	    		</thead>
-	    		<tbody id="quiztbody"></tbody>
-		 </table>
-     </div>    
-      <div id= "seeQuizQuestions">
-      
-      <table id="quizquestions" class="table table-striped">
-      			<thead id= "questionhead"></thead>
-      			<tbody id= "questionbody"></tbody>
-      </table>
-      </div>      
-  </div>
+		<div class="page-header" id="banner">
+			<div class="row">
+				<div class="col-lg-8 col-md-7 col-sm-6">
+					<h1 style="margin: bottom=15px;">
+						Generate Quiz
+						<button class="btn btn-primary" id="goBack">Go to
+							HomePage</button>
+						<button class="btn btn-warning" id="getQuizzes">Get
+							Quizzes</button>
+					</h1>
+				</div>
+			</div>
+		</div>
+
+		<div id="askQuizType">
+			<div class="row">
+				<div class="col-lg-6 col-md-7 col-sm-6">
+					<form enctype="multipart/form-data" id="questionForm"
+						class="form-horizontal">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="category">Select
+									Category</label>
+								<div class="col-lg-9">
+									<select class="form-control" id="selectCategory"
+										name="categoryId">
+										<option value="1">General</option>
+										<option value="2">Sports</option>
+										<option value="3">Geography</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="category">Select
+									Difficulty</label>
+								<div class="col-lg-9">
+									<select class="form-control" id="selectDifficulty"
+										name="difficultyId">
+										<option value="1">Easy</option>
+										<option value="2">Medium</option>
+										<option value="3">Hard</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Description</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="description"
+										name="description" />
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+
+			<form id="myForm" class="col-md-6">
+				<button id="saveQuiz" class="btn btn-success" name="button">Generate!</button>
+			</form>
+
+		</div>
+
+		<div id="seeQuizzes">
+			<table id="quizTable" class="display" cellspacing="0" width="100%">
+				<thead id="quizthead">
+					<tr>
+						<th>ID</th>
+						<th>CATEGORY</th>
+						<th>DIFFICULTY</th>
+						<th>DESCRIPTION</th>
+						<th>SEE QUESTIONS</th>
+						<th>DELETE</th>
+					</tr>
+				</thead>
+				<!-- <tbody id="quiztbody"></tbody> -->
+			</table>
+		</div>
+		<div id="seeQuizQuestions">
+
+			<table id="quizquestions" class="table table-striped">
+				<thead id="questionhead"></thead>
+				<tbody id="questionbody"></tbody>
+			</table>
+		</div>
+	</div>
 
 </body>
 </html>

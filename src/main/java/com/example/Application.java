@@ -1,23 +1,33 @@
 package com.example;
 
-import org.springframework.boot.CommandLineRunner;
+import java.security.Principal;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @Configuration
-public class Application implements CommandLineRunner {
-	
+@RestController
+public class Application {
+
+	@RequestMapping("/user")
+	public Principal user(Principal principal) {
+		return principal;
+	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
 
-	@Override
-	public void run(String... arg0) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
+//	@Override
+//	protected void configure(HttpSecurity http) throws Exception {
+//		http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**").permitAll().anyRequest()
+//				.authenticated().and().logout().logoutSuccessUrl("/").permitAll().and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).disable();
+//	}
+	
+	
 
 }

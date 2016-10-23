@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
     <title>Quiz Play</title> 
-    <meta name="google-signin-client_id" content="353154553269-d6olf6v5ost99il92fsuh0qcr8u5ad4h.apps.googleusercontent.com"></meta>
+    
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
  <link rel="stylesheet" 
@@ -13,7 +13,7 @@
 	
 	<link rel="stylesheet" href="/css/jquery.dataTables.min.css" />
 	<link rel="stylesheet" href="/css/quizapp.css " />
-	<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script type="text/javascript" src="/js/quizapp.js"></script>
 	<script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
@@ -21,6 +21,26 @@
 </head>
 
 <body>
+
+	<header class="marquee">
+		<div class="container-fluid">
+			<div class="marquee-brand">Start Playing Quiz!</div>
+			<h3 class="marquee heading">With General , Sports , Geography
+				quiz</h3>
+
+			<!-- 	<a class="marquee-img">
+<img src="/images/bg.png" alt=""></img>
+</a> -->
+
+
+		</div>
+	</header>
+
+
+
+
+
+
 	<div class="container">
       <div class="page-header" id="banner">
 	      <div class="row">
@@ -60,13 +80,13 @@
                </form>
          </div>
     </div>
-            
-    <form id="myForm" class="col-md-6">
-    	<!-- <button id="quizPlay" class="btn btn-success" name="button">Play</button> -->
-    </form>  		
-		
-    </div>   
-    <button id="quizPlay" class="btn btn-success" name="button">Play</button>
+       			
+    </div> 
+    
+    <div class="col-md-6">
+    <button id="quizPlay" class="btn btn-success" name="button">GET QUIZ</button>
+    </div>
+  
 </div>
 </body>
 </html>

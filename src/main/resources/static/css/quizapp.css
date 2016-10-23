@@ -1,6 +1,6 @@
 table {
-  width: 100%;
-  border: 1px solid #d0d0d0;
+	width: 100%;
+	border: 1px solid #d0d0d0;
 }
 
 #quizTable {
@@ -9,13 +9,13 @@ table {
 }
 
 #myForm {
-	padding-bottom : 50px;
+	padding-bottom: 50px;
 }
 
-.divider{
-    width:10px;
-    height:auto;
-    display:inline-block;
+.divider {
+	width: 10px;
+	height: auto;
+	display: inline-block;
 }
 
 /* .answer{
@@ -26,11 +26,47 @@ table {
 .answer:hover{
     cursor: pointer;
 } */
-
 #userQuizPlay {
-	display : none;
+	display: none;
 }
 
 #quizdetails {
-	display : none;
+	display: none;
+}
+
+header.marquee a.marquee-img {
+	display: inline-block;
+	margin: 35px auto 0;
+}
+
+header.marquee {
+	color: white;
+	text-align: center;
+	padding: 50px 0;
+	background-color: #b84d45;
+	background-image: url(/images/bg.png);
+}
+
+header.marquee .marquee-brand {
+	font-size: 5rem;
+	line-height: 5rem;
+	font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}
+
+header.marquee a.marquee-img {
+	display: inline-block;
+	margin: 35px auto 0;
+}
+
+#questionAnswer {
+	padding-bottom: 50px;
+}
+
+body {
+	background-color: #eaeaea;
+}
+
+#adminDisplay {
+	float: center;
 }

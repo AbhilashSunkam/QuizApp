@@ -31,8 +31,6 @@ $(document).ready(function(){
                 }, {
                     "data" : "answer4"
                 }, {
-                    "data" : "answer"
-                }, {
                     "data" : "categoryId"
                 }, {
                     "data" : "difficultyId"
@@ -156,39 +154,51 @@ $(document).ready(function(){
 		
 	});
 	
-	//Seeing the quizzes
+	//Seeing the quizzes	
+	$('#quizthead').hide();
 	$(document).on('click', '#getQuizzes', function(){
-		$('#quiztbody').empty();
-		$('#quizthead').empty();
-		$('#seeQuizQuestions').hide();
 		$.ajax({
 	    	url: '/seequizzes',
 	    	dataType: 'json',
 	    	success: function(data){
-	    		
-	    		$.each(data, function(i, d) {
-	    			   var row='<tr>';
-	    			   $.each(d, function(j, e) {
-	    			      row+='<td>'+e+'</td>'; 
-	    			   });
-	    			   row+='<td><button class="btn btn-info" id="seeQuestionsButton">See questions</button></td><td><button id="deleteQuiz" class="btn btn-danger">Delete Quiz</button></td>';
-	    			   	
-	    			   row+='</tr>';
-	    			   
-	    			   $('#quizTable #quiztbody').append(row);
-	    			   
-	    			});	
-				
+				addToQuizzes(data);
 	    	},
 	    	error: function(data) {
-	    		alert('Oops! Error');
 	    	}
 		});
-		$table = "<tr><td><b>ID</b></td><td><b>CATEGORY</b></td><td><b>DIFFICULTY</b></td><td><b>DESCRIPTION</b></td><td><b>SEE QUESTIONS</b><td><b>DELETE</b></td></td></tr>"
-		$('#quizthead').append($table);
-		$('#quizTable').show();	
+		$('#quizthead').show();
+		$('#seeQuizQuestions').hide();
 		$('#seeQuizzes').show();
 	});
+	
+	function addToQuizzes(data) {
+		var table = $('#quizTable').dataTable({
+			"bAutoWidth" : false,
+            "bDestroy": true,
+            "aaData" : data,
+            "columns" : [ {
+            		"data" : "id"
+                }, {
+                	"data" : "category_id"
+                }, {
+                    "data" : "difficulty_id"
+                }, {
+                    "data" : "description"
+                }, {
+                mRender: function (data, type, row) {
+                    return '<button class="btn btn-info" id="seeQuestionsButton" data-id="' + row[0] + '">SEE QUESTIONS</button>'
+                }
+                }, {
+                mRender: function (data, type, row) {
+                    return '<button class="btn btn-danger" id="deleteQuiz" data-id="' + row[0] + '">DELETE</button>'
+                }
+                }, ]
+            
+            })
+	}
+	
+	
+	
 	
 	
 	// see question
@@ -271,6 +281,7 @@ $(document).ready(function(){
 		$('#startPlayBtn').hide();
 		$('#userQuizPlay').show();
 		$('#quizdetails').show();
+		$('#progress').append('<h2 style="color:green;"> : Progress</h2>');
 		var cId = localStorage.getItem("cid");
 		var dId = localStorage.getItem("did");
 		if (cId == 1) {
@@ -319,8 +330,10 @@ $(document).ready(function(){
 		$('#quizDisplay button').prop('disabled', false);
 		$('#quizDisplay button').removeClass('btn-danger').addClass('btn-primary');
 		$('#quizDisplay button').removeClass('btn-success').addClass('btn-primary');
+		$('#qNumber').empty();
 		if (question < data.length) {
 			makeQuestionEmpty();
+			$('#qNumber').append(question+1);
 			$('#quizQuestionName').append(data[question].questionName);
 			$('#quizQuestionAnswer1').append(data[question].answer1);
 			$('#quizQuestionAnswer2').append(data[question].answer2);
@@ -329,7 +342,10 @@ $(document).ready(function(){
 		} else {
 			flag++;
 			$('#questionAnswer').hide();
-			$('#score').append("Your scored :"+score);
+			$('#progress').empty();
+			$('#quizdetails').empty();
+			$('#progress').append('<h2 style="color:red;"> : Finished </h2>');
+			$('#score').append("<h2><h2 style='color:purple'>You scored : <label style='color:blue'>"+score+"</label> out of "+question+" </h2></h2><button class='btn btn-warning btn-lg' id='playAnotherQuiz'>Play another quiz</button>");
 		}
 		
 		$(document).on("click", "#quizDisplay button", function(e){
@@ -360,19 +376,9 @@ $(document).ready(function(){
 		
 	}
 	
-	
-	
-	
-	
-	function onSignIn(googleUser) {
-		  var profile = googleUser.getBasicProfile();
-		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-		  console.log('Name: ' + profile.getName());
-		  console.log('Image URL: ' + profile.getImageUrl());
-		  console.log('Email: ' + profile.getEmail());
-		}
-	
-	
+	$(document).on('click','#playAnotherQuiz', function(){
+		window.location.href = '/quizplay';
+	});
 	
 	
 });
