@@ -55,6 +55,5 @@ public class QuizquestionsRepository {
 		getSession().update(question);
 		return;
 	}
-	
-	
+
 }

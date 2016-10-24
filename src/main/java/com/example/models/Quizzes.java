@@ -22,7 +22,7 @@ public class Quizzes implements java.io.Serializable {
 	private Integer category_id;
 	private Integer difficulty_id;
 	private String description;
-	
+
 	private List<Quizquestions> quizquestions;
 
 	public Quizzes() {
@@ -64,7 +64,7 @@ public class Quizzes implements java.io.Serializable {
 	public void setDifficulty_id(Integer difficulty_id) {
 		this.difficulty_id = difficulty_id;
 	}
-	
+
 	@Column(name = "description")
 	public String getDescription() {
 		return description;
@@ -75,7 +75,7 @@ public class Quizzes implements java.io.Serializable {
 	}
 
 	@JsonIgnore
-	@OneToMany(targetEntity=Quizquestions.class, mappedBy = "quizzes", fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = Quizquestions.class, mappedBy = "quizzes", fetch = FetchType.LAZY)
 	public List<Quizquestions> getQuizquestions() {
 		return quizquestions;
 	}

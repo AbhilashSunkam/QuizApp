@@ -76,5 +76,4 @@ public class QuizquestionsServiceImpl implements QuizquestionsService {
 
 	}
 
-
 }

@@ -10,33 +10,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "quizquestions")
-public class Quizquestions implements Serializable{
-	
-	//private Integer id;
+public class Quizquestions implements Serializable {
+
+	// private Integer id;
 	private Questions questions;
-    private Quizzes quizzes;
-    
+	private Quizzes quizzes;
+
 	public Quizquestions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-
-//	@Id
-//	@GeneratedValue(strategy = IDENTITY)
-//
-//	@Column(name = "id", unique = true, nullable = false)
-//	public Integer getId() {
-//		return id;
-//	}
-//
-//	public void setId(Integer id) {
-//		this.id = id;
-//	}
 
 	@Id
-    @ManyToOne
-    @JoinColumn(name = "question_id", referencedColumnName = "id")
+	@ManyToOne
+	@JoinColumn(name = "question_id", referencedColumnName = "id")
 	public Questions getQuestions() {
 		return questions;
 	}
@@ -46,8 +33,8 @@ public class Quizquestions implements Serializable{
 	}
 
 	@Id
-    @ManyToOne
-    @JoinColumn(name = "quiz_id", referencedColumnName = "id")
+	@ManyToOne
+	@JoinColumn(name = "quiz_id", referencedColumnName = "id")
 	public Quizzes getQuizzes() {
 		return quizzes;
 	}
@@ -56,7 +43,4 @@ public class Quizquestions implements Serializable{
 		this.quizzes = quizzes;
 	}
 
-	
-	
-	
 }

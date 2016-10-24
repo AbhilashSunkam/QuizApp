@@ -65,9 +65,9 @@ public class QuestionsRepository {
 
 	@SuppressWarnings("unchecked")
 	public List<Questions> getQuestions(Integer quizId) {
-			return getSession()
-					.createQuery("from Questions where id in (select questions.id from Quizquestions where quiz_id = :qId)")
-					.setParameter("qId" , quizId).list();
-			
-		}
+		return getSession()
+				.createQuery("from Questions where id in (select questions.id from Quizquestions where quiz_id = :qId)")
+				.setParameter("qId", quizId).list();
+
 	}
+}

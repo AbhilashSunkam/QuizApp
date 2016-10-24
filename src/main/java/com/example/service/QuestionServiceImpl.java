@@ -63,7 +63,7 @@ public class QuestionServiceImpl implements QuestionService {
 		currentQuestion.setCategoryId(question.getCategoryId());
 		currentQuestion.setDifficultyId(question.getDifficultyId());
 
-		questionsRepository.update(currentQuestion);	
+		questionsRepository.update(currentQuestion);
 	}
 
 	@Override
@@ -80,7 +80,7 @@ public class QuestionServiceImpl implements QuestionService {
 		newQuestion.setDifficultyId(difficultyId);
 
 		questionsRepository.save(newQuestion);
-		
+
 	}
 
 	@Override

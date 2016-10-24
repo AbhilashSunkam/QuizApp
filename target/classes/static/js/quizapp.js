@@ -345,7 +345,7 @@ $(document).ready(function(){
 			$('#progress').empty();
 			$('#quizdetails').empty();
 			$('#progress').append('<h2 style="color:red;"> : Finished </h2>');
-			$('#score').append("<h2><h2 style='color:purple'>You scored : <label style='color:blue'>"+score+"</label> out of "+question+" </h2></h2><button class='btn btn-warning btn-lg' id='playAnotherQuiz'>Play another quiz</button>");
+			$('#score').append("<h2><h2 style='color:purple'>You scored : <label style='color:blue'>"+score+"</label> out of "+question+" </h2></h2><button class='btn btn-warning' id='playAnotherQuiz'>Play another quiz</button>");
 		}
 		
 		$(document).on("click", "#quizDisplay button", function(e){
@@ -377,6 +377,18 @@ $(document).ready(function(){
 	}
 	
 	$(document).on('click','#playAnotherQuiz', function(){
+		window.location.href = '/quizplay';
+	});
+	
+	$(document).on('click','#admin', function() {
+		window.location.href = '/home';
+	});
+	
+	$(document).on('click','#backToHome', function(){
+		window.location.href = '/';
+	});
+	
+	$(document).on('click', '#user' , function() {
 		window.location.href = '/quizplay';
 	});
 	

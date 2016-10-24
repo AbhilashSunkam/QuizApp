@@ -14,7 +14,7 @@ import com.example.models.Users;
 @Repository
 @Transactional
 public class UsersRepository {
-	
+
 	@Autowired
 	private SessionFactory _sessionFactory;
 

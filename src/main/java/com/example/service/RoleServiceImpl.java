@@ -12,13 +12,13 @@ import com.example.repository.RoleRepository;
 
 @Service
 public class RoleServiceImpl implements RoleService {
-	
+
 	@Autowired
 	RoleRepository roleRepository;
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}

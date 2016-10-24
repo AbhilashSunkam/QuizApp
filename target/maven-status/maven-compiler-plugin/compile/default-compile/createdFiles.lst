@@ -1,4 +1,5 @@
 com/example/QuestionController.class
+com/example/service/AuthenticateService.class
 com/example/repository/QuizRepository.class
 com/example/models/Users.class
 com/example/repository/UsersRepository.class
@@ -12,11 +13,13 @@ com/example/service/RoleService.class
 com/example/service/QuestionService.class
 com/example/models/Quizzes.class
 com/example/configs/DatabaseConfig.class
+com/example/AuthController.class
 com/example/QuizplayController.class
 com/example/service/UserService.class
 com/example/service/QuestionServiceImpl.class
 com/example/service/QuizquestionsServiceImpl.class
 com/example/service/UserServiceImpl.class
+com/example/service/AuthenticateServiceImpl.class
 com/example/service/QuizServiceImpl.class
 com/example/repository/QuizquestionsRepository.class
 com/example/models/Quizquestions.class

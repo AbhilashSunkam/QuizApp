@@ -33,6 +33,7 @@ public class Questions implements java.io.Serializable {
 	private String questionName;
 
 	private List<Quizquestions> quizquestions;
+
 	public Questions() {
 	}
 
@@ -131,9 +132,9 @@ public class Questions implements java.io.Serializable {
 	public void setQuestionName(String questionName) {
 		this.questionName = questionName;
 	}
-	
+
 	@JsonIgnore
-	@OneToMany(targetEntity=Quizquestions.class, mappedBy = "questions", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(targetEntity = Quizquestions.class, mappedBy = "questions", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	public List<Quizquestions> getQuizquestions() {
 		return quizquestions;
 	}

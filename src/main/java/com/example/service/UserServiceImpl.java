@@ -11,13 +11,13 @@ import com.example.repository.UsersRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	UsersRepository usersRepository;
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
