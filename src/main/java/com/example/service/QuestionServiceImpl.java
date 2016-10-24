@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +12,7 @@ import com.example.repository.QuestionsRepository;
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
+	private static final Logger logger = Logger.getLogger(QuestionServiceImpl.class);
 	@Autowired
 	QuestionsRepository questionsRepository;
 
@@ -69,6 +71,7 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public void addQuestion(String questionName, String answer1, String answer2, String answer3, String answer4,
 			String answer, Integer categoryId, Integer difficultyId) {
+		
 		Questions newQuestion = new Questions();
 		newQuestion.setQuestionName(questionName);
 		newQuestion.setAnswer1(answer1);
@@ -80,6 +83,7 @@ public class QuestionServiceImpl implements QuestionService {
 		newQuestion.setDifficultyId(difficultyId);
 
 		questionsRepository.save(newQuestion);
+
 
 	}
 
