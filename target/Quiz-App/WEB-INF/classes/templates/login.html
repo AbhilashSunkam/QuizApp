@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Login</title>
+<!-- <meta name="description" content="" />
+<meta name="viewport" content="width=device-width" />
+<base href="/" />
+<link rel="stylesheet" type="text/css"
+	href="/webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/webjars/angularjs/angular.min.js"></script>
+</head> -->
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous"></link>
+<!--  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>  -->
+
+<link rel="stylesheet" href="css/jquery.dataTables.min.css" />
+<link rel="stylesheet" href="css/quizapp.css " />
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/quizapp.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="webjars/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="js/adminHomeController.js"></script>
+</head>
+<body ng-app="app" ng-controller="home as home">
+
+	<header class="marquee">
+		<div class="container-fluid">
+			<div class="marquee-brand">Welcome to the Quiz App!</div>
+			<h3 class="marquee heading">With General , Sports , Geography
+				quiz</h3>
+		</div>
+	</header>
+
+
+
+
+	<div class="container" ng-show="!home.authenticated">
+		<h1>
+			Login <a href="login">Google</a>
+		</h1>
+	</div>
+	<div class="container" ng-show="home.authenticated">
+		<h3>
+			Logged in: <i><span ng-bind="home.user.email"></span></i>
+		</h3>
+
+		<div>
+			<button style="float: right" ng-click="home.logout()"
+				class="btn btn-danger">Logout</button>
+		</div>
+		<div id="adminDiv" ng-show="home.role1">
+			<button style="float: left" id="admin" ng-show="home.role1"
+				class="btn btn-primary">Start Setting Questions</button>
+		</div>
+		<div id="userDiv" ng-show="!home.role1">
+			<button id="user" ng-show="!home.role1" class="btn btn-info">Start
+				Playing Quiz</button>
+		</div>
+		<div id="user"></div>
+	</div>
+
+</body>
+
+
+
+</html>
