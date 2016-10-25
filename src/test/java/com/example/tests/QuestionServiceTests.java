@@ -1,6 +1,7 @@
 package com.example.tests;
 
 import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -15,6 +16,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import com.example.models.Questions;
 import com.example.service.QuestionService;
 
@@ -32,11 +34,48 @@ public class QuestionServiceTests {
 	@Transactional
 	@Rollback(true)
 	public void addQuestionTest() throws BadRequestException {
-
-		Questions questions = new Questions();
 		questionService.addQuestion("What is the capital of india", "Delhi", "Mumbai", "Chennai", "Bangalore", "Delhi",
 				1,null);
 	}
+	
+	@Test(expected = InvalidDataAccessApiUsageException.class)
+	@Transactional
+	@Rollback(true)
+	public void editQuestionTest() throws BadRequestException {
+		Questions question = new Questions();
+		question.setQuestionName("What is the capital of india");
+		question.setAnswer("a");
+		question.setAnswer1("delhi");
+		question.setAnswer2("Mumbai");
+		question.setAnswer3("chennai");
+		question.setAnswer4("bangalore");
+		question.setCategoryId(1);
+		question.setDifficultyId(1);
+		
+		questionService.editQuestion(question.getId(), question);
+	}
+	
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void getAllQuestionsTest() throws BadRequestException {
+
+		List<Questions> questionsList = questionService.getAll();
+		int size = questionsList.size();
+
+		
+		questionService.addQuestion("What is the capital of india", "Delhi", "Mumbai", "Chennai", "Bangalore", "Delhi",
+				1, 1);
+
+		List<Questions> updatedQuestionList = questionService.getAll();
+		int newsize = updatedQuestionList.size();
+		
+		assertEquals(size+1, newsize);
+
+	}
+	
+	
+	
 }
 //
 //	@Test

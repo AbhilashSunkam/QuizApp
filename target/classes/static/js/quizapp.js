@@ -5,7 +5,7 @@ $(document).ready(function(){
 		$('#editItems').hide();
 		$('#editBody').show();
 		$.ajax({
-			url: '/getquestions',
+			url: 'getquestions',
 	    	dataType: 'json',
 	    	success: function(data){
 	    		addToTable(data);
@@ -51,20 +51,20 @@ $(document).ready(function(){
 		
 	$(document).on('click', '#addQuestions',function(){
 		console.log("clicked");
-		window.location.href='/setquestions';
+		window.location.href='setquestions';
 		var questions = JSON.parse(localStorage.getItem('questiondata'));
 	});
 	
 	$(document).on('click', '#goBack', function(){
 		console.log("clicked");
-		window.location.href='/home';
+		window.location.href='home';
 	});
 	
 	$(document).on('click','#deleteButton',function(){
 		var id = $(this).parents('tr:first').find('td:first').text();
 		console.log(id);
 		$.ajax({
-		    url: '/deletequestion/'+id,
+		    url: 'deletequestion/'+id,
 		    type: 'DELETE',
 		    success: function() {
 		    }, 
@@ -78,7 +78,7 @@ $(document).ready(function(){
 		var id = $(this).parents('tr:first').find('td:first').text();
 		localStorage.setItem("id", id);
 			$.ajax({
-				url: '/getquestion/'+id,
+				url: 'getquestion/'+id,
 				type: 'GET',
 				dataType: 'json',
 				success: function(data) { 
@@ -105,7 +105,7 @@ $(document).ready(function(){
 		console.log(object);
 		console.log('hello');
 		$.ajax({
-		    url: '/editquestion/'+object,
+		    url: 'editquestion/'+object,
 		    type: 'PUT',
 		    data: JSON.stringify( {
 		    		id : object,
@@ -130,7 +130,7 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click', '#generateQuiz', function(){
-		window.location.href="/generatequiz";
+		window.location.href="generatequiz";
 		
 	});
 	
@@ -139,7 +139,7 @@ $(document).ready(function(){
 		var did = $('#selectDifficulty').val();
 		var quizdescription = $('#description').val();
 		$.ajax({
-			url: '/generatequiz/'+cid+'/'+did,
+			url: 'generatequiz/'+cid+'/'+did,
 			type: 'POST',
 			data: quizdescription,
 			dataType: 'json',
@@ -158,7 +158,7 @@ $(document).ready(function(){
 	$('#quizthead').hide();
 	$(document).on('click', '#getQuizzes', function(){
 		$.ajax({
-	    	url: '/seequizzes',
+	    	url: 'seequizzes',
 	    	dataType: 'json',
 	    	success: function(data){
 				addToQuizzes(data);
@@ -213,7 +213,7 @@ $(document).ready(function(){
 		$('#seeQuizQuestions').show();
 		$('#quizName').append(quizName);
 		$.ajax({
-			url : '/viewquestions/'+id,
+			url : 'viewquestions/'+id,
 			dataType : 'json',
 			success : function(data) {
 				
@@ -243,7 +243,7 @@ $(document).ready(function(){
 	$(document).on('click', "#deleteQuiz" , function(){
 		var id = $(this).parents('tr:first').find('td:first').text();
 		$.ajax({
-		    url: '/deletequiz/'+id,
+		    url: 'deletequiz/'+id,
 		    type: 'DELETE',
 		    success: function() {
 		    }, 
@@ -262,7 +262,7 @@ $(document).ready(function(){
 		localStorage.setItem("did", difficulty_id);
 		// getting a quiz randomly
 		$.ajax({
-			url : '/quizplay/'+category_id+'/'+difficulty_id,
+			url : 'quizplay/'+category_id+'/'+difficulty_id,
 			type : 'GET',
 			dataType : 'json',
 			success : function(data) {
@@ -274,7 +274,7 @@ $(document).ready(function(){
 			}
 		});
 		
-		window.location.href='/quizquestions';
+		window.location.href='quizquestions';
 	});
 	
 	$(document).on('click', '#startPlayBtn', function() {
@@ -298,7 +298,7 @@ $(document).ready(function(){
 		// getting questions from the selected quiz
 		var qId = localStorage.getItem("quiz_id");
 		$.ajax({
-			url : '/viewquestions/'+qId,
+			url : 'viewquestions/'+qId,
 			type : 'GET',
 			dataType : 'json',
 			success : function(data) {
@@ -377,19 +377,19 @@ $(document).ready(function(){
 	}
 	
 	$(document).on('click','#playAnotherQuiz', function(){
-		window.location.href = '/quizplay';
+		window.location.href = 'quizplay';
 	});
 	
 	$(document).on('click','#admin', function() {
-		window.location.href = '/home';
+		window.location.href = 'home';
 	});
 	
 	$(document).on('click','#backToHome', function(){
-		window.location.href = '/';
+		window.location.href = './';
 	});
 	
 	$(document).on('click', '#user' , function() {
-		window.location.href = '/quizplay';
+		window.location.href = 'quizplay';
 	});
 	
 	
