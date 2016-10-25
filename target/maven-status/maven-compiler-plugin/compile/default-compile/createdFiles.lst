@@ -9,6 +9,7 @@ com/example/service/RoleServiceImpl.class
 com/example/service/QuizquestionsService.class
 com/example/models/Role.class
 com/example/repository/QuestionsRepository.class
+com/example/ServletInitializer.class
 com/example/service/RoleService.class
 com/example/service/QuestionService.class
 com/example/models/Quizzes.class
