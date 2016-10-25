@@ -11,6 +11,13 @@ import org.springframework.stereotype.Repository;
 
 import com.example.models.Role;
 
+
+/**
+ * Role repository
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Repository
 @Transactional
 public class RoleRepository {

@@ -14,6 +14,12 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * Quizzes table
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Entity
 @Table(name = "quizzes", catalog = "quizapp")
 public class Quizzes implements java.io.Serializable {

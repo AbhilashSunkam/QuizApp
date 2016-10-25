@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 import com.example.models.Questions;
 import com.example.repository.QuestionsRepository;
 
+/**
+ * Question service Implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Service
 public class QuestionServiceImpl implements QuestionService {
 
@@ -71,7 +77,7 @@ public class QuestionServiceImpl implements QuestionService {
 	@Override
 	public void addQuestion(String questionName, String answer1, String answer2, String answer3, String answer4,
 			String answer, Integer categoryId, Integer difficultyId) {
-		
+
 		Questions newQuestion = new Questions();
 		newQuestion.setQuestionName(questionName);
 		newQuestion.setAnswer1(answer1);
@@ -83,7 +89,6 @@ public class QuestionServiceImpl implements QuestionService {
 		newQuestion.setDifficultyId(difficultyId);
 
 		questionsRepository.save(newQuestion);
-
 
 	}
 

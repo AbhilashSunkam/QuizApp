@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.example.models.Users;
 
+/**
+ * User service interface
+ * 
+ * @author abhilashsunkam
+ *
+ */
 public interface UserService {
 
 	public List<Users> getAll();

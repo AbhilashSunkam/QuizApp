@@ -23,6 +23,12 @@ import com.example.service.UserService;
 import inti.ws.spring.exception.client.ForbiddenException;
 import inti.ws.spring.exception.client.UnauthorizedException;
 
+/**
+ * Controller that manages user authentication
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @EnableOAuth2Sso
 @RestController
 public class AuthController extends WebSecurityConfigurerAdapter {
@@ -35,6 +41,17 @@ public class AuthController extends WebSecurityConfigurerAdapter {
 
 	Logger logger = Logger.getLogger(getClass());
 
+	/**
+	 * 
+	 * @param principal
+	 * @param session
+	 *            HttpSession object to validate user session
+	 * @return User who is authenticated {@link UserService}
+	 * @throws UnauthorizedException
+	 *             Throws when user doesn't have a valid session
+	 * @throws ForbiddenException
+	 *             Throws when the access is forbidden
+	 */
 	@RequestMapping("/user")
 	public Users user(Principal principal, HttpSession session) throws UnauthorizedException, ForbiddenException {
 

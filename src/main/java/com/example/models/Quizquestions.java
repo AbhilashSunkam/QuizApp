@@ -8,6 +8,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Quiz questions table
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Entity
 @Table(name = "quizquestions")
 public class Quizquestions implements Serializable {

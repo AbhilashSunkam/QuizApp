@@ -9,6 +9,12 @@ import org.springframework.stereotype.Service;
 import com.example.models.Users;
 import com.example.repository.UsersRepository;
 
+/**
+ * User service implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

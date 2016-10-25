@@ -17,6 +17,12 @@ import com.example.models.Quizquestions;
 import com.example.models.Quizzes;
 import com.example.repository.QuizquestionsRepository;
 
+/**
+ * Quiz questions service implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Service
 public class QuizquestionsServiceImpl implements QuizquestionsService {
 

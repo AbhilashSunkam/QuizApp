@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.example.models.Quizzes;
 
+/**
+ * quiz service interface
+ * 
+ * @author abhilashsunkam
+ *
+ */
 public interface QuizService {
 
 	public List<Quizzes> getAll();

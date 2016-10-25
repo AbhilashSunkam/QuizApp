@@ -11,6 +11,12 @@ import org.springframework.stereotype.Repository;
 
 import com.example.models.Users;
 
+/**
+ * Users repository
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Repository
 @Transactional
 public class UsersRepository {

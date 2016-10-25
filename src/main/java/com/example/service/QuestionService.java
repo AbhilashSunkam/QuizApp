@@ -4,6 +4,12 @@ import java.util.List;
 
 import com.example.models.Questions;
 
+/**
+ * Question Service interface
+ * 
+ * @author abhilashsunkam
+ *
+ */
 public interface QuestionService {
 
 	public List<Questions> getAll();

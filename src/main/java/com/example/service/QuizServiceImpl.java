@@ -7,6 +7,12 @@ import org.springframework.stereotype.Service;
 import com.example.models.Quizzes;
 import com.example.repository.QuizRepository;
 
+/**
+ * Quiz Service implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Service
 public class QuizServiceImpl implements QuizService {
 

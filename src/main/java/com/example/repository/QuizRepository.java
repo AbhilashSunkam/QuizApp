@@ -12,6 +12,12 @@ import org.springframework.stereotype.Repository;
 
 import com.example.models.Quizzes;
 
+/**
+ * quiz repository
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Repository
 @Transactional
 public class QuizRepository {

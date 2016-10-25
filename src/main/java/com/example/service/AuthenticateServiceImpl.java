@@ -4,6 +4,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 import inti.ws.spring.exception.client.UnauthorizedException;
 
+/**
+ * Authenticate Service Implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Service
 public class AuthenticateServiceImpl implements AuthenticateService {
 

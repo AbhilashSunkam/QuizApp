@@ -10,6 +10,12 @@ import org.springframework.stereotype.Service;
 import com.example.models.Role;
 import com.example.repository.RoleRepository;
 
+/**
+ * Role service implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
 @Service
 public class RoleServiceImpl implements RoleService {
 
