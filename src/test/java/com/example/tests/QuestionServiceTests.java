@@ -1,82 +1,80 @@
-package com.example.tests;
-
-import static org.junit.Assert.assertEquals;
-
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
-import javax.transaction.Transactional;
-
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.dao.InvalidDataAccessApiUsageException;
-import com.example.models.Questions;
-import com.example.service.QuestionService;
-
-import inti.ws.spring.exception.client.BadRequestException;
-import inti.ws.spring.exception.client.NotFoundException;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class QuestionServiceTests {
-
-	@Autowired
-	QuestionService questionService;
-
-	@Test(expected = DataIntegrityViolationException.class)
-	@Transactional
-	@Rollback(true)
-	public void addQuestionTest() throws BadRequestException {
-		questionService.addQuestion("What is the capital of india", "Delhi", "Mumbai", "Chennai", "Bangalore", "Delhi",
-				1,null);
-	}
-	
-	@Test(expected = InvalidDataAccessApiUsageException.class)
-	@Transactional
-	@Rollback(true)
-	public void editQuestionTest() throws BadRequestException {
-		Questions question = new Questions();
-		question.setQuestionName("What is the capital of india");
-		question.setAnswer("a");
-		question.setAnswer1("delhi");
-		question.setAnswer2("Mumbai");
-		question.setAnswer3("chennai");
-		question.setAnswer4("bangalore");
-		question.setCategoryId(1);
-		question.setDifficultyId(1);
-		
-		questionService.editQuestion(question.getId(), question);
-	}
-	
-	@Test
-	@Transactional
-	@Rollback(true)
-	public void getAllQuestionsTest() throws BadRequestException {
-
-		List<Questions> questionsList = questionService.getAll();
-		int size = questionsList.size();
-
-		
-		questionService.addQuestion("What is the capital of india", "Delhi", "Mumbai", "Chennai", "Bangalore", "Delhi",
-				1, 1);
-
-		List<Questions> updatedQuestionList = questionService.getAll();
-		int newsize = updatedQuestionList.size();
-		
-		assertEquals(size+1, newsize);
-
-	}
-	
-	
-	
-}
+//package com.example.tests;
+//
+//import static org.junit.Assert.assertEquals;
+//
+//import static org.junit.Assert.assertNotEquals;
+//import static org.junit.Assert.assertTrue;
+//
+//import java.util.List;
+//
+//import javax.transaction.Transactional;
+//
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.boot.test.context.SpringBootTest;
+//import org.springframework.test.annotation.Rollback;
+//import org.springframework.test.context.junit4.SpringRunner;
+//import org.springframework.dao.DataIntegrityViolationException;
+//import org.springframework.dao.InvalidDataAccessApiUsageException;
+//import com.example.models.Questions;
+//import com.example.service.QuestionService;
+//
+//import inti.ws.spring.exception.client.BadRequestException;
+//import inti.ws.spring.exception.client.NotFoundException;
+//
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
+//public class QuestionServiceTests {
+//}
+//	@Autowired
+//	QuestionService questionService;
+//
+//	@Test(expected = DataIntegrityViolationException.class)
+//	@Transactional
+//	@Rollback(true)
+//	public void addQuestionTest() throws BadRequestException {
+//		questionService.addQuestion("What is the capital of india", "Delhi", "Mumbai", "Chennai", "Bangalore", "Delhi",
+//				1,null);
+//	}
+//	
+//	@Test(expected = InvalidDataAccessApiUsageException.class)
+//	@Transactional
+//	@Rollback(true)
+//	public void editQuestionTest() throws BadRequestException {
+//		Questions question = new Questions();
+//		question.setQuestionName("What is the capital of india");
+//		question.setAnswer("a");
+//		question.setAnswer1("delhi");
+//		question.setAnswer2("Mumbai");
+//		question.setAnswer3("chennai");
+//		question.setAnswer4("bangalore");
+//		question.setCategoryId(1);
+//		question.setDifficultyId(1);
+//		
+//		questionService.editQuestion(question.getId(), question);
+//	}
+//	
+//	@Test
+//	@Transactional
+//	@Rollback(true)
+//	public void getAllQuestionsTest() throws BadRequestException {
+//
+//		List<Questions> questionsList = questionService.getAll();
+//		int size = questionsList.size();
+//
+//		
+//		questionService.addQuestion("What is the capital of india", "Delhi", "Mumbai", "Chennai", "Bangalore", "Delhi",
+//				1, 1);
+//
+//		List<Questions> updatedQuestionList = questionService.getAll();
+//		int newsize = updatedQuestionList.size();
+//		
+//		assertEquals(size+1, newsize);
+//
+//	}
+//		
+//}
 //
 //	@Test
 //	@Transactional
