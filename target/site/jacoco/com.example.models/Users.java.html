@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Users.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.models</a> &gt; <span class="el_source">Users.java</span></div><h1>Users.java</h1><pre class="source lang-java linenums">package com.example.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+/**
+ * Users table
+ * 
+ * @author abhilashsunkam
+ *
+ */
+@Entity
+@Table(name = &quot;users&quot;, catalog = &quot;quizapp&quot;)
+public class Users implements java.io.Serializable {
+
+	private Integer id;
+	private Quizzes quizzes;
+	private Role role;
+	private String email;
+	private int score;
+
+<span class="fc" id="L31">	public Users() {</span>
+<span class="fc" id="L32">	}</span>
+
+<span class="nc" id="L34">	public Users(Quizzes quizzes, Role role, String email, int score) {</span>
+<span class="nc" id="L35">		this.quizzes = quizzes;</span>
+<span class="nc" id="L36">		this.role = role;</span>
+<span class="nc" id="L37">		this.email = email;</span>
+<span class="nc" id="L38">		this.score = score;</span>
+<span class="nc" id="L39">	}</span>
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+
+	@Column(name = &quot;id&quot;, unique = true, nullable = false)
+	public Integer getId() {
+<span class="fc" id="L46">		return this.id;</span>
+	}
+
+	public void setId(Integer id) {
+<span class="nc" id="L50">		this.id = id;</span>
+<span class="nc" id="L51">	}</span>
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = &quot;quiz_id&quot;, nullable = true)
+	public Quizzes getQuizzes() {
+<span class="nc" id="L56">		return this.quizzes;</span>
+	}
+
+	public void setQuizzes(Quizzes quizzes) {
+<span class="nc" id="L60">		this.quizzes = quizzes;</span>
+<span class="nc" id="L61">	}</span>
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = &quot;role_id&quot;, nullable = true)
+	public Role getRole() {
+<span class="nc" id="L66">		return this.role;</span>
+	}
+
+	public void setRole(Role role) {
+<span class="nc" id="L70">		this.role = role;</span>
+<span class="nc" id="L71">	}</span>
+
+	@Column(name = &quot;email&quot;, nullable = false, length = 50)
+	public String getEmail() {
+<span class="nc" id="L75">		return this.email;</span>
+	}
+
+	public void setEmail(String email) {
+<span class="nc" id="L79">		this.email = email;</span>
+<span class="nc" id="L80">	}</span>
+
+	@Column(name = &quot;score&quot;, nullable = true)
+	public int getScore() {
+<span class="nc" id="L84">		return this.score;</span>
+	}
+
+	public void setScore(int score) {
+<span class="nc" id="L88">		this.score = score;</span>
+<span class="nc" id="L89">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

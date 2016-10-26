@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>QuestionServiceImpl.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.service</a> &gt; <span class="el_source">QuestionServiceImpl.java</span></div><h1>QuestionServiceImpl.java</h1><pre class="source lang-java linenums">package com.example.service;
+
+import java.util.List;
+
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.models.Questions;
+import com.example.repository.QuestionsRepository;
+
+/**
+ * Question service Implementation
+ * 
+ * @author abhilashsunkam
+ *
+ */
+@Service
+<span class="fc" id="L19">public class QuestionServiceImpl implements QuestionService {</span>
+
+<span class="fc" id="L21">	private static final Logger logger = Logger.getLogger(QuestionServiceImpl.class);</span>
+	@Autowired
+	QuestionsRepository questionsRepository;
+
+	@Override
+	public List&lt;Questions&gt; getAll() {
+<span class="fc" id="L27">		return questionsRepository.getAll();</span>
+	}
+
+	@Override
+	public List&lt;Questions&gt; getById(Integer id) {
+<span class="fc" id="L32">		return questionsRepository.getById(id);</span>
+	}
+
+	@Override
+	public void deleteById(Integer id) {
+<span class="fc" id="L37">		questionsRepository.deleteById(id);</span>
+<span class="fc" id="L38">		return;</span>
+	}
+
+	@Override
+	public void save(Questions questions) {
+<span class="nc" id="L43">		questionsRepository.save(questions);</span>
+<span class="nc" id="L44">	}</span>
+
+	@Override
+	public Questions findById(Integer id) {
+<span class="nc" id="L48">		return questionsRepository.findById(id);</span>
+	}
+
+	@Override
+	public void update(Questions question) {
+<span class="nc" id="L53">		questionsRepository.update(question);</span>
+<span class="nc" id="L54">		return;</span>
+	}
+
+	@Override
+	public List&lt;Questions&gt; generateQuizRand(Integer cid, Integer did) {
+<span class="nc" id="L59">		return questionsRepository.generateQuizRand(cid, did);</span>
+	}
+
+	@Override
+	public void editQuestion(Integer id, Questions question) {
+<span class="fc" id="L64">		Questions currentQuestion = questionsRepository.findById(id);</span>
+<span class="fc" id="L65">		currentQuestion.setQuestionName(question.getQuestionName());</span>
+<span class="fc" id="L66">		currentQuestion.setAnswer1(question.getAnswer1());</span>
+<span class="fc" id="L67">		currentQuestion.setAnswer2(question.getAnswer2());</span>
+<span class="fc" id="L68">		currentQuestion.setAnswer3(question.getAnswer3());</span>
+<span class="fc" id="L69">		currentQuestion.setAnswer4(question.getAnswer4());</span>
+<span class="fc" id="L70">		currentQuestion.setAnswer(question.getAnswer());</span>
+<span class="fc" id="L71">		currentQuestion.setCategoryId(question.getCategoryId());</span>
+<span class="fc" id="L72">		currentQuestion.setDifficultyId(question.getDifficultyId());</span>
+
+<span class="fc" id="L74">		questionsRepository.update(currentQuestion);</span>
+<span class="fc" id="L75">	}</span>
+
+	@Override
+	public void addQuestion(String questionName, String answer1, String answer2, String answer3, String answer4,
+			String answer, Integer categoryId, Integer difficultyId) {
+
+<span class="fc" id="L81">		Questions newQuestion = new Questions();</span>
+<span class="fc" id="L82">		newQuestion.setQuestionName(questionName);</span>
+<span class="fc" id="L83">		newQuestion.setAnswer1(answer1);</span>
+<span class="fc" id="L84">		newQuestion.setAnswer2(answer2);</span>
+<span class="fc" id="L85">		newQuestion.setAnswer3(answer3);</span>
+<span class="fc" id="L86">		newQuestion.setAnswer4(answer4);</span>
+<span class="fc" id="L87">		newQuestion.setAnswer(answer);</span>
+<span class="fc" id="L88">		newQuestion.setCategoryId(categoryId);</span>
+<span class="fc" id="L89">		newQuestion.setDifficultyId(difficultyId);</span>
+
+<span class="fc" id="L91">		questionsRepository.save(newQuestion);</span>
+
+<span class="fc" id="L93">	}</span>
+
+	@Override
+	public List&lt;Questions&gt; getQuestionsFromQuiz(Integer quizId) {
+<span class="nc" id="L97">		return questionsRepository.getQuestions(quizId);</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
