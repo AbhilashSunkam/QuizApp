@@ -22,44 +22,44 @@ import com.example.models.Role;
 @Transactional
 public class RoleRepository {
 
-	@Autowired
-	private SessionFactory _sessionFactory;
+  @Autowired
+  private SessionFactory _sessionFactory;
 
-	private Session getSession() {
-		return _sessionFactory.getCurrentSession();
-	}
+  private Session getSession() {
+    return _sessionFactory.getCurrentSession();
+  }
 
-	@SuppressWarnings("unchecked")
-	public List<Role> getAll() {
-		return getSession().createQuery("from Role").list();
-	}
+  @SuppressWarnings("unchecked")
+  public List<Role> getAll() {
+    return getSession().createQuery("from Role").list();
+  }
 
-	@SuppressWarnings("unchecked")
-	public List<Role> getById(Integer id) {
-		return getSession().createQuery("from Role where id = :id").setParameter("id", id).list();
-	}
+  @SuppressWarnings("unchecked")
+  public List<Role> getById(Integer id) {
+    return getSession().createQuery("from Role where id = :id").setParameter("id", id).list();
+  }
 
-	public void deleteById(Integer id) {
-		Role question = (Role) getSession().load(Role.class, id);
-		getSession().delete(question);
-		System.out.println("Deleting id" + id);
-		return;
-	}
+  public void deleteById(Integer id) {
+    Role question = (Role) getSession().load(Role.class, id);
+    getSession().delete(question);
+    System.out.println("Deleting id" + id);
+    return;
+  }
 
-	public void save(Role questions) {
-		getSession().save(questions);
-		return;
-	}
+  public void save(Role questions) {
+    getSession().save(questions);
+    return;
+  }
 
-	public Role findById(Integer id) {
-		System.out.println("Return question with id" + id);
-		return (Role) getSession().get(Role.class, id);
+  public Role findById(Integer id) {
+    System.out.println("Return question with id" + id);
+    return (Role) getSession().get(Role.class, id);
 
-	}
+  }
 
-	public void update(Role question) {
-		getSession().update(question);
-		return;
-	}
+  public void update(Role question) {
+    getSession().update(question);
+    return;
+  }
 
 }

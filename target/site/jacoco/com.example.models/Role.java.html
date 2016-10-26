@@ -23,51 +23,50 @@ import javax.persistence.Table;
 @Table(name = &quot;role&quot;, catalog = &quot;quizapp&quot;)
 public class Role implements java.io.Serializable {
 
-	private Integer id;
-	private String roleName;
-<span class="pc" id="L28">	private Set&lt;Users&gt; userses = new HashSet&lt;Users&gt;(0);</span>
+  private Integer id;
+  private String roleName;
+<span class="pc" id="L28">  private Set&lt;Users&gt; userses = new HashSet&lt;Users&gt;(0);</span>
 
-<span class="fc" id="L30">	public Role() {</span>
-<span class="fc" id="L31">	}</span>
+<span class="fc" id="L30">  public Role() {}</span>
 
-<span class="nc" id="L33">	public Role(String roleName) {</span>
-<span class="nc" id="L34">		this.roleName = roleName;</span>
-<span class="nc" id="L35">	}</span>
+<span class="nc" id="L32">  public Role(String roleName) {</span>
+<span class="nc" id="L33">    this.roleName = roleName;</span>
+<span class="nc" id="L34">  }</span>
 
-<span class="nc" id="L37">	public Role(String roleName, Set&lt;Users&gt; userses) {</span>
-<span class="nc" id="L38">		this.roleName = roleName;</span>
-<span class="nc" id="L39">		this.userses = userses;</span>
-<span class="nc" id="L40">	}</span>
+<span class="nc" id="L36">  public Role(String roleName, Set&lt;Users&gt; userses) {</span>
+<span class="nc" id="L37">    this.roleName = roleName;</span>
+<span class="nc" id="L38">    this.userses = userses;</span>
+<span class="nc" id="L39">  }</span>
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
 
-	@Column(name = &quot;id&quot;, unique = true, nullable = false)
-	public Integer getId() {
-<span class="fc" id="L47">		return this.id;</span>
-	}
+  @Column(name = &quot;id&quot;, unique = true, nullable = false)
+  public Integer getId() {
+<span class="fc" id="L46">    return this.id;</span>
+  }
 
-	public void setId(Integer id) {
-<span class="nc" id="L51">		this.id = id;</span>
-<span class="nc" id="L52">	}</span>
+  public void setId(Integer id) {
+<span class="nc" id="L50">    this.id = id;</span>
+<span class="nc" id="L51">  }</span>
 
-	@Column(name = &quot;role_name&quot;, nullable = false)
-	public String getRoleName() {
-<span class="nc" id="L56">		return this.roleName;</span>
-	}
+  @Column(name = &quot;role_name&quot;, nullable = false)
+  public String getRoleName() {
+<span class="nc" id="L55">    return this.roleName;</span>
+  }
 
-	public void setRoleName(String roleName) {
-<span class="nc" id="L60">		this.roleName = roleName;</span>
-<span class="nc" id="L61">	}</span>
+  public void setRoleName(String roleName) {
+<span class="nc" id="L59">    this.roleName = roleName;</span>
+<span class="nc" id="L60">  }</span>
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;role&quot;)
-	public Set&lt;Users&gt; getUserses() {
-<span class="nc" id="L65">		return this.userses;</span>
-	}
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;role&quot;)
+  public Set&lt;Users&gt; getUserses() {
+<span class="nc" id="L64">    return this.userses;</span>
+  }
 
-	public void setUserses(Set&lt;Users&gt; userses) {
-<span class="nc" id="L69">		this.userses = userses;</span>
-<span class="nc" id="L70">	}</span>
+  public void setUserses(Set&lt;Users&gt; userses) {
+<span class="nc" id="L68">    this.userses = userses;</span>
+<span class="nc" id="L69">  }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

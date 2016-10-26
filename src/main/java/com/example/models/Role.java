@@ -23,50 +23,49 @@ import javax.persistence.Table;
 @Table(name = "role", catalog = "quizapp")
 public class Role implements java.io.Serializable {
 
-	private Integer id;
-	private String roleName;
-	private Set<Users> userses = new HashSet<Users>(0);
+  private Integer id;
+  private String roleName;
+  private Set<Users> userses = new HashSet<Users>(0);
 
-	public Role() {
-	}
+  public Role() {}
 
-	public Role(String roleName) {
-		this.roleName = roleName;
-	}
+  public Role(String roleName) {
+    this.roleName = roleName;
+  }
 
-	public Role(String roleName, Set<Users> userses) {
-		this.roleName = roleName;
-		this.userses = userses;
-	}
+  public Role(String roleName, Set<Users> userses) {
+    this.roleName = roleName;
+    this.userses = userses;
+  }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
 
-	@Column(name = "id", unique = true, nullable = false)
-	public Integer getId() {
-		return this.id;
-	}
+  @Column(name = "id", unique = true, nullable = false)
+  public Integer getId() {
+    return this.id;
+  }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-	@Column(name = "role_name", nullable = false)
-	public String getRoleName() {
-		return this.roleName;
-	}
+  @Column(name = "role_name", nullable = false)
+  public String getRoleName() {
+    return this.roleName;
+  }
 
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
+  public void setRoleName(String roleName) {
+    this.roleName = roleName;
+  }
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
-	public Set<Users> getUserses() {
-		return this.userses;
-	}
+  @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+  public Set<Users> getUserses() {
+    return this.userses;
+  }
 
-	public void setUserses(Set<Users> userses) {
-		this.userses = userses;
-	}
+  public void setUserses(Set<Users> userses) {
+    this.userses = userses;
+  }
 
 }

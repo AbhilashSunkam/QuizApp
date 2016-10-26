@@ -1,13 +1,13 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-demo,com.example,AuthController,94,44,8,0,24,5,5,2,1,2
+demo,com.example,AuthController,94,44,8,0,24,6,5,2,1,2
 demo,com.example,QuestionController,152,3,0,0,35,1,11,1,11,1
 demo,com.example,Application,14,3,0,0,3,1,2,1,2,1
 demo,com.example,QuizplayController,45,3,0,0,11,1,5,1,5,1
 demo,com.example.models,Quizquestions,17,0,0,0,8,0,5,0,5,0
-demo,com.example.models,Role,45,12,0,0,15,4,7,2,7,2
+demo,com.example.models,Role,45,12,0,0,15,3,7,2,7,2
 demo,com.example.models,Quizzes,12,38,0,0,5,17,1,11,1,11
-demo,com.example.models,Users,47,6,0,0,20,3,10,2,10,2
-demo,com.example.models,Questions,27,73,0,0,10,32,1,21,1,21
+demo,com.example.models,Users,47,6,0,0,20,2,10,2,10,2
+demo,com.example.models,Questions,27,73,0,0,10,31,1,21,1,21
 demo,com.example.service,QuestionServiceImpl,26,96,0,0,7,28,5,7,5,7
 demo,com.example.service,QuizServiceImpl,38,19,0,0,12,5,5,4,5,4
 demo,com.example.service,RoleServiceImpl,33,3,0,0,10,1,7,1,7,1
@@ -19,4 +19,4 @@ demo,com.example.repository,UsersRepository,69,3,0,0,13,1,7,1,7,1
 demo,com.example.repository,QuestionsRepository,23,72,0,0,6,14,2,8,2,8
 demo,com.example.repository,QuizRepository,34,52,0,0,7,10,4,5,4,5
 demo,com.example.repository,RoleRepository,69,3,0,0,13,1,7,1,7,1
-demo,com.example.repository,QuizquestionsRepository,69,3,0,0,13,1,7,1,7,1
+demo,com.example.repository,QuizquestionsRepository,69,3,0,0,14,1,7,1,7,1

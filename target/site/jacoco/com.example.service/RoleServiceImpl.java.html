@@ -19,47 +19,47 @@ import com.example.repository.RoleRepository;
 @Service
 <span class="fc" id="L20">public class RoleServiceImpl implements RoleService {</span>
 
-	@Autowired
-	RoleRepository roleRepository;
+  @Autowired
+  RoleRepository roleRepository;
 
-	@Autowired
-	private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-	private Session getSession() {
-<span class="nc" id="L29">		return sessionFactory.getCurrentSession();</span>
-	}
+  private Session getSession() {
+<span class="nc" id="L29">    return sessionFactory.getCurrentSession();</span>
+  }
 
-	@Override
-	public List&lt;Role&gt; getAll() {
-<span class="nc" id="L34">		return roleRepository.getAll();</span>
-	}
+  @Override
+  public List&lt;Role&gt; getAll() {
+<span class="nc" id="L34">    return roleRepository.getAll();</span>
+  }
 
-	@Override
-	public List&lt;Role&gt; getById(Integer id) {
-<span class="nc" id="L39">		return roleRepository.getById(id);</span>
-	}
+  @Override
+  public List&lt;Role&gt; getById(Integer id) {
+<span class="nc" id="L39">    return roleRepository.getById(id);</span>
+  }
 
-	@Override
-	public void deleteById(Integer id) {
-<span class="nc" id="L44">		roleRepository.deleteById(id);</span>
-<span class="nc" id="L45">		return;</span>
-	}
+  @Override
+  public void deleteById(Integer id) {
+<span class="nc" id="L44">    roleRepository.deleteById(id);</span>
+<span class="nc" id="L45">    return;</span>
+  }
 
-	@Override
-	public void save(Role role) {
-<span class="nc" id="L50">		roleRepository.save(role);</span>
-<span class="nc" id="L51">	}</span>
+  @Override
+  public void save(Role role) {
+<span class="nc" id="L50">    roleRepository.save(role);</span>
+<span class="nc" id="L51">  }</span>
 
-	@Override
-	public Role findById(Integer id) {
-<span class="nc" id="L55">		return roleRepository.findById(id);</span>
-	}
+  @Override
+  public Role findById(Integer id) {
+<span class="nc" id="L55">    return roleRepository.findById(id);</span>
+  }
 
-	@Override
-	public void update(Role role) {
-<span class="nc" id="L60">		roleRepository.update(role);</span>
-<span class="nc" id="L61">		return;</span>
-	}
+  @Override
+  public void update(Role role) {
+<span class="nc" id="L60">    roleRepository.update(role);</span>
+<span class="nc" id="L61">    return;</span>
+  }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

@@ -18,36 +18,36 @@ import javax.persistence.Table;
 @Table(name = &quot;quizquestions&quot;)
 public class Quizquestions implements Serializable {
 
-	// private Integer id;
-	private Questions questions;
-	private Quizzes quizzes;
+  // private Integer id;
+  private Questions questions;
+  private Quizzes quizzes;
 
-	public Quizquestions() {
-<span class="nc" id="L26">		super();</span>
-		// TODO Auto-generated constructor stub
-<span class="nc" id="L28">	}</span>
+  public Quizquestions() {
+<span class="nc" id="L26">    super();</span>
+    // TODO Auto-generated constructor stub
+<span class="nc" id="L28">  }</span>
 
-	@Id
-	@ManyToOne
-	@JoinColumn(name = &quot;question_id&quot;, referencedColumnName = &quot;id&quot;)
-	public Questions getQuestions() {
-<span class="nc" id="L34">		return questions;</span>
-	}
+  @Id
+  @ManyToOne
+  @JoinColumn(name = &quot;question_id&quot;, referencedColumnName = &quot;id&quot;)
+  public Questions getQuestions() {
+<span class="nc" id="L34">    return questions;</span>
+  }
 
-	public void setQuestions(Questions questions) {
-<span class="nc" id="L38">		this.questions = questions;</span>
-<span class="nc" id="L39">	}</span>
+  public void setQuestions(Questions questions) {
+<span class="nc" id="L38">    this.questions = questions;</span>
+<span class="nc" id="L39">  }</span>
 
-	@Id
-	@ManyToOne
-	@JoinColumn(name = &quot;quiz_id&quot;, referencedColumnName = &quot;id&quot;)
-	public Quizzes getQuizzes() {
-<span class="nc" id="L45">		return quizzes;</span>
-	}
+  @Id
+  @ManyToOne
+  @JoinColumn(name = &quot;quiz_id&quot;, referencedColumnName = &quot;id&quot;)
+  public Quizzes getQuizzes() {
+<span class="nc" id="L45">    return quizzes;</span>
+  }
 
-	public void setQuizzes(Quizzes quizzes) {
-<span class="nc" id="L49">		this.quizzes = quizzes;</span>
-<span class="nc" id="L50">	}</span>
+  public void setQuizzes(Quizzes quizzes) {
+<span class="nc" id="L49">    this.quizzes = quizzes;</span>
+<span class="nc" id="L50">  }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

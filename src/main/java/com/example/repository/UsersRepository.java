@@ -21,44 +21,44 @@ import com.example.models.Users;
 @Transactional
 public class UsersRepository {
 
-	@Autowired
-	private SessionFactory _sessionFactory;
+  @Autowired
+  private SessionFactory _sessionFactory;
 
-	private Session getSession() {
-		return _sessionFactory.getCurrentSession();
-	}
+  private Session getSession() {
+    return _sessionFactory.getCurrentSession();
+  }
 
-	@SuppressWarnings("unchecked")
-	public List<Users> getAll() {
-		return getSession().createQuery("from Users").list();
-	}
+  @SuppressWarnings("unchecked")
+  public List<Users> getAll() {
+    return getSession().createQuery("from Users").list();
+  }
 
-	@SuppressWarnings("unchecked")
-	public List<Users> getById(Integer id) {
-		return getSession().createQuery("from Users where id = :id").setParameter("id", id).list();
-	}
+  @SuppressWarnings("unchecked")
+  public List<Users> getById(Integer id) {
+    return getSession().createQuery("from Users where id = :id").setParameter("id", id).list();
+  }
 
-	public void deleteById(Integer id) {
-		Users question = (Users) getSession().load(Users.class, id);
-		getSession().delete(question);
-		System.out.println("Deleting id" + id);
-		return;
-	}
+  public void deleteById(Integer id) {
+    Users question = (Users) getSession().load(Users.class, id);
+    getSession().delete(question);
+    System.out.println("Deleting id" + id);
+    return;
+  }
 
-	public void save(Users questions) {
-		getSession().save(questions);
-		return;
-	}
+  public void save(Users questions) {
+    getSession().save(questions);
+    return;
+  }
 
-	public Users findById(Integer id) {
-		System.out.println("Return question with id" + id);
-		return (Users) getSession().get(Users.class, id);
+  public Users findById(Integer id) {
+    System.out.println("Return question with id" + id);
+    return (Users) getSession().get(Users.class, id);
 
-	}
+  }
 
-	public void update(Users question) {
-		getSession().update(question);
-		return;
-	}
+  public void update(Users question) {
+    getSession().update(question);
+    return;
+  }
 
 }

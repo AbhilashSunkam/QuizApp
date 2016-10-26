@@ -16,60 +16,60 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 <span class="fc" id="L17">public class DatabaseConfig {</span>
 
-	@Value(&quot;${db.driver}&quot;)
-	private String DB_DRIVER;
+  @Value(&quot;${db.driver}&quot;)
+  private String DB_DRIVER;
 
-	@Value(&quot;${db.password}&quot;)
-	private String DB_PASSWORD;
+  @Value(&quot;${db.password}&quot;)
+  private String DB_PASSWORD;
 
-	@Value(&quot;${db.url}&quot;)
-	private String DB_URL;
+  @Value(&quot;${db.url}&quot;)
+  private String DB_URL;
 
-	@Value(&quot;${db.username}&quot;)
-	private String DB_USERNAME;
+  @Value(&quot;${db.username}&quot;)
+  private String DB_USERNAME;
 
-	@Value(&quot;${hibernate.dialect}&quot;)
-	private String HIBERNATE_DIALECT;
+  @Value(&quot;${hibernate.dialect}&quot;)
+  private String HIBERNATE_DIALECT;
 
-	@Value(&quot;${hibernate.show_sql}&quot;)
-	private String HIBERNATE_SHOW_SQL;
+  @Value(&quot;${hibernate.show_sql}&quot;)
+  private String HIBERNATE_SHOW_SQL;
 
-	@Value(&quot;${hibernate.hbm2ddl.auto}&quot;)
-	private String HIBERNATE_HBM2DDL_AUTO;
+  @Value(&quot;${hibernate.hbm2ddl.auto}&quot;)
+  private String HIBERNATE_HBM2DDL_AUTO;
 
-	@Value(&quot;${entitymanager.packagesToScan}&quot;)
-	private String ENTITYMANAGER_PACKAGES_TO_SCAN;
+  @Value(&quot;${entitymanager.packagesToScan}&quot;)
+  private String ENTITYMANAGER_PACKAGES_TO_SCAN;
 
-	@Bean
-	public DataSource dataSource() {
-<span class="nc" id="L45">		DriverManagerDataSource dataSource = new DriverManagerDataSource();</span>
-<span class="nc" id="L46">		dataSource.setDriverClassName(DB_DRIVER);</span>
-<span class="nc" id="L47">		dataSource.setUrl(DB_URL);</span>
-<span class="nc" id="L48">		dataSource.setUsername(DB_USERNAME);</span>
-<span class="nc" id="L49">		dataSource.setPassword(DB_PASSWORD);</span>
-<span class="nc" id="L50">		return dataSource;</span>
-	}
+  @Bean
+  public DataSource dataSource() {
+<span class="nc" id="L45">    DriverManagerDataSource dataSource = new DriverManagerDataSource();</span>
+<span class="nc" id="L46">    dataSource.setDriverClassName(DB_DRIVER);</span>
+<span class="nc" id="L47">    dataSource.setUrl(DB_URL);</span>
+<span class="nc" id="L48">    dataSource.setUsername(DB_USERNAME);</span>
+<span class="nc" id="L49">    dataSource.setPassword(DB_PASSWORD);</span>
+<span class="nc" id="L50">    return dataSource;</span>
+  }
 
-	@Bean
-	public LocalSessionFactoryBean sessionFactory() {
-<span class="nc" id="L55">		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();</span>
-<span class="nc" id="L56">		sessionFactoryBean.setDataSource(dataSource());</span>
-<span class="nc" id="L57">		sessionFactoryBean.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);</span>
-<span class="nc" id="L58">		Properties hibernateProperties = new Properties();</span>
-<span class="nc" id="L59">		hibernateProperties.put(&quot;hibernate.dialect&quot;, HIBERNATE_DIALECT);</span>
-<span class="nc" id="L60">		hibernateProperties.put(&quot;hibernate.show_sql&quot;, HIBERNATE_SHOW_SQL);</span>
-<span class="nc" id="L61">		hibernateProperties.put(&quot;hibernate.hbm2ddl.auto&quot;, HIBERNATE_HBM2DDL_AUTO);</span>
-<span class="nc" id="L62">		sessionFactoryBean.setHibernateProperties(hibernateProperties);</span>
+  @Bean
+  public LocalSessionFactoryBean sessionFactory() {
+<span class="nc" id="L55">    LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();</span>
+<span class="nc" id="L56">    sessionFactoryBean.setDataSource(dataSource());</span>
+<span class="nc" id="L57">    sessionFactoryBean.setPackagesToScan(ENTITYMANAGER_PACKAGES_TO_SCAN);</span>
+<span class="nc" id="L58">    Properties hibernateProperties = new Properties();</span>
+<span class="nc" id="L59">    hibernateProperties.put(&quot;hibernate.dialect&quot;, HIBERNATE_DIALECT);</span>
+<span class="nc" id="L60">    hibernateProperties.put(&quot;hibernate.show_sql&quot;, HIBERNATE_SHOW_SQL);</span>
+<span class="nc" id="L61">    hibernateProperties.put(&quot;hibernate.hbm2ddl.auto&quot;, HIBERNATE_HBM2DDL_AUTO);</span>
+<span class="nc" id="L62">    sessionFactoryBean.setHibernateProperties(hibernateProperties);</span>
 
-<span class="nc" id="L64">		return sessionFactoryBean;</span>
-	}
+<span class="nc" id="L64">    return sessionFactoryBean;</span>
+  }
 
-	@Bean
-	public HibernateTransactionManager transactionManager() {
-<span class="nc" id="L69">		HibernateTransactionManager transactionManager = new HibernateTransactionManager();</span>
-<span class="nc" id="L70">		transactionManager.setSessionFactory(sessionFactory().getObject());</span>
-<span class="nc" id="L71">		return transactionManager;</span>
-	}
+  @Bean
+  public HibernateTransactionManager transactionManager() {
+<span class="nc" id="L69">    HibernateTransactionManager transactionManager = new HibernateTransactionManager();</span>
+<span class="nc" id="L70">    transactionManager.setSessionFactory(sessionFactory().getObject());</span>
+<span class="nc" id="L71">    return transactionManager;</span>
+  }
 
 } // class DatabaseConfig
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

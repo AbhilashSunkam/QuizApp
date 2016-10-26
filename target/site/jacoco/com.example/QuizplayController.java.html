@@ -32,112 +32,100 @@ import inti.ws.spring.exception.client.UnauthorizedException;
 @Controller
 <span class="fc" id="L33">public class QuizplayController {</span>
 
-	@Autowired
-	QuizService quizservice;
+  @Autowired
+  QuizService quizservice;
 
-	@Autowired
-	QuizquestionsService quizquestionsService;
+  @Autowired
+  QuizquestionsService quizquestionsService;
 
-	@Autowired
-	QuestionService questionService;
+  @Autowired
+  QuestionService questionService;
 
-	@Autowired
-	AuthenticateService authenticateService;
+  @Autowired
+  AuthenticateService authenticateService;
 
-	/**
-	 * Controller that returns quiz based on category and difficulty
-	 * 
-	 * @param session
-	 *            HttpSession object to validate user session
-	 * @param cId
-	 * @param dId
-	 * @return List of Quizzes randomly {@link QuizService}
-	 * @throws UnauthorizedException
-	 *             Throws when user doesn't have a valid session
-	 * 
-	 */
-	@RequestMapping(value = &quot;/quizplay/{cId}/{dId}&quot;, method = RequestMethod.GET)
-	@ResponseBody
-	public List&lt;Quizzes&gt; quizPlay(HttpSession session, @PathVariable(&quot;cId&quot;) Integer cId,
-			@PathVariable(&quot;dId&quot;) Integer dId) throws UnauthorizedException {
-<span class="nc" id="L63">		authenticateService.validateSession(session);</span>
-<span class="nc" id="L64">		return quizservice.getQuizRand(cId, dId);</span>
-	}
+  /**
+   * Controller that returns quiz based on category and difficulty
+   * 
+   * @param session HttpSession object to validate user session
+   * @param cId
+   * @param dId
+   * @return List of Quizzes randomly {@link QuizService}
+   * @throws UnauthorizedException Throws when user doesn't have a valid session
+   * 
+   */
+  @RequestMapping(value = &quot;/quizplay/{cId}/{dId}&quot;, method = RequestMethod.GET)
+  @ResponseBody
+  public List&lt;Quizzes&gt; quizPlay(HttpSession session, @PathVariable(&quot;cId&quot;) Integer cId,
+      @PathVariable(&quot;dId&quot;) Integer dId) throws UnauthorizedException {
+<span class="nc" id="L61">    authenticateService.validateSession(session);</span>
+<span class="nc" id="L62">    return quizservice.getQuizRand(cId, dId);</span>
+  }
 
-	/**
-	 * Controller for getting questions for a particular quiz id
-	 * 
-	 * @param session
-	 *            HttpSession object to validate user session
-	 * @param quizId
-	 * @return List of questions {@link QuestionService}
-	 * @throws UnauthorizedException
-	 *             Throws when user doesn't have a valid session
-	 * 
-	 */
-	@RequestMapping(value = &quot;/viewquestions/{quizId}&quot;, method = RequestMethod.GET)
-	@ResponseBody
-	@ResponseStatus(HttpStatus.OK)
-	public List&lt;Questions&gt; getQuizQuestions(HttpSession session, @PathVariable(&quot;quizId&quot;) Integer quizId)
-			throws UnauthorizedException {
-<span class="nc" id="L83">		authenticateService.validateSession(session);</span>
-<span class="nc" id="L84">		return questionService.getQuestionsFromQuiz(quizId);</span>
-	}
+  /**
+   * Controller for getting questions for a particular quiz id
+   * 
+   * @param session HttpSession object to validate user session
+   * @param quizId
+   * @return List of questions {@link QuestionService}
+   * @throws UnauthorizedException Throws when user doesn't have a valid session
+   * 
+   */
+  @RequestMapping(value = &quot;/viewquestions/{quizId}&quot;, method = RequestMethod.GET)
+  @ResponseBody
+  @ResponseStatus(HttpStatus.OK)
+  public List&lt;Questions&gt; getQuizQuestions(HttpSession session,
+      @PathVariable(&quot;quizId&quot;) Integer quizId) throws UnauthorizedException {
+<span class="nc" id="L79">    authenticateService.validateSession(session);</span>
+<span class="nc" id="L80">    return questionService.getQuestionsFromQuiz(quizId);</span>
+  }
 
-	/**
-	 * Controller that deletes a particular quiz
-	 * 
-	 * @param session
-	 *            HttpSession object to validate user session
-	 * @param quizId
-	 * @throws NotFoundException
-	 *             Throws when the quiz is not found
-	 * @throws BadRequestException
-	 *             Throws when there is no valid input
-	 * @throws UnauthorizedException
-	 *             Throws when user doesn't have a valid session
-	 * 
-	 */
-	@RequestMapping(value = &quot;/deletequiz/{quizId}&quot;, method = RequestMethod.DELETE)
-	@ResponseStatus(HttpStatus.OK)
-	public void deleteQuiz(HttpSession session, @PathVariable(&quot;quizId&quot;) Integer quizId)
-			throws NotFoundException, BadRequestException, UnauthorizedException {
-<span class="nc" id="L105">		authenticateService.validateSession(session);</span>
-<span class="nc" id="L106">		quizservice.deleteById(quizId);</span>
-<span class="nc" id="L107">	}</span>
+  /**
+   * Controller that deletes a particular quiz
+   * 
+   * @param session HttpSession object to validate user session
+   * @param quizId
+   * @throws NotFoundException Throws when the quiz is not found
+   * @throws BadRequestException Throws when there is no valid input
+   * @throws UnauthorizedException Throws when user doesn't have a valid session
+   * 
+   */
+  @RequestMapping(value = &quot;/deletequiz/{quizId}&quot;, method = RequestMethod.DELETE)
+  @ResponseStatus(HttpStatus.OK)
+  public void deleteQuiz(HttpSession session, @PathVariable(&quot;quizId&quot;) Integer quizId)
+      throws NotFoundException, BadRequestException, UnauthorizedException {
+<span class="nc" id="L97">    authenticateService.validateSession(session);</span>
+<span class="nc" id="L98">    quizservice.deleteById(quizId);</span>
+<span class="nc" id="L99">  }</span>
 
-	/**
-	 * Controllers that renders a quizPlay page
-	 * 
-	 * @param session
-	 *            HttpSession object to validate user session
-	 * @return Renders a HTML quizPlay page
-	 * @throws UnauthorizedException
-	 *             Throws when user doesn't have a valid session
-	 * 
-	 */
-	@RequestMapping(value = &quot;/quizplay&quot;, method = RequestMethod.GET)
-	@ResponseStatus(HttpStatus.OK)
-	public String viewQuizPlay(HttpSession session) throws UnauthorizedException {
-<span class="nc" id="L122">		authenticateService.validateSession(session);</span>
-<span class="nc" id="L123">		return &quot;quizplay&quot;;</span>
-	}
+  /**
+   * Controllers that renders a quizPlay page
+   * 
+   * @param session HttpSession object to validate user session
+   * @return Renders a HTML quizPlay page
+   * @throws UnauthorizedException Throws when user doesn't have a valid session
+   * 
+   */
+  @RequestMapping(value = &quot;/quizplay&quot;, method = RequestMethod.GET)
+  @ResponseStatus(HttpStatus.OK)
+  public String viewQuizPlay(HttpSession session) throws UnauthorizedException {
+<span class="nc" id="L112">    authenticateService.validateSession(session);</span>
+<span class="nc" id="L113">    return &quot;quizplay&quot;;</span>
+  }
 
-	/**
-	 * Controller that renders a quizQuestions page
-	 * 
-	 * @param session
-	 *            HttpSession object to validate user session
-	 * @return Renders a HTML quizQuestions page
-	 * @throws UnauthorizedException
-	 *             Throws when user doesn't have a valid session
-	 * 
-	 */
-	@RequestMapping(value = &quot;/quizquestions&quot;, method = RequestMethod.GET)
-	@ResponseStatus(HttpStatus.OK)
-	public String viewQuizQuestion(HttpSession session) throws UnauthorizedException {
-<span class="nc" id="L139">		authenticateService.validateSession(session);</span>
-<span class="nc" id="L140">		return &quot;quizQuestions&quot;;</span>
-	}
+  /**
+   * Controller that renders a quizQuestions page
+   * 
+   * @param session HttpSession object to validate user session
+   * @return Renders a HTML quizQuestions page
+   * @throws UnauthorizedException Throws when user doesn't have a valid session
+   * 
+   */
+  @RequestMapping(value = &quot;/quizquestions&quot;, method = RequestMethod.GET)
+  @ResponseStatus(HttpStatus.OK)
+  public String viewQuizQuestion(HttpSession session) throws UnauthorizedException {
+<span class="nc" id="L127">    authenticateService.validateSession(session);</span>
+<span class="nc" id="L128">    return &quot;quizQuestions&quot;;</span>
+  }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

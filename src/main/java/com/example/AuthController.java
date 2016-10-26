@@ -33,73 +33,72 @@ import inti.ws.spring.exception.client.UnauthorizedException;
 @RestController
 public class AuthController extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	UserService userservice;
+  @Autowired
+  UserService userservice;
 
-	@Autowired
-	RoleService roleservice;
+  @Autowired
+  RoleService roleservice;
 
-	Logger logger = Logger.getLogger(getClass());
+  Logger logger = Logger.getLogger(getClass());
 
-	/**
-	 * 
-	 * @param principal
-	 * @param session
-	 *            HttpSession object to validate user session
-	 * @return User who is authenticated {@link UserService}
-	 * @throws UnauthorizedException
-	 *             Throws when user doesn't have a valid session
-	 * @throws ForbiddenException
-	 *             Throws when the access is forbidden
-	 */
-	@RequestMapping("/user")
-	public Users user(Principal principal, HttpSession session) throws UnauthorizedException, ForbiddenException {
+  /**
+   * 
+   * @param principal
+   * @param session HttpSession object to validate user session
+   * @return User who is authenticated {@link UserService}
+   * @throws UnauthorizedException Throws when user doesn't have a valid session
+   * @throws ForbiddenException Throws when the access is forbidden
+   */
+  @RequestMapping("/user")
+  public Users user(Principal principal, HttpSession session)
+      throws UnauthorizedException, ForbiddenException {
 
-		logger.info("Recieved request for authentication");
-		if (principal == null)
-			throw new ForbiddenException("Access forbiden");
-		OAuth2Authentication auth = (OAuth2Authentication) principal;
-		if (auth.isAuthenticated()) {
+    logger.info("Recieved request for authentication");
+    if (principal == null)
+      throw new ForbiddenException("Access forbiden");
+    OAuth2Authentication auth = (OAuth2Authentication) principal;
+    if (auth.isAuthenticated()) {
 
-			@SuppressWarnings("unchecked")
-			LinkedHashMap<String, String> details = (LinkedHashMap<String, String>) auth.getUserAuthentication()
-					.getDetails();
+      @SuppressWarnings("unchecked")
+      LinkedHashMap<String, String> details =
+          (LinkedHashMap<String, String>) auth.getUserAuthentication().getDetails();
 
-			String domain = details.get("hd");
-			if (!"practo.com".equalsIgnoreCase(domain))
-				throw new UnauthorizedException("Unauthorized user");
+      String domain = details.get("hd");
+      if (!"practo.com".equalsIgnoreCase(domain))
+        throw new UnauthorizedException("Unauthorized user");
 
-			String email = details.get("email");
-			String name = details.get("name");
-			String picture = details.get("picture");
+      String email = details.get("email");
+      String name = details.get("name");
+      String picture = details.get("picture");
 
-			Users user = new Users();
-			Role role = new Role();
-			if ("abhilash.sunkam@practo.com".equalsIgnoreCase(email)) {
-				role.setId(1);
-			} else {
-				role.setId(2);
-			}
-			user.setRole(role);
+      Users user = new Users();
+      Role role = new Role();
+      if ("abhilash.sunkam@practo.com".equalsIgnoreCase(email)) {
+        role.setId(1);
+      } else {
+        role.setId(2);
+      }
+      user.setRole(role);
 
-			user.setEmail(email);
+      user.setEmail(email);
 
-			userservice.save(user);
+      userservice.save(user);
 
-			session.setAttribute("id", user.getId());
+      session.setAttribute("id", user.getId());
 
-			return user;
+      return user;
 
-		} else {
-			throw new UnauthorizedException("Login failed. Please try again");
-		}
+    } else {
+      throw new UnauthorizedException("Login failed. Please try again");
+    }
 
-	}
+  }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.antMatcher("/**").authorizeRequests().antMatchers("/**", "/login**", "/webjars/**").permitAll()
-				.anyRequest().authenticated().and().logout().logoutSuccessUrl("/").permitAll().and().csrf().disable();
-	}
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http.antMatcher("/**").authorizeRequests().antMatchers("/**", "/login**", "/webjars/**")
+        .permitAll().anyRequest().authenticated().and().logout().logoutSuccessUrl("/").permitAll()
+        .and().csrf().disable();
+  }
 
 }

@@ -8,20 +8,21 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Main class
+ * 
  * @author abhilashsunkam
  *
  */
 @SpringBootApplication
 @Configuration
-<span class="fc" id="L16">public class Application extends SpringBootServletInitializer {</span>
+<span class="fc" id="L17">public class Application extends SpringBootServletInitializer {</span>
 
-	@Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-<span class="nc" id="L20">        return application.sources(Application.class);</span>
-    }
-	
-	public static void main(String[] args) {
-<span class="nc" id="L24">		SpringApplication.run(Application.class, args);</span>
-<span class="nc" id="L25">	}</span>
+  @Override
+  protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+<span class="nc" id="L21">    return application.sources(Application.class);</span>
+  }
+
+  public static void main(String[] args) {
+<span class="nc" id="L25">    SpringApplication.run(Application.class, args);</span>
+<span class="nc" id="L26">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

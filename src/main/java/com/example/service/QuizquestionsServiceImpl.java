@@ -26,60 +26,60 @@ import com.example.repository.QuizquestionsRepository;
 @Service
 public class QuizquestionsServiceImpl implements QuizquestionsService {
 
-	@Autowired
-	QuizquestionsRepository quizquestionsRepository;
+  @Autowired
+  QuizquestionsRepository quizquestionsRepository;
 
-	@Autowired
-	private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-	private Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
+  private Session getSession() {
+    return sessionFactory.getCurrentSession();
+  }
 
-	@Override
-	public List<Quizquestions> getAll() {
-		return quizquestionsRepository.getAll();
-	}
+  @Override
+  public List<Quizquestions> getAll() {
+    return quizquestionsRepository.getAll();
+  }
 
-	@Override
-	public List<Quizquestions> getById(Integer id) {
-		return quizquestionsRepository.getById(id);
-	}
+  @Override
+  public List<Quizquestions> getById(Integer id) {
+    return quizquestionsRepository.getById(id);
+  }
 
-	@Override
-	public void deleteById(Integer id) {
-		quizquestionsRepository.deleteById(id);
-		return;
-	}
+  @Override
+  public void deleteById(Integer id) {
+    quizquestionsRepository.deleteById(id);
+    return;
+  }
 
-	@Override
-	public void save(Quizquestions questions) {
-		quizquestionsRepository.save(questions);
-	}
+  @Override
+  public void save(Quizquestions questions) {
+    quizquestionsRepository.save(questions);
+  }
 
-	@Override
-	public Quizquestions findById(Integer id) {
-		return quizquestionsRepository.findById(id);
-	}
+  @Override
+  public Quizquestions findById(Integer id) {
+    return quizquestionsRepository.findById(id);
+  }
 
-	@Override
-	public void update(Quizquestions question) {
-		quizquestionsRepository.update(question);
-		return;
-	}
+  @Override
+  public void update(Quizquestions question) {
+    quizquestionsRepository.update(question);
+    return;
+  }
 
-	@Override
-	public void addToQuizQuestions(List<Questions> questions, Quizzes quizzes) {
-		for (Questions question : questions) {
-			Quizquestions quizquestions = new Quizquestions();
-			quizquestions.setQuestions(question);
-			quizquestions.setQuizzes(quizzes);
+  @Override
+  public void addToQuizQuestions(List<Questions> questions, Quizzes quizzes) {
+    for (Questions question : questions) {
+      Quizquestions quizquestions = new Quizquestions();
+      quizquestions.setQuestions(question);
+      quizquestions.setQuizzes(quizzes);
 
-			System.out.println(quizquestions.getQuestions().getId());
-			System.out.println(quizquestions.getQuizzes().getId());
-			quizquestionsRepository.save(quizquestions);
-		}
+      System.out.println(quizquestions.getQuestions().getId());
+      System.out.println(quizquestions.getQuizzes().getId());
+      quizquestionsRepository.save(quizquestions);
+    }
 
-	}
+  }
 
 }

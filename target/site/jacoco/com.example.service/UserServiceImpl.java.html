@@ -18,47 +18,47 @@ import com.example.repository.UsersRepository;
 @Service
 <span class="fc" id="L19">public class UserServiceImpl implements UserService {</span>
 
-	@Autowired
-	UsersRepository usersRepository;
+  @Autowired
+  UsersRepository usersRepository;
 
-	@Autowired
-	private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-	private Session getSession() {
-<span class="nc" id="L28">		return sessionFactory.getCurrentSession();</span>
-	}
+  private Session getSession() {
+<span class="nc" id="L28">    return sessionFactory.getCurrentSession();</span>
+  }
 
-	@Override
-	public List&lt;Users&gt; getAll() {
-<span class="nc" id="L33">		return usersRepository.getAll();</span>
-	}
+  @Override
+  public List&lt;Users&gt; getAll() {
+<span class="nc" id="L33">    return usersRepository.getAll();</span>
+  }
 
-	@Override
-	public List&lt;Users&gt; getById(Integer id) {
-<span class="nc" id="L38">		return usersRepository.getById(id);</span>
-	}
+  @Override
+  public List&lt;Users&gt; getById(Integer id) {
+<span class="nc" id="L38">    return usersRepository.getById(id);</span>
+  }
 
-	@Override
-	public void deleteById(Integer id) {
-<span class="nc" id="L43">		usersRepository.deleteById(id);</span>
-<span class="nc" id="L44">		return;</span>
-	}
+  @Override
+  public void deleteById(Integer id) {
+<span class="nc" id="L43">    usersRepository.deleteById(id);</span>
+<span class="nc" id="L44">    return;</span>
+  }
 
-	@Override
-	public void save(Users user) {
-<span class="nc" id="L49">		usersRepository.save(user);</span>
-<span class="nc" id="L50">	}</span>
+  @Override
+  public void save(Users user) {
+<span class="nc" id="L49">    usersRepository.save(user);</span>
+<span class="nc" id="L50">  }</span>
 
-	@Override
-	public Users findById(Integer id) {
-<span class="nc" id="L54">		return usersRepository.findById(id);</span>
-	}
+  @Override
+  public Users findById(Integer id) {
+<span class="nc" id="L54">    return usersRepository.findById(id);</span>
+  }
 
-	@Override
-	public void update(Users user) {
-<span class="nc" id="L59">		usersRepository.update(user);</span>
-<span class="nc" id="L60">		return;</span>
-	}
+  @Override
+  public void update(Users user) {
+<span class="nc" id="L59">    usersRepository.update(user);</span>
+<span class="nc" id="L60">    return;</span>
+  }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

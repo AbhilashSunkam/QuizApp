@@ -12,15 +12,15 @@ import com.example.models.Role;
  */
 public interface RoleService {
 
-	public List<Role> getAll();
+  public List<Role> getAll();
 
-	public List<Role> getById(Integer id);
+  public List<Role> getById(Integer id);
 
-	public void deleteById(Integer id);
+  public void deleteById(Integer id);
 
-	public void save(Role role);
+  public void save(Role role);
 
-	public Role findById(Integer id);
+  public Role findById(Integer id);
 
-	public void update(Role role);
+  public void update(Role role);
 }

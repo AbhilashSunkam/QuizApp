@@ -18,46 +18,46 @@ import com.example.repository.UsersRepository;
 @Service
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	UsersRepository usersRepository;
+  @Autowired
+  UsersRepository usersRepository;
 
-	@Autowired
-	private SessionFactory sessionFactory;
+  @Autowired
+  private SessionFactory sessionFactory;
 
-	private Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
+  private Session getSession() {
+    return sessionFactory.getCurrentSession();
+  }
 
-	@Override
-	public List<Users> getAll() {
-		return usersRepository.getAll();
-	}
+  @Override
+  public List<Users> getAll() {
+    return usersRepository.getAll();
+  }
 
-	@Override
-	public List<Users> getById(Integer id) {
-		return usersRepository.getById(id);
-	}
+  @Override
+  public List<Users> getById(Integer id) {
+    return usersRepository.getById(id);
+  }
 
-	@Override
-	public void deleteById(Integer id) {
-		usersRepository.deleteById(id);
-		return;
-	}
+  @Override
+  public void deleteById(Integer id) {
+    usersRepository.deleteById(id);
+    return;
+  }
 
-	@Override
-	public void save(Users user) {
-		usersRepository.save(user);
-	}
+  @Override
+  public void save(Users user) {
+    usersRepository.save(user);
+  }
 
-	@Override
-	public Users findById(Integer id) {
-		return usersRepository.findById(id);
-	}
+  @Override
+  public Users findById(Integer id) {
+    return usersRepository.findById(id);
+  }
 
-	@Override
-	public void update(Users user) {
-		usersRepository.update(user);
-		return;
-	}
+  @Override
+  public void update(Users user) {
+    usersRepository.update(user);
+    return;
+  }
 
 }

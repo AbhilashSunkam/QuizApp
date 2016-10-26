@@ -22,44 +22,45 @@ import com.example.models.Quizquestions;
 @Transactional
 public class QuizquestionsRepository {
 
-	@Autowired
-	private SessionFactory _sessionFactory;
+  @Autowired
+  private SessionFactory _sessionFactory;
 
-	private Session getSession() {
-		return _sessionFactory.getCurrentSession();
-	}
+  private Session getSession() {
+    return _sessionFactory.getCurrentSession();
+  }
 
-	@SuppressWarnings("unchecked")
-	public List<Quizquestions> getAll() {
-		return getSession().createQuery("from Quizquestions").list();
-	}
+  @SuppressWarnings("unchecked")
+  public List<Quizquestions> getAll() {
+    return getSession().createQuery("from Quizquestions").list();
+  }
 
-	@SuppressWarnings("unchecked")
-	public List<Quizquestions> getById(Integer id) {
-		return getSession().createQuery("from Quizquestions where id = :id").setParameter("id", id).list();
-	}
+  @SuppressWarnings("unchecked")
+  public List<Quizquestions> getById(Integer id) {
+    return getSession().createQuery("from Quizquestions where id = :id").setParameter("id", id)
+        .list();
+  }
 
-	public void deleteById(Integer id) {
-		Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
-		getSession().delete(question);
-		System.out.println("Deleting id" + id);
-		return;
-	}
+  public void deleteById(Integer id) {
+    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
+    getSession().delete(question);
+    System.out.println("Deleting id" + id);
+    return;
+  }
 
-	public void save(Quizquestions questions) {
-		getSession().save(questions);
-		return;
-	}
+  public void save(Quizquestions questions) {
+    getSession().save(questions);
+    return;
+  }
 
-	public Quizquestions findById(Integer id) {
-		System.out.println("Return question with id" + id);
-		return (Quizquestions) getSession().get(Quizquestions.class, id);
+  public Quizquestions findById(Integer id) {
+    System.out.println("Return question with id" + id);
+    return (Quizquestions) getSession().get(Quizquestions.class, id);
 
-	}
+  }
 
-	public void update(Quizquestions question) {
-		getSession().update(question);
-		return;
-	}
+  public void update(Quizquestions question) {
+    getSession().update(question);
+    return;
+  }
 
 }
