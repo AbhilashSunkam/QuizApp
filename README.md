@@ -38,3 +38,4 @@ AWS Deployment : [amazon Ec2 hosting](http://ec2-35-161-132-3.us-west-2.compute.
 
 #Schema Diagram 
 
+![alt tag](https://github.com/AbhilashSunkam/QuizApp/blob/master/quizapp.svg)
