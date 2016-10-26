@@ -31,11 +31,10 @@ Sentry Link : [sentry](https://sentry.io/practo-bs/quiz-app/)
 
 AWS Deployment : [amazon Ec2 hosting](http://ec2-35-161-132-3.us-west-2.compute.amazonaws.com:8080/Quiz-App)
 
+Schema Diagram : [schema](https://github.com/AbhilashSunkam/QuizApp/blob/master/quizapp.svg)
+
 #Running on AWS server
 
 - Create a Deployable war file 
 - Run it on Tomcat server by putting the war file in the webapps folder
 
-#Schema Diagram 
-
-![alt tag](https://github.com/AbhilashSunkam/QuizApp/blob/master/quizapp.svg)
