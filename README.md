@@ -11,4 +11,4 @@ The admin will generate the questions and user would get the quiz set randomly:
 - go to browser and the application should be running under http://localhost:8080/home
 
 
-Apiary Link : https://app.apiary.io/quizapplication/editor
+Apiary Link : [apiary](https://app.apiary.io/quizapplication/editor)
