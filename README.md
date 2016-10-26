@@ -1,6 +1,8 @@
 
 #Quiz Application
 
+[![Travis](https://img.shields.io/travis/AbhilashSunkam/QuizApp.svg)](https://github.com/AbhilashSunkam/QuizApp)
+
 The admin will generate the questions and user would get the quiz set randomly:
 - Done using Spring Tool Suite (http://spring.io/tools/sts/all) 
 - open this project inside the Spring Tool Suite or eclipse
