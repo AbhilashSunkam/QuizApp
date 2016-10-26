@@ -25,7 +25,7 @@ Travis Link : [travis](https://travis-ci.org/AbhilashSunkam/QuizApp)
 
 Sentry Link : [sentry](https://sentry.io/practo-bs/quiz-app/)
 
-AWS Deployment : [amazon Ec2 hosting](ec2-35-161-132-3.us-west-2.compute.amazonaws.com:8080/Quiz-App)
+AWS Deployment : [amazon Ec2 hosting](http://ec2-35-161-132-3.us-west-2.compute.amazonaws.com:8080/Quiz-App)
 
 Running on AWS server
 - Create a Deployable war file 
