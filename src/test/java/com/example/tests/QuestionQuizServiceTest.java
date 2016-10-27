@@ -18,6 +18,7 @@ import com.example.models.Questions;
 import com.example.models.Quizzes;
 import com.example.service.QuestionService;
 import com.example.service.QuizService;
+import com.example.service.QuizquestionsService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -30,6 +31,9 @@ public class QuestionQuizServiceTest {
 
   @Autowired
   QuizService quizService;
+  
+  @Autowired
+  QuizquestionsService quizquestionsService; 
 
   @Test
   public void getQuestionsTest() {
@@ -101,6 +105,7 @@ public class QuestionQuizServiceTest {
       assertNull(question);
     }
   }
+  
 
   @Test
   public void getByIdTest() {
@@ -129,6 +134,6 @@ public class QuestionQuizServiceTest {
       assertNotNull(quiz);
     }
   }
-
+  
 
 }

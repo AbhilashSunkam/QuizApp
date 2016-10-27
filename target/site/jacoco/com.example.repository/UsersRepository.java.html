@@ -25,29 +25,29 @@ import com.example.models.Users;
   private SessionFactory _sessionFactory;
 
   private Session getSession() {
-<span class="nc" id="L28">    return _sessionFactory.getCurrentSession();</span>
+<span class="fc" id="L28">    return _sessionFactory.getCurrentSession();</span>
   }
 
   @SuppressWarnings(&quot;unchecked&quot;)
   public List&lt;Users&gt; getAll() {
-<span class="nc" id="L33">    return getSession().createQuery(&quot;from Users&quot;).list();</span>
+<span class="fc" id="L33">    return getSession().createQuery(&quot;from Users&quot;).list();</span>
   }
 
   @SuppressWarnings(&quot;unchecked&quot;)
   public List&lt;Users&gt; getById(Integer id) {
-<span class="nc" id="L38">    return getSession().createQuery(&quot;from Users where id = :id&quot;).setParameter(&quot;id&quot;, id).list();</span>
+<span class="fc" id="L38">    return getSession().createQuery(&quot;from Users where id = :id&quot;).setParameter(&quot;id&quot;, id).list();</span>
   }
 
   public void deleteById(Integer id) {
-<span class="nc" id="L42">    Users question = (Users) getSession().load(Users.class, id);</span>
+<span class="fc" id="L42">    Users question = (Users) getSession().load(Users.class, id);</span>
 <span class="nc" id="L43">    getSession().delete(question);</span>
 <span class="nc" id="L44">    System.out.println(&quot;Deleting id&quot; + id);</span>
 <span class="nc" id="L45">    return;</span>
   }
 
   public void save(Users questions) {
-<span class="nc" id="L49">    getSession().save(questions);</span>
-<span class="nc" id="L50">    return;</span>
+<span class="fc" id="L49">    getSession().save(questions);</span>
+<span class="fc" id="L50">    return;</span>
   }
 
   public Users findById(Integer id) {

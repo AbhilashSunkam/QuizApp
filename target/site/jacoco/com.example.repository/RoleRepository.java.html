@@ -26,7 +26,7 @@ import com.example.models.Role;
   private SessionFactory _sessionFactory;
 
   private Session getSession() {
-<span class="nc" id="L29">    return _sessionFactory.getCurrentSession();</span>
+<span class="fc" id="L29">    return _sessionFactory.getCurrentSession();</span>
   }
 
   @SuppressWarnings(&quot;unchecked&quot;)
@@ -36,7 +36,7 @@ import com.example.models.Role;
 
   @SuppressWarnings(&quot;unchecked&quot;)
   public List&lt;Role&gt; getById(Integer id) {
-<span class="nc" id="L39">    return getSession().createQuery(&quot;from Role where id = :id&quot;).setParameter(&quot;id&quot;, id).list();</span>
+<span class="fc" id="L39">    return getSession().createQuery(&quot;from Role where id = :id&quot;).setParameter(&quot;id&quot;, id).list();</span>
   }
 
   public void deleteById(Integer id) {

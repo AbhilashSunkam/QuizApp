@@ -46,46 +46,46 @@ public class Users implements java.io.Serializable {
   }
 
   public void setId(Integer id) {
-<span class="nc" id="L49">    this.id = id;</span>
-<span class="nc" id="L50">  }</span>
+<span class="fc" id="L49">    this.id = id;</span>
+<span class="fc" id="L50">  }</span>
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = &quot;quiz_id&quot;, nullable = true)
   public Quizzes getQuizzes() {
-<span class="nc" id="L55">    return this.quizzes;</span>
+<span class="fc" id="L55">    return this.quizzes;</span>
   }
 
   public void setQuizzes(Quizzes quizzes) {
-<span class="nc" id="L59">    this.quizzes = quizzes;</span>
-<span class="nc" id="L60">  }</span>
+<span class="fc" id="L59">    this.quizzes = quizzes;</span>
+<span class="fc" id="L60">  }</span>
 
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = &quot;role_id&quot;, nullable = true)
   public Role getRole() {
-<span class="nc" id="L65">    return this.role;</span>
+<span class="fc" id="L65">    return this.role;</span>
   }
 
   public void setRole(Role role) {
-<span class="nc" id="L69">    this.role = role;</span>
-<span class="nc" id="L70">  }</span>
+<span class="fc" id="L69">    this.role = role;</span>
+<span class="fc" id="L70">  }</span>
 
   @Column(name = &quot;email&quot;, nullable = false, length = 50)
   public String getEmail() {
-<span class="nc" id="L74">    return this.email;</span>
+<span class="fc" id="L74">    return this.email;</span>
   }
 
   public void setEmail(String email) {
-<span class="nc" id="L78">    this.email = email;</span>
-<span class="nc" id="L79">  }</span>
+<span class="fc" id="L78">    this.email = email;</span>
+<span class="fc" id="L79">  }</span>
 
   @Column(name = &quot;score&quot;, nullable = true)
   public int getScore() {
-<span class="nc" id="L83">    return this.score;</span>
+<span class="fc" id="L83">    return this.score;</span>
   }
 
   public void setScore(int score) {
-<span class="nc" id="L87">    this.score = score;</span>
-<span class="nc" id="L88">  }</span>
+<span class="fc" id="L87">    this.score = score;</span>
+<span class="fc" id="L88">  }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

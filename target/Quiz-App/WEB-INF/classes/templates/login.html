@@ -53,7 +53,9 @@
 	</div>
 	<div class="container" ng-show="home.authenticated">
 		<h3>
-			Logged in: <i><span ng-bind="home.user.email"></span></i>
+			Logged in as : <i><h5 style="color: green">
+					<span ng-bind="home.user.email"></span>
+				</h5></i>
 		</h3>
 
 		<div>

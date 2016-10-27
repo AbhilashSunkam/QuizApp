@@ -55,6 +55,12 @@ $(document).ready(function(){
 		var questions = JSON.parse(localStorage.getItem('questiondata'));
 	});
 	
+	$(document).on('click', '#formsubmit', function(){
+		if($('#qname').val()!=="" && $('#ans1').val()!=="" && $('#ans2').val()!=="" && $('#ans3').val()!=="" && $('#ans4').val()!=="") {
+		$('#questioncreate').append('<div class="alert alert-success"><strong>Success!</strong> Question added successfully </div>');
+		}
+	});
+	
 	$(document).on('click', '#goBack', function(){
 		console.log("clicked");
 		window.location.href='home';

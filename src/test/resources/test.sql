@@ -9,9 +9,17 @@ insert into quizzes(id, category_id, difficulty_id, description) values (1, 1 , 
 insert into quizzes(id, category_id, difficulty_id, description) values (2, 1 , 1 , 'sai quiz');
 insert into quizzes(id, category_id, difficulty_id, description) values (3, 1 , 1 , 'ojas quiz');
 
-insert into quizquestions(id, quiz_id, question_id) values (1, 1, 1);
-insert into quizquestions(id, quiz_id, question_id) values (2, 1, 2);
-insert into quizquestions(id, quiz_id, question_id) values (3, 2, 1);
-insert into quizquestions(id, quiz_id, question_id) values (4, 2, 3);
+insert into quizquestions(id, quiz_id, question_id) values (11, 1, 1);
+insert into quizquestions(id, quiz_id, question_id) values (12, 1, 2);
+insert into quizquestions(id, quiz_id, question_id) values (13, 2, 1);
+insert into quizquestions(id, quiz_id, question_id) values (14, 2, 3);
 
 
+insert into users(id, email, score, role_id, quiz_id) values (1, 'xyz@practo.com', 0, 2, 1);
+insert into users(id, email, score, role_id, quiz_id) values (12, 'pqr@practo.com', 1, 2, 2);
+insert into users(id, email, score, role_id, quiz_id) values (3, 'pqr@practo.com', 1, 2, 2);
+insert into users(id, email, score, role_id, quiz_id) values (13, 'pqr@practo.com', 1, 2, 2);
+
+insert into role(id, role_name) values (1, 'admin');
+insert into role(id, role_name) values (2, 'user');
+insert into role(id, role_name) values (3, 'user');
