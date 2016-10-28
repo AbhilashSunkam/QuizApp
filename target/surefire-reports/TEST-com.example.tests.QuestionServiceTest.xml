@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.tests.QuestionServiceTest" time="0.923" tests="7" errors="0" skipped="0" failures="0">
+<testsuite name="com.example.tests.QuestionServiceTest" time="1.066" tests="7" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/jre/lib"/>
@@ -62,11 +62,11 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="getQuestionsTest" classname="com.example.tests.QuestionServiceTest" time="0.686"/>
-  <testcase name="deleteQuestionTest" classname="com.example.tests.QuestionServiceTest" time="0.117"/>
-  <testcase name="addQuestionsTest" classname="com.example.tests.QuestionServiceTest" time="0.051"/>
-  <testcase name="editQuestionTest" classname="com.example.tests.QuestionServiceTest" time="0.034"/>
+  <testcase name="getQuestionsTest" classname="com.example.tests.QuestionServiceTest" time="0.845"/>
+  <testcase name="deleteQuestionTest" classname="com.example.tests.QuestionServiceTest" time="0.104"/>
+  <testcase name="addQuestionsTest" classname="com.example.tests.QuestionServiceTest" time="0.058"/>
+  <testcase name="editQuestionTest" classname="com.example.tests.QuestionServiceTest" time="0.035"/>
   <testcase name="getQuestionByIdTest" classname="com.example.tests.QuestionServiceTest" time="0.008"/>
-  <testcase name="findByIdTest" classname="com.example.tests.QuestionServiceTest" time="0.017"/>
-  <testcase name="SaveQuestionTest" classname="com.example.tests.QuestionServiceTest" time="0.01"/>
+  <testcase name="findByIdTest" classname="com.example.tests.QuestionServiceTest" time="0.009"/>
+  <testcase name="SaveQuestionTest" classname="com.example.tests.QuestionServiceTest" time="0.007"/>
 </testsuite>
