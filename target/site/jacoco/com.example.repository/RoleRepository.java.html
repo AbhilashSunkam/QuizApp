@@ -30,36 +30,13 @@ import com.example.models.Role;
   }
 
   @SuppressWarnings(&quot;unchecked&quot;)
-  public List&lt;Role&gt; getAll() {
-<span class="nc" id="L34">    return getSession().createQuery(&quot;from Role&quot;).list();</span>
-  }
-
-  @SuppressWarnings(&quot;unchecked&quot;)
   public List&lt;Role&gt; getById(Integer id) {
-<span class="fc" id="L39">    return getSession().createQuery(&quot;from Role where id = :id&quot;).setParameter(&quot;id&quot;, id).list();</span>
-  }
-
-  public void deleteById(Integer id) {
-<span class="nc" id="L43">    Role question = (Role) getSession().load(Role.class, id);</span>
-<span class="nc" id="L44">    getSession().delete(question);</span>
-<span class="nc" id="L45">    System.out.println(&quot;Deleting id&quot; + id);</span>
-<span class="nc" id="L46">    return;</span>
+<span class="fc" id="L34">    return getSession().createQuery(&quot;from Role where id = :id&quot;).setParameter(&quot;id&quot;, id).list();</span>
   }
 
   public void save(Role questions) {
-<span class="nc" id="L50">    getSession().save(questions);</span>
-<span class="nc" id="L51">    return;</span>
-  }
-
-  public Role findById(Integer id) {
-<span class="nc" id="L55">    System.out.println(&quot;Return question with id&quot; + id);</span>
-<span class="nc" id="L56">    return (Role) getSession().get(Role.class, id);</span>
-
-  }
-
-  public void update(Role question) {
-<span class="nc" id="L61">    getSession().update(question);</span>
-<span class="nc" id="L62">    return;</span>
+<span class="nc" id="L38">    getSession().save(questions);</span>
+<span class="nc" id="L39">    return;</span>
   }
 
 }

@@ -41,17 +41,6 @@ public class Questions implements java.io.Serializable {
 
   public Questions() {}
 
-  public Questions(String answer, String answer1, String answer2, String answer3, String answer4,
-      Integer categoryId, Integer difficultyId, String questionName) {
-    this.answer = answer;
-    this.answer1 = answer1;
-    this.answer2 = answer2;
-    this.answer3 = answer3;
-    this.answer4 = answer4;
-    this.categoryId = categoryId;
-    this.difficultyId = difficultyId;
-    this.questionName = questionName;
-  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

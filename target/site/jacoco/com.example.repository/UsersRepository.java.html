@@ -50,16 +50,5 @@ import com.example.models.Users;
 <span class="fc" id="L50">    return;</span>
   }
 
-  public Users findById(Integer id) {
-<span class="nc" id="L54">    System.out.println(&quot;Return question with id&quot; + id);</span>
-<span class="nc" id="L55">    return (Users) getSession().get(Users.class, id);</span>
-
-  }
-
-  public void update(Users question) {
-<span class="nc" id="L60">    getSession().update(question);</span>
-<span class="nc" id="L61">    return;</span>
-  }
-
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

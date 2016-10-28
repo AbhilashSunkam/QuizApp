@@ -19,8 +19,4 @@ public interface UserService {
   public void deleteById(Integer id);
 
   public void save(Users users);
-
-  public Users findById(Integer id);
-
-  public void update(Users user);
 }

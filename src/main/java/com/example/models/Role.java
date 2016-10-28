@@ -29,14 +29,6 @@ public class Role implements java.io.Serializable {
 
   public Role() {}
 
-  public Role(String roleName) {
-    this.roleName = roleName;
-  }
-
-  public Role(String roleName, Set<Users> userses) {
-    this.roleName = roleName;
-    this.userses = userses;
-  }
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

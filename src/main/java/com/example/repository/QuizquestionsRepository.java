@@ -40,27 +40,17 @@ public class QuizquestionsRepository {
         .list();
   }
 
-  public void deleteById(Integer id) {
-    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
-    getSession().delete(question);
-    System.out.println("Deleting id" + id);
-    return;
-  }
+//  public void deleteById(Integer id) {
+//    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
+//    getSession().delete(question);
+//    System.out.println("Deleting id" + id);
+//    return;
+//  }
 
   public void save(Quizquestions questions) {
     getSession().save(questions);
     return;
   }
 
-  public Quizquestions findById(Integer id) {
-    System.out.println("Return question with id" + id);
-    return (Quizquestions) getSession().get(Quizquestions.class, id);
-
-  }
-
-  public void update(Quizquestions question) {
-    getSession().update(question);
-    return;
-  }
 
 }

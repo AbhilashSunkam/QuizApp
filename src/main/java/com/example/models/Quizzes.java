@@ -36,12 +36,6 @@ public class Quizzes implements java.io.Serializable {
 
   }
 
-  public Quizzes(Integer category_id, Integer difficulty_id, String description) {
-    this.category_id = category_id;
-    this.difficulty_id = difficulty_id;
-    this.description = description;
-  }
-
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
 

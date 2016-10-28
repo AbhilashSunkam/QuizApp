@@ -36,51 +36,20 @@ import com.example.repository.QuizquestionsRepository;
 <span class="nc" id="L36">    return sessionFactory.getCurrentSession();</span>
   }
 
-  @Override
-  public List&lt;Quizquestions&gt; getAll() {
-<span class="nc" id="L41">    return quizquestionsRepository.getAll();</span>
-  }
-
-  @Override
-  public List&lt;Quizquestions&gt; getById(Integer id) {
-<span class="nc" id="L46">    return quizquestionsRepository.getById(id);</span>
-  }
-
-  @Override
-  public void deleteById(Integer id) {
-<span class="nc" id="L51">    quizquestionsRepository.deleteById(id);</span>
-<span class="nc" id="L52">    return;</span>
-  }
-
-  @Override
-  public void save(Quizquestions questions) {
-<span class="nc" id="L57">    quizquestionsRepository.save(questions);</span>
-<span class="nc" id="L58">  }</span>
-
-  @Override
-  public Quizquestions findById(Integer id) {
-<span class="nc" id="L62">    return quizquestionsRepository.findById(id);</span>
-  }
-
-  @Override
-  public void update(Quizquestions question) {
-<span class="nc" id="L67">    quizquestionsRepository.update(question);</span>
-<span class="nc" id="L68">    return;</span>
-  }
 
   @Override
   public void addToQuizQuestions(List&lt;Questions&gt; questions, Quizzes quizzes) {
-<span class="nc bnc" id="L73" title="All 2 branches missed.">    for (Questions question : questions) {</span>
-<span class="nc" id="L74">      Quizquestions quizquestions = new Quizquestions();</span>
-<span class="nc" id="L75">      quizquestions.setQuestions(question);</span>
-<span class="nc" id="L76">      quizquestions.setQuizzes(quizzes);</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">    for (Questions question : questions) {</span>
+<span class="nc" id="L43">      Quizquestions quizquestions = new Quizquestions();</span>
+<span class="nc" id="L44">      quizquestions.setQuestions(question);</span>
+<span class="nc" id="L45">      quizquestions.setQuizzes(quizzes);</span>
 
-<span class="nc" id="L78">      System.out.println(quizquestions.getQuestions().getId());</span>
-<span class="nc" id="L79">      System.out.println(quizquestions.getQuizzes().getId());</span>
-<span class="nc" id="L80">      quizquestionsRepository.save(quizquestions);</span>
-<span class="nc" id="L81">    }</span>
+<span class="nc" id="L47">      System.out.println(quizquestions.getQuestions().getId());</span>
+<span class="nc" id="L48">      System.out.println(quizquestions.getQuizzes().getId());</span>
+<span class="nc" id="L49">      quizquestionsRepository.save(quizquestions);</span>
+<span class="nc" id="L50">    }</span>
 
-<span class="nc" id="L83">  }</span>
+<span class="nc" id="L52">  }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

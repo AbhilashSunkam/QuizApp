@@ -58,12 +58,12 @@ import com.example.repository.QuizRepository;
 
   @Override
   public Quizzes addQuiz(Integer cid, Integer did, String description) {
-<span class="nc" id="L61">    Quizzes quizzes = new Quizzes();</span>
-<span class="nc" id="L62">    quizzes.setCategory_id(cid);</span>
-<span class="nc" id="L63">    quizzes.setDifficulty_id(did);</span>
-<span class="nc" id="L64">    quizzes.setDescription(description);</span>
-<span class="nc" id="L65">    quizRepository.save(quizzes);</span>
-<span class="nc" id="L66">    return quizzes;</span>
+<span class="fc" id="L61">    Quizzes quizzes = new Quizzes();</span>
+<span class="fc" id="L62">    quizzes.setCategory_id(cid);</span>
+<span class="fc" id="L63">    quizzes.setDifficulty_id(did);</span>
+<span class="fc" id="L64">    quizzes.setDescription(description);</span>
+<span class="fc" id="L65">    quizRepository.save(quizzes);</span>
+<span class="fc" id="L66">    return quizzes;</span>
   }
 
 }

@@ -58,7 +58,6 @@
 <error line="12" severity="warning" message="Wrong lexicographical order for &apos;java.util.List&apos; import. Should be before &apos;javax.persistence.GenerationType&apos;." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="18" severity="warning" message="Import statement for &apos;com.fasterxml.jackson.annotation.JsonIgnore&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="20" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="44" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/models/Quizquestions.java">
 <error line="11" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
@@ -76,11 +75,8 @@
 <error line="18" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="29" column="19" severity="warning" message="Member name &apos;category_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
 <error line="30" column="19" severity="warning" message="Member name &apos;difficulty_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
-<error line="39" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="39" column="26" severity="warning" message="Parameter name &apos;category_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
-<error line="39" column="47" severity="warning" message="Parameter name &apos;difficulty_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
-<error line="62" column="38" severity="warning" message="Parameter name &apos;category_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
-<error line="71" column="40" severity="warning" message="Parameter name &apos;difficulty_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="56" column="38" severity="warning" message="Parameter name &apos;category_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+<error line="65" column="40" severity="warning" message="Parameter name &apos;difficulty_id&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
 </file>
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/models/Role.java">
 <error line="11" severity="warning" message="Import statement for &apos;javax.persistence.GenerationType.IDENTITY&apos; is in the wrong order. Should be in the &apos;STATIC&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -89,7 +85,6 @@
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/models/Users.java">
 <error line="9" severity="warning" message="Import statement for &apos;javax.persistence.GenerationType.IDENTITY&apos; is in the wrong order. Should be in the &apos;STATIC&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="15" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
-<error line="33" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/QuestionController.java">
 <error line="7" severity="warning" message="Import statement for &apos;org.springframework.beans.factory.annotation.Autowired&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -197,8 +192,7 @@
 <error line="13" severity="warning" message="Import statement for &apos;com.example.models.Quizquestions&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="15" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="26" column="26" severity="warning" message="Member name &apos;_sessionFactory&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
-<error line="43" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="55" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
+<error line="48" severity="warning" message="Comment has incorrect indentation level 0, expected is 2, indentation should be the same level as line 50." source="com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck"/>
 </file>
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/repository/QuizRepository.java">
 <error line="7" severity="warning" message="Import statement for &apos;org.hibernate.Query&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -221,8 +215,6 @@
 <error line="12" severity="warning" message="Import statement for &apos;com.example.models.Role&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
 <error line="15" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="26" column="26" severity="warning" message="Member name &apos;_sessionFactory&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
-<error line="42" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="54" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/repository/UsersRepository.java">
 <error line="7" severity="warning" message="Import statement for &apos;org.hibernate.Session&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>
@@ -233,7 +225,6 @@
 <error line="14" severity="warning" message="First sentence of Javadoc is incomplete (period is missing) or not present." source="com.puppycrawl.tools.checkstyle.checks.javadoc.SummaryJavadocCheck"/>
 <error line="25" column="26" severity="warning" message="Member name &apos;_sessionFactory&apos; must match pattern &apos;^[a-z][a-z0-9][a-zA-Z0-9]*$&apos;." source="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
 <error line="41" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
-<error line="53" column="3" severity="warning" message="Missing a Javadoc comment." source="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck"/>
 </file>
 <file name="/Users/abhilashsunkam/Documents/workspace-sts-3.8.2.RELEASE/QuizApp-master/src/main/java/com/example/service/AuthenticateService.java">
 <error line="5" severity="warning" message="Import statement for &apos;inti.ws.spring.exception.client.UnauthorizedException&apos; is in the wrong order. Should be in the &apos;THIRD_PARTY_PACKAGE&apos; group, expecting not assigned imports on this line." source="com.puppycrawl.tools.checkstyle.checks.imports.CustomImportOrderCheck"/>

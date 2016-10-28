@@ -16,10 +16,13 @@ angular.module("app", []).controller("home",
 							self.role1 = false;
 						}
 
-					}).error(function() {
+					}).error(function(data, status) {
 						console.log("error");
 						self.user = "N/A";
 						self.authenticated = false;
+						if(status == 401) {
+							self.logout();
+						}
 					});
 
 					self.logout = function() {
@@ -29,6 +32,7 @@ angular.module("app", []).controller("home",
 						}).error(function(data) {
 							console.log("Logout failed")
 							self.authenticated = false;
+							
 						});
 					};
 				});

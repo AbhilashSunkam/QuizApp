@@ -1,3 +1,5 @@
 com/example/tests/TestDatabaseConfig.class
-com/example/tests/QuestionQuizServiceTest.class
+com/example/tests/QuizquestionsServiceTest.class
+com/example/tests/QuestionServiceTest.class
+com/example/tests/QuizServiceTest.class
 com/example/tests/UserRoleServiceTest.class

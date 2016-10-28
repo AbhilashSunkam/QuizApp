@@ -68,8 +68,6 @@ public class AuthController extends WebSecurityConfigurerAdapter {
         throw new UnauthorizedException("Unauthorized user");
 
       String email = details.get("email");
-      String name = details.get("name");
-      String picture = details.get("picture");
 
       Users user = new Users();
       Role role = new Role();

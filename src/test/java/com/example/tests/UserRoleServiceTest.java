@@ -60,7 +60,7 @@ public class UserRoleServiceTest {
       int size = users.size();
       Users newuser = new Users();
       Quizzes quiz = new Quizzes();
-      quiz.setId(2);
+      quiz.setId(12);
       Role role = new Role();
       role.setId(2);
       newuser.setEmail("abc@practo.com");
@@ -80,6 +80,8 @@ public class UserRoleServiceTest {
         assertEquals("user", role.getRoleName());
       }
     }
+    
+    
     
     
 }

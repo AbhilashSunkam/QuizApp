@@ -36,37 +36,6 @@ public class QuizquestionsServiceImpl implements QuizquestionsService {
     return sessionFactory.getCurrentSession();
   }
 
-  @Override
-  public List<Quizquestions> getAll() {
-    return quizquestionsRepository.getAll();
-  }
-
-  @Override
-  public List<Quizquestions> getById(Integer id) {
-    return quizquestionsRepository.getById(id);
-  }
-
-  @Override
-  public void deleteById(Integer id) {
-    quizquestionsRepository.deleteById(id);
-    return;
-  }
-
-  @Override
-  public void save(Quizquestions questions) {
-    quizquestionsRepository.save(questions);
-  }
-
-  @Override
-  public Quizquestions findById(Integer id) {
-    return quizquestionsRepository.findById(id);
-  }
-
-  @Override
-  public void update(Quizquestions question) {
-    quizquestionsRepository.update(question);
-    return;
-  }
 
   @Override
   public void addToQuizQuestions(List<Questions> questions, Quizzes quizzes) {

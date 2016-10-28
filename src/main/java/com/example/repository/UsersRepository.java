@@ -50,15 +50,4 @@ public class UsersRepository {
     return;
   }
 
-  public Users findById(Integer id) {
-    System.out.println("Return question with id" + id);
-    return (Users) getSession().get(Users.class, id);
-
-  }
-
-  public void update(Users question) {
-    getSession().update(question);
-    return;
-  }
-
 }

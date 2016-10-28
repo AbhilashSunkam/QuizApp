@@ -30,13 +30,7 @@ public class Users implements java.io.Serializable {
 
   public Users() {}
 
-  public Users(Quizzes quizzes, Role role, String email, int score) {
-    this.quizzes = quizzes;
-    this.role = role;
-    this.email = email;
-    this.score = score;
-  }
-
+  
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
 

@@ -40,28 +40,18 @@ import com.example.models.Quizquestions;
 <span class="nc" id="L40">        .list();</span>
   }
 
-  public void deleteById(Integer id) {
-<span class="nc" id="L44">    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);</span>
-<span class="nc" id="L45">    getSession().delete(question);</span>
-<span class="nc" id="L46">    System.out.println(&quot;Deleting id&quot; + id);</span>
-<span class="nc" id="L47">    return;</span>
-  }
+//  public void deleteById(Integer id) {
+//    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
+//    getSession().delete(question);
+//    System.out.println(&quot;Deleting id&quot; + id);
+//    return;
+//  }
 
   public void save(Quizquestions questions) {
 <span class="nc" id="L51">    getSession().save(questions);</span>
 <span class="nc" id="L52">    return;</span>
   }
 
-  public Quizquestions findById(Integer id) {
-<span class="nc" id="L56">    System.out.println(&quot;Return question with id&quot; + id);</span>
-<span class="nc" id="L57">    return (Quizquestions) getSession().get(Quizquestions.class, id);</span>
-
-  }
-
-  public void update(Quizquestions question) {
-<span class="nc" id="L62">    getSession().update(question);</span>
-<span class="nc" id="L63">    return;</span>
-  }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>
