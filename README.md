@@ -33,6 +33,10 @@ AWS Deployment : [amazon Ec2 hosting](http://ec2-35-161-132-3.us-west-2.compute.
 
 Schema Diagram : [schema](https://github.com/AbhilashSunkam/QuizApp/blob/master/quizapp.svg)
 
+New Relic : [new relic](https://rpm.newrelic.com/accounts/1461065/applications/34888584)
+
+Page Speed : [speed](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fec2-35-161-132-3.us-west-2.compute.amazonaws.com%3A8080%2FQuiz-App%2F%23%2F&tab=desktop)
+
 #Running on AWS server
 
 - Create a Deployable war file 
