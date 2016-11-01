@@ -9,7 +9,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 	crossorigin="anonymous"></link>
-<!-- <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/> -->
 
 <link rel="stylesheet" href="css/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="css/quizapp.css " />
@@ -19,27 +18,46 @@
 <script type="text/javascript" src="js/quizapp.js"></script>
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/adminHomeController.js"></script>
 </head>
-<body>
+<body ng-app="app" ng-controller="home as home">
 
-	<header class="marquee">
-		<div class="container-fluid">
-			<div class="marquee-brand">Generate and see the Quizzes!</div>
-			<h3 class="marquee heading">With General , Sports , Geography
-				quiz</h3>
-
-			<!-- 	<a class="marquee-img">
-<img src="/images/bg.png" alt=""></img>
-</a> -->
-
-
+	<nav class="navbar navbar-default navbar-cls-top " role="navigation"
+		style="margin-bottom: 0">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".sidebar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="home">Quiz App</a>
 		</div>
-	</header>
-
-
+		<div
+			style="padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
+			<button class="btn btn-primary btn-md" id="getQuestions">
+				<span class="glyphicon glyphicon-list-alt"></span> See Questions!
+			</button>
+			<button class="btn btn-info btn-md" id="addQuestions">
+				<span class="glyphicon glyphicon-plus"></span> Add Question
+			</button>
+			<button class="btn btn-success btn-md" id="generateQuiz">
+				<span class="glyphicon glyphicon-random"></span> Generate Quiz
+			</button>
+			<button id="backToHome" class="btn btn-warning">
+				<span class="glyphicon glyphicon-home"></span> Go back to Home
+			</button>
+		</div>
+	</nav>
 
 	<div class="container">
 		<div class="page-header" id="banner">
+
+			<h3 id="emailDetails">
+				Logged in as : <i> <span style="color: green; font-size: 15px"></span>
+				</i>
+			</h3>
+
 			<div class="row">
 				<div class="col-lg-8 col-md-7 col-sm-6">
 					<h1 style="margin: bottom=15px;">
@@ -101,20 +119,27 @@
 
 		</div>
 
-		<div id="seeQuizzes">
-			<table id="quizTable" class="display" cellspacing="0" width="100%">
-				<thead id="quizthead">
-					<tr>
-						<th>ID</th>
-						<th>CATEGORY</th>
-						<th>DIFFICULTY</th>
-						<th>DESCRIPTION</th>
-						<th>SEE QUESTIONS</th>
-						<th>DELETE</th>
-					</tr>
-				</thead>
-				<!-- <tbody id="quiztbody"></tbody> -->
-			</table>
+		<div id="seeQuizzes" style="padding-top: 50px">
+			<div class="panel panel-default">
+				<div class="panel-heading"
+					style="background-color: #6e6f98; color: white">
+					<label style="font-size: 15px">CREATED QUIZZES</label>
+				</div>
+				<div class="panel-body">
+					<table id="quizTable" class="display" cellspacing="0" width="100%">
+						<thead id="quizthead">
+							<tr>
+								<th>ID</th>
+								<th>CATEGORY</th>
+								<th>DIFFICULTY</th>
+								<th>DESCRIPTION</th>
+								<th>SEE QUESTIONS</th>
+								<th>DELETE</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
 		</div>
 		<div id="seeQuizQuestions">
 

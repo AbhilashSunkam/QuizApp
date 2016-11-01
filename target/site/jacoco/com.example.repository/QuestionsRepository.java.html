@@ -63,18 +63,18 @@ import com.example.models.Questions;
 
   @SuppressWarnings(&quot;unchecked&quot;)
   public List&lt;Questions&gt; generateQuizRand(Integer cid, Integer did) {
-<span class="nc" id="L66">    return getSession()</span>
-<span class="nc" id="L67">        .createQuery(</span>
+<span class="pc" id="L66">    return getSession()</span>
+<span class="fc" id="L67">        .createQuery(</span>
             &quot;from Questions where category_id = :cid and difficulty_id = :did group by id order by rand()&quot;)
 <span class="nc" id="L69">        .setParameter(&quot;cid&quot;, cid).setParameter(&quot;did&quot;, did).setMaxResults(5).list();</span>
   }
 
   @SuppressWarnings(&quot;unchecked&quot;)
   public List&lt;Questions&gt; getQuestions(Integer quizId) {
-<span class="nc" id="L74">    return getSession()</span>
-<span class="nc" id="L75">        .createQuery(</span>
+<span class="fc" id="L74">    return getSession()</span>
+<span class="fc" id="L75">        .createQuery(</span>
             &quot;from Questions where id in (select questions.id from Quizquestions where quiz_id = :qId)&quot;)
-<span class="nc" id="L77">        .setParameter(&quot;qId&quot;, quizId).list();</span>
+<span class="fc" id="L77">        .setParameter(&quot;qId&quot;, quizId).list();</span>
 
   }
 }

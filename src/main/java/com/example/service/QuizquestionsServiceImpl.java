@@ -29,14 +29,6 @@ public class QuizquestionsServiceImpl implements QuizquestionsService {
   @Autowired
   QuizquestionsRepository quizquestionsRepository;
 
-  @Autowired
-  private SessionFactory sessionFactory;
-
-  private Session getSession() {
-    return sessionFactory.getCurrentSession();
-  }
-
-
   @Override
   public void addToQuizQuestions(List<Questions> questions, Quizzes quizzes) {
     for (Questions question : questions) {

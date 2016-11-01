@@ -22,8 +22,6 @@ public interface QuizService {
 
   public Quizzes findById(Integer id);
 
-  public void update(Quizzes quiz);
-
   public List<Quizzes> getQuizRand(Integer cid, Integer did);
 
   public Quizzes addQuiz(Integer cid, Integer did, String description);

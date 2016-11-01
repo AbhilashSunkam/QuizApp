@@ -22,14 +22,6 @@ public class RoleServiceImpl implements RoleService {
   @Autowired
   RoleRepository roleRepository;
 
-  @Autowired
-  private SessionFactory sessionFactory;
-
-  private Session getSession() {
-    return sessionFactory.getCurrentSession();
-  }
-
-
   @Override
   public List<Role> getById(Integer id) {
     return roleRepository.getById(id);

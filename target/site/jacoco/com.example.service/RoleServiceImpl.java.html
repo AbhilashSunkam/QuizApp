@@ -22,17 +22,9 @@ import com.example.repository.RoleRepository;
   @Autowired
   RoleRepository roleRepository;
 
-  @Autowired
-  private SessionFactory sessionFactory;
-
-  private Session getSession() {
-<span class="nc" id="L29">    return sessionFactory.getCurrentSession();</span>
-  }
-
-
   @Override
   public List&lt;Role&gt; getById(Integer id) {
-<span class="fc" id="L35">    return roleRepository.getById(id);</span>
+<span class="fc" id="L27">    return roleRepository.getById(id);</span>
   }
 
 

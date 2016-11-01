@@ -8,7 +8,6 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 	crossorigin="anonymous"></link>
-<!--  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen"/>  -->
 
 <link rel="stylesheet" href="css/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="css/quizapp.css " />
@@ -19,167 +18,173 @@
 <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="webjars/angularjs/angular.min.js"></script>
-<script type="text/javascript" src="js/loginController.js"></script>
+<script type="text/javascript" src="js/adminHomeController.js"></script>
 </head>
-<body ng-app="app" ng-controller="home as home">
+<body>
 
-	<header class="marquee">
-		<div class="container-fluid">
-			<div class="marquee-brand">Start Setting the Quiz!</div>
-			<h3 class="marquee heading">With General , Sports , Geography
-				quiz</h3>
-
-			<!-- 	<a class="marquee-img">
-<img src="/images/bg.png" alt=""></img>
-</a> -->
-
-
+	<nav class="navbar navbar-default navbar-cls-top " role="navigation"
+		style="margin-bottom: 0">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".sidebar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="home">Quiz App</a>
 		</div>
-	</header>
+		<div
+			style="padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
 
 
+
+
+			<button class="btn btn-primary btn-md" id="getQuestions">
+				<span class="glyphicon glyphicon-list-alt"></span> See Questions!
+			</button>
+			<button class="btn btn-info btn-md" id="addQuestions">
+				<span class="glyphicon glyphicon-plus"></span> Add Question
+			</button>
+			<button class="btn btn-success btn-md" id="generateQuiz">
+				<span class="glyphicon glyphicon-random"></span> Generate Quiz
+			</button>
+			<button id="backToHome" class="btn btn-warning">
+				<span class="glyphicon glyphicon-home"></span> Go back to Home
+			</button>
+		</div>
+	</nav>
 
 	<div class="container">
 		<div class="page-header" id="banner">
-			<div class="row" id="adminDisplay">
-				<div class="col-lg-8 col-md-7 col-sm-6">
-					<button class="btn btn-primary btn-md" id="getQuestions">See
-						Questions!</button>
-					<button class="btn btn-info btn-md" id="addQuestions">+
-						Add Question</button>
-					<button class="btn btn-success btn-md" id="generateQuiz">Generate
-						Quiz</button>
-					<button id="backToHome" class="btn btn-danger">Go back to
-						Home</button>
-				</div>
-			</div>
-			<!-- <div class="row">
-				<div class="col-lg-8 col-md-7 col-sm-6">
-					<button class="btn btn-primary btn-md" id="getQuestions">See
-						Questions!</button>
-					<button class="btn btn-info btn-md" id="addQuestions">+
-						Add Question</button>
-					<button class="btn btn-success btn-md" id="generateQuiz">Generate
-						Quiz</button>
-						<button class="btn btn-danger">Log out</button>
-				</div>
-			</div> -->
+			<!-- <div class="row" id="adminDisplay"> -->
+
+			<h3 id="emailDetails">
+				Logged in as : <i> <span style="color: green; font-size: 15px"></span>
+				</i>
+			</h3>
 		</div>
 		<div id="editBody">
-			<table id="table" class="table table-striped">
-				<thead id="thead">
 
-				</thead>
-				<tbody id="tbody"></tbody>
-			</table>
-
-			<table id="example" class="display" cellspacing="0" width="100%">
-				<thead id="thead">
-					<tr>
-						<th>ID</th>
-						<th>ANSWER</th>
-						<th>A</th>
-						<th>B</th>
-						<th>C</th>
-						<th>D</th>
-						<th>CATEGORY</th>
-						<th>DIFFICULTY</th>
-						<th>QUESTION</th>
-						<th>EDIT</th>
-						<th>DELETE</th>
-					</tr>
-				</thead>
-			</table>
-
-			<div id="editItems">
-
-				<div class="row">
-					<div class="col-lg-6 col-md-7 col-sm-6">
-						<h2>Edit a question</h2>
-						<form enctype="multipart/form-data" id="questionForm"
-							class="form-horizontal">
-							<fieldset>
-								<div class="form-group">
-									<label class="col-lg-3 control-label">Question</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" id="qname"
-											name="questionName" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-lg-3 control-label">Answer A</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" id="ans1"
-											name="answer1" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-lg-3 control-label">Answer B</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" id="ans2"
-											name="answer2" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-lg-3 control-label">Answer C</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" id="ans3"
-											name="answer3" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-lg-3 control-label">Answer D</label>
-									<div class="col-lg-9">
-										<input type="text" class="form-control" id="ans4"
-											name="answer4" />
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label class="col-lg-3 control-label" for="category">Category</label>
-									<div class="col-lg-9">
-										<select class="form-control" id="selectCategory"
-											name="categoryId">
-											<option value="1">General</option>
-											<option value="2">Sports</option>
-											<option value="3">Geography</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-lg-3 control-label" for="category">Difficulty</label>
-									<div class="col-lg-9">
-										<select class="form-control" id="selectDifficulty"
-											name="difficultyId">
-											<option value="1">Easy</option>
-											<option value="2">Medium</option>
-											<option value="3">Hard</option>
-										</select>
-									</div>
-								</div>
-
-							</fieldset>
-						</form>
-					</div>
+			<div class="panel panel-default">
+				<div class="panel-heading"
+					style="background-color: #6e6f98; color: white">
+					<label style="font-size: 15px">QUESTION BANK</label>
 				</div>
-				<form id="myForm" class="col-md-6">
-					<label class="control-label">Correct Answer</label>
-					<div class="divider"></div>
-					<label class="radio-inline"> <input type="radio"
-						name="myRadio" value="a" checked="checked" /> A
-					</label> <label class="radio-inline"> <input type="radio"
-						name="myRadio" value="b" /> B
-					</label> <label class="radio-inline"> <input type="radio"
-						name="myRadio" value="c" /> C
-					</label> <label class="radio-inline"> <input type="radio"
-						name="myRadio" value="d" /> D
-					</label>
-					<div class="divider"></div>
-					<button id="editSubmit" class="btn btn-success" name="button">Save</button>
-				</form>
+				<div class="panel-body">
+					<table id="table" class="table table-striped">
+						<thead id="thead">
 
+						</thead>
+						<tbody id="tbody"></tbody>
+					</table>
 
+					<table id="example" class="display" cellspacing="0" width="100%">
+						<thead id="thead">
+							<tr>
+								<th>ID</th>
+								<th>ANSWER</th>
+								<th>A</th>
+								<th>B</th>
+								<th>C</th>
+								<th>D</th>
+								<th>CATEGORY</th>
+								<th>DIFFICULTY</th>
+								<th>QUESTION</th>
+								<th>EDIT</th>
+								<th>DELETE</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
 			</div>
+		</div>
+		<div id="editItems">
+
+			<div class="row">
+				<div class="col-lg-6 col-md-7 col-sm-6">
+					<h2>Edit a question</h2>
+					<form enctype="multipart/form-data" id="questionForm"
+						class="form-horizontal">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Question</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="qname"
+										name="questionName" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Answer A</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="ans1"
+										name="answer1" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Answer B</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="ans2"
+										name="answer2" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Answer C</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="ans3"
+										name="answer3" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Answer D</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" id="ans4"
+										name="answer4" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="category">Category</label>
+								<div class="col-lg-9">
+									<select class="form-control" id="selectCategory"
+										name="categoryId">
+										<option value="1">General</option>
+										<option value="2">Sports</option>
+										<option value="3">Geography</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-lg-3 control-label" for="category">Difficulty</label>
+								<div class="col-lg-9">
+									<select class="form-control" id="selectDifficulty"
+										name="difficultyId">
+										<option value="1">Easy</option>
+										<option value="2">Medium</option>
+										<option value="3">Hard</option>
+									</select>
+								</div>
+							</div>
+
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<form id="myForm" class="col-md-6">
+				<label class="control-label">Correct Answer</label>
+				<div class="divider"></div>
+				<label class="radio-inline"> <input type="radio"
+					name="myRadio" value="a" checked="checked" /> A
+				</label> <label class="radio-inline"> <input type="radio"
+					name="myRadio" value="b" /> B
+				</label> <label class="radio-inline"> <input type="radio"
+					name="myRadio" value="c" /> C
+				</label> <label class="radio-inline"> <input type="radio"
+					name="myRadio" value="d" /> D
+				</label>
+				<div class="divider"></div>
+				<button id="editSubmit" class="btn btn-success" name="button">Save</button>
+			</form>
+
 
 		</div>
 	</div>
@@ -187,3 +192,4 @@
 
 </body>
 </html>
+

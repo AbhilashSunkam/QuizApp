@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestComponent;
+import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -31,9 +32,9 @@ public class QuestionServiceTest {
 
   @Autowired
   QuizService quizService;
-  
+
   @Autowired
-  QuizquestionsService quizquestionsService; 
+  QuizquestionsService quizquestionsService;
 
   @Test
   public void getQuestionsTest() {
@@ -105,7 +106,7 @@ public class QuestionServiceTest {
       assertNull(question);
     }
   }
-  
+
   @Test
   public void SaveQuestionTest() {
     Questions question = new Questions();
@@ -116,14 +117,28 @@ public class QuestionServiceTest {
     question.setAnswer4("kerala");
     question.setCategoryId(1);
     question.setDifficultyId(1);
-    
+
     questionService.save(question);
   }
-  
+
   @Test
   public void findByIdTest() {
     Questions question = questionService.findById(11);
     assertNotNull(question);
+  }
+
+  @Test(expected = InvalidDataAccessResourceUsageException.class)
+  public void generateQuizRandTest() {
+    List<Questions> questions = questionService.generateQuizRand(1, 1);
+    assertNotNull(questions);
+  }
+
+  @Test
+  public void getQuestionsFromQuizTest() {
+    List<Questions> questions = questionService.getQuestionsFromQuiz(11);
+    for (Questions question : questions) {
+      assertNotNull(question);
+    }
   }
 
 }

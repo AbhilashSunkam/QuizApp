@@ -21,13 +21,6 @@ public class UserServiceImpl implements UserService {
   @Autowired
   UsersRepository usersRepository;
 
-  @Autowired
-  private SessionFactory sessionFactory;
-
-  private Session getSession() {
-    return sessionFactory.getCurrentSession();
-  }
-
   @Override
   public List<Users> getAll() {
     return usersRepository.getAll();

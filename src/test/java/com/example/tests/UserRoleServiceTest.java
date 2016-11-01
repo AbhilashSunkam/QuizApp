@@ -26,62 +26,60 @@ import com.example.service.UserService;
 @TestComponent
 @ContextConfiguration(classes = {TestDatabaseConfig.class})
 public class UserRoleServiceTest {
-  
-    @Autowired
-    UserService userService;
-    
-    @Autowired
-    RoleService roleService;
-    
-    @Test
-    public void getUserTest() {
-      List<Users> users = userService.getById(12);
-      for(Users user : users) {
-        assertNotNull(user);
-        assertEquals("pqr@practo.com", user.getEmail());
-        assertEquals(1 , user.getScore());
-        assertEquals(2, user.getRole());
-        assertEquals(2, user.getQuizzes());
-      }
+
+  @Autowired
+  UserService userService;
+
+  @Autowired
+  RoleService roleService;
+
+  @Test
+  public void getUserTest() {
+    List<Users> users = userService.getById(12);
+    for (Users user : users) {
+      assertNotNull(user);
+      assertEquals("pqr@practo.com", user.getEmail());
+      assertEquals(1, user.getScore());
+      assertEquals(2, user.getRole());
+      assertEquals(2, user.getQuizzes());
     }
-    
-    @Test(expected = ObjectRetrievalFailureException.class)
-    public void deleteUserTest() {
-      userService.deleteById(13);
-      List<Users> users = userService.getById(13);
-      for(Users user : users) {
-        assertNull(user);
-      }
+  }
+
+  @Test(expected = ObjectRetrievalFailureException.class)
+  public void deleteUserTest() {
+    userService.deleteById(13);
+    List<Users> users = userService.getById(13);
+    for (Users user : users) {
+      assertNull(user);
     }
-    
-    @Test
-    public void getAllUserTest() {
-      List<Users> users = userService.getAll();
-      int size = users.size();
-      Users newuser = new Users();
-      Quizzes quiz = new Quizzes();
-      quiz.setId(12);
-      Role role = new Role();
-      role.setId(2);
-      newuser.setEmail("abc@practo.com");
-      newuser.setScore(0);
-      newuser.setRole(role);
-      newuser.setQuizzes(quiz);
-      userService.save(newuser);
-      List<Users> updatedusers = userService.getAll();
-      int newsize = updatedusers.size();
-      assertEquals(size+1, newsize);
+  }
+
+  @Test
+  public void getAllUserTest() {
+    List<Users> users = userService.getAll();
+    int size = users.size();
+    Users newuser = new Users();
+    Quizzes quiz = new Quizzes();
+    quiz.setId(12);
+    Role role = new Role();
+    role.setId(2);
+    newuser.setEmail("abc@practo.com");
+    newuser.setScore(0);
+    newuser.setRole(role);
+    newuser.setQuizzes(quiz);
+    userService.save(newuser);
+    List<Users> updatedusers = userService.getAll();
+    int newsize = updatedusers.size();
+    assertEquals(size + 1, newsize);
+  }
+
+  @Test
+  public void getRoleByIdTest() {
+    List<Role> roles = roleService.getById(3);
+    for (Role role : roles) {
+      assertEquals("user", role.getRoleName());
     }
-    
-    @Test
-    public void getRoleByIdTest() {
-      List<Role> roles = roleService.getById(3);
-      for(Role role : roles) {
-        assertEquals("user", role.getRoleName());
-      }
-    }
-    
-    
-    
-    
+  }
+
+
 }

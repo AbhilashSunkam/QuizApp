@@ -26,30 +26,13 @@ import com.example.models.Quizquestions;
   private SessionFactory _sessionFactory;
 
   private Session getSession() {
-<span class="nc" id="L29">    return _sessionFactory.getCurrentSession();</span>
+<span class="fc" id="L29">    return _sessionFactory.getCurrentSession();</span>
   }
 
-  @SuppressWarnings(&quot;unchecked&quot;)
-  public List&lt;Quizquestions&gt; getAll() {
-<span class="nc" id="L34">    return getSession().createQuery(&quot;from Quizquestions&quot;).list();</span>
-  }
-
-  @SuppressWarnings(&quot;unchecked&quot;)
-  public List&lt;Quizquestions&gt; getById(Integer id) {
-<span class="nc" id="L39">    return getSession().createQuery(&quot;from Quizquestions where id = :id&quot;).setParameter(&quot;id&quot;, id)</span>
-<span class="nc" id="L40">        .list();</span>
-  }
-
-//  public void deleteById(Integer id) {
-//    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
-//    getSession().delete(question);
-//    System.out.println(&quot;Deleting id&quot; + id);
-//    return;
-//  }
 
   public void save(Quizquestions questions) {
-<span class="nc" id="L51">    getSession().save(questions);</span>
-<span class="nc" id="L52">    return;</span>
+<span class="nc" id="L34">    getSession().save(questions);</span>
+<span class="nc" id="L35">    return;</span>
   }
 
 

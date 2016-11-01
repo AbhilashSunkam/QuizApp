@@ -57,10 +57,6 @@ public class QuizRepository {
 
   }
 
-  public void update(Quizzes quiz) {
-    getSession().update(quiz);
-    return;
-  }
 
   @SuppressWarnings("unchecked")
   public List<Quizzes> getQuizRand(Integer cid, Integer did) {

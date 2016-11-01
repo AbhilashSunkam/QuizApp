@@ -1,21 +1,25 @@
 $(document).ready(function(){
 	$('#editItems').hide();
-	$('#editBody').hide();
-	$('#getQuestions').click(function() {
-		$('#editItems').hide();
-		$('#editBody').show();
-		$.ajax({
-			url: 'getquestions',
-	    	dataType: 'json',
-	    	success: function(data){
-	    		addToTable(data);
-	    	}
-		});
+	$('.panel').show();
+	$.ajax({
+		url: 'getquestions',
+    	dataType: 'json',
+    	success: function(data){
+    		addToTable(data);
+    	}
+	});
+	
+	var email = localStorage.getItem("email");
+	$('#emailDetails').append('<i><span style="color:green; font-size:15px">'+email+'</span></i>');
+	
+	$(document).on('click','#getQuestions',function() {
+		window.location.href='home';
 	});
 	
 	function addToTable(data) {
 		var table = $('#example').dataTable({
 			"bAutoWidth" : false,
+			"iDisplayLength": 5,
             "bDestroy": true,
             "aaData" : data,
             "columns" : [ {
@@ -38,11 +42,11 @@ $(document).ready(function(){
                     "data" : "questionName"
                 }, {
                 mRender: function (data, type, row) {
-                    return '<button class="btn btn-warning" id ="editButton" data-id="' + row[0] + '">EDIT</button>'
+                    return '<button class="btn btn-warning" id ="editButton" data-id="' + row[0] + '"><span class="glyphicon glyphicon-pencil"></span> EDIT</button>'
                 }
                 }, {
                 mRender: function (data, type, row) {
-                    return '<button class="btn btn-danger" id="deleteButton" data-id="' + row[0] + '">DELETE</button>'
+                    return '<button class="btn btn-danger" id="deleteButton" data-id="' + row[0] + '"><span class="glyphicon glyphicon-trash"></span> DELETE</button>'
                 }
                 }, ]
             
@@ -81,6 +85,7 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click','#editButton',function(){
+		$('.panel').hide();
 		var id = $(this).parents('tr:first').find('td:first').text();
 		localStorage.setItem("id", id);
 			$.ajax({
@@ -161,25 +166,24 @@ $(document).ready(function(){
 	});
 	
 	//Seeing the quizzes	
-	$('#quizthead').hide();
+	//$('#quizthead').hide();
+	$.ajax({
+    	url: 'seequizzes',
+    	dataType: 'json',
+    	success: function(data){
+			addToQuizzes(data);
+    	},
+    	error: function(data) {
+    	}
+	});
 	$(document).on('click', '#getQuizzes', function(){
-		$.ajax({
-	    	url: 'seequizzes',
-	    	dataType: 'json',
-	    	success: function(data){
-				addToQuizzes(data);
-	    	},
-	    	error: function(data) {
-	    	}
-		});
-		$('#quizthead').show();
-		$('#seeQuizQuestions').hide();
-		$('#seeQuizzes').show();
+		window.location.href="generatequiz";
 	});
 	
 	function addToQuizzes(data) {
 		var table = $('#quizTable').dataTable({
 			"bAutoWidth" : false,
+			"iDisplayLength": 5,
             "bDestroy": true,
             "aaData" : data,
             "columns" : [ {
@@ -192,20 +196,16 @@ $(document).ready(function(){
                     "data" : "description"
                 }, {
                 mRender: function (data, type, row) {
-                    return '<button class="btn btn-info" id="seeQuestionsButton" data-id="' + row[0] + '">SEE QUESTIONS</button>'
+                    return '<button class="btn btn-primary" id="seeQuestionsButton" data-id="' + row[0] + '"><span class="glyphicon glyphicon-search"></span> SEE QUESTIONS</button>'
                 }
                 }, {
                 mRender: function (data, type, row) {
-                    return '<button class="btn btn-danger" id="deleteQuiz" data-id="' + row[0] + '">DELETE</button>'
+                    return '<button class="btn btn-danger" id="deleteQuiz" data-id="' + row[0] + '"><span class="glyphicon glyphicon-trash"></span> DELETE</button>'
                 }
                 }, ]
             
             })
-	}
-	
-	
-	
-	
+	}	
 	
 	// see question
 	
@@ -283,19 +283,27 @@ $(document).ready(function(){
 		window.location.href='quizquestions';
 	});
 	
+	$('#score').hide();
 	$(document).on('click', '#startPlayBtn', function() {
 		$('#startPlayBtn').hide();
 		$('#userQuizPlay').show();
 		$('#quizdetails').show();
+		
 		$('#progress').append('<h2 style="color:green;"> : Progress</h2>');
 		var cId = localStorage.getItem("cid");
 		var dId = localStorage.getItem("did");
 		if (cId == 1) {
 			$('#category').append("general");
+			$('#quizName').append("General Quiz");
+			$('#quizImage').append("<img src='images/gk.png' class='img-rounded img-responsive well-image'></img>");
 		} else if ( cId == 2 ) {
 			$('#category').append("sports");
+			$('#quizName').append("Sports Quiz");
+			$('#quizImage').append("<img src='images/sports.png' class='img-rounded img-responsive well-image'></img>");
 		} else {
 			$('#category').append("geography");
+			$('#quizName').append("Geography Quiz");
+			$('#quizImage').append("<img src='images/geo.png' class='img-rounded img-responsive well-image'></img>");
 		}
 		$('#difficulty').append(dId);
 		
@@ -351,7 +359,9 @@ $(document).ready(function(){
 			$('#progress').empty();
 			$('#quizdetails').empty();
 			$('#progress').append('<h2 style="color:red;"> : Finished </h2>');
-			$('#score').append("<h2><h2 style='color:purple'>You scored : <label style='color:blue'>"+score+"</label> out of "+question+" </h2></h2><button class='btn btn-warning' id='playAnotherQuiz'>Play another quiz</button>");
+			$('#score').show();
+			$('#score').append("<h3><h3 style='color:purple'>You scored : <label style='color:blue'>"+score+"</label> out of "+question+" </h3></h3><button class='btn btn-warning' id='playAnotherQuiz'>Play another quiz</button>");
+			
 		}
 		
 		$(document).on("click", "#quizDisplay button", function(e){
@@ -397,7 +407,6 @@ $(document).ready(function(){
 	$(document).on('click', '#user' , function() {
 		window.location.href = 'quizplay';
 	});
-	
 	
 });
 

@@ -29,27 +29,19 @@ import com.example.repository.QuizquestionsRepository;
   @Autowired
   QuizquestionsRepository quizquestionsRepository;
 
-  @Autowired
-  private SessionFactory sessionFactory;
-
-  private Session getSession() {
-<span class="nc" id="L36">    return sessionFactory.getCurrentSession();</span>
-  }
-
-
   @Override
   public void addToQuizQuestions(List&lt;Questions&gt; questions, Quizzes quizzes) {
-<span class="nc bnc" id="L42" title="All 2 branches missed.">    for (Questions question : questions) {</span>
-<span class="nc" id="L43">      Quizquestions quizquestions = new Quizquestions();</span>
-<span class="nc" id="L44">      quizquestions.setQuestions(question);</span>
-<span class="nc" id="L45">      quizquestions.setQuizzes(quizzes);</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">    for (Questions question : questions) {</span>
+<span class="fc" id="L35">      Quizquestions quizquestions = new Quizquestions();</span>
+<span class="fc" id="L36">      quizquestions.setQuestions(question);</span>
+<span class="fc" id="L37">      quizquestions.setQuizzes(quizzes);</span>
 
-<span class="nc" id="L47">      System.out.println(quizquestions.getQuestions().getId());</span>
-<span class="nc" id="L48">      System.out.println(quizquestions.getQuizzes().getId());</span>
-<span class="nc" id="L49">      quizquestionsRepository.save(quizquestions);</span>
-<span class="nc" id="L50">    }</span>
+<span class="fc" id="L39">      System.out.println(quizquestions.getQuestions().getId());</span>
+<span class="fc" id="L40">      System.out.println(quizquestions.getQuizzes().getId());</span>
+<span class="nc" id="L41">      quizquestionsRepository.save(quizquestions);</span>
+<span class="nc" id="L42">    }</span>
 
-<span class="nc" id="L52">  }</span>
+<span class="nc" id="L44">  }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.6.201602180812</span></div></body></html>

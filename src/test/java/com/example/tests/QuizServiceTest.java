@@ -61,14 +61,27 @@ public class QuizServiceTest {
       assertNotNull(quiz);
     }
   }
-  
+
   @Test
   public void addQuizTest() {
     quizService.addQuiz(1, 1, "HelloworldQuiz");
-    
+
   }
-  
-  
-  
-  
+
+  @Test
+  public void getAllQuizTest() {
+    List<Quizzes> quizzes = quizService.getAll();
+    for (Quizzes quiz : quizzes) {
+      assertNotNull(quiz);
+    }
+  }
+
+  @Test
+  public void findByIdTest() {
+    Quizzes quiz = quizService.findById(11);
+    assertNotNull(quiz);
+  }
+
+
+
 }

@@ -46,12 +46,6 @@ public class QuizServiceImpl implements QuizService {
   }
 
   @Override
-  public void update(Quizzes quiz) {
-    quizRepository.update(quiz);
-    return;
-  }
-
-  @Override
   public List<Quizzes> getQuizRand(Integer cid, Integer did) {
     return quizRepository.getQuizRand(cid, did);
   }

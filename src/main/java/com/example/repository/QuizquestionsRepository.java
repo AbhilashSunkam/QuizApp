@@ -29,23 +29,6 @@ public class QuizquestionsRepository {
     return _sessionFactory.getCurrentSession();
   }
 
-  @SuppressWarnings("unchecked")
-  public List<Quizquestions> getAll() {
-    return getSession().createQuery("from Quizquestions").list();
-  }
-
-  @SuppressWarnings("unchecked")
-  public List<Quizquestions> getById(Integer id) {
-    return getSession().createQuery("from Quizquestions where id = :id").setParameter("id", id)
-        .list();
-  }
-
-//  public void deleteById(Integer id) {
-//    Quizquestions question = (Quizquestions) getSession().load(Quizquestions.class, id);
-//    getSession().delete(question);
-//    System.out.println("Deleting id" + id);
-//    return;
-//  }
 
   public void save(Quizquestions questions) {
     getSession().save(questions);

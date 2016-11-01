@@ -21,7 +21,7 @@ import com.example.repository.QuizRepository;
 
   @Override
   public List&lt;Quizzes&gt; getAll() {
-<span class="nc" id="L24">    return quizRepository.getAll();</span>
+<span class="fc" id="L24">    return quizRepository.getAll();</span>
   }
 
   @Override
@@ -42,28 +42,22 @@ import com.example.repository.QuizRepository;
 
   @Override
   public Quizzes findById(Integer id) {
-<span class="nc" id="L45">    return quizRepository.findById(id);</span>
-  }
-
-  @Override
-  public void update(Quizzes quiz) {
-<span class="nc" id="L50">    quizRepository.update(quiz);</span>
-<span class="nc" id="L51">    return;</span>
+<span class="fc" id="L45">    return quizRepository.findById(id);</span>
   }
 
   @Override
   public List&lt;Quizzes&gt; getQuizRand(Integer cid, Integer did) {
-<span class="fc" id="L56">    return quizRepository.getQuizRand(cid, did);</span>
+<span class="fc" id="L50">    return quizRepository.getQuizRand(cid, did);</span>
   }
 
   @Override
   public Quizzes addQuiz(Integer cid, Integer did, String description) {
-<span class="fc" id="L61">    Quizzes quizzes = new Quizzes();</span>
-<span class="fc" id="L62">    quizzes.setCategory_id(cid);</span>
-<span class="fc" id="L63">    quizzes.setDifficulty_id(did);</span>
-<span class="fc" id="L64">    quizzes.setDescription(description);</span>
-<span class="fc" id="L65">    quizRepository.save(quizzes);</span>
-<span class="fc" id="L66">    return quizzes;</span>
+<span class="fc" id="L55">    Quizzes quizzes = new Quizzes();</span>
+<span class="fc" id="L56">    quizzes.setCategory_id(cid);</span>
+<span class="fc" id="L57">    quizzes.setDifficulty_id(did);</span>
+<span class="fc" id="L58">    quizzes.setDescription(description);</span>
+<span class="fc" id="L59">    quizRepository.save(quizzes);</span>
+<span class="fc" id="L60">    return quizzes;</span>
   }
 
 }

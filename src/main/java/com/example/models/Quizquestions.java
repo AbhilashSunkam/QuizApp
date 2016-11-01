@@ -24,7 +24,7 @@ public class Quizquestions implements Serializable {
 
   public Quizquestions() {
     super();
-    // TODO Auto-generated constructor stub
+    
   }
 
   @Id
