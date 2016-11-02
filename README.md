@@ -23,6 +23,8 @@ Randomness on two levels is achieved
 - Hibernate (ORM)
 - Google checkstyle and code formatter
 
+Description and Plan Link : [here](https://drive.google.com/drive/u/0/folders/0B0VPUOSFmPOSeTNLTWpodVBDQms)
+
 Apiary Link : [apiary](https://app.apiary.io/quizapplication/editor)
 
 Travis Link : [travis](https://travis-ci.org/AbhilashSunkam/QuizApp)
